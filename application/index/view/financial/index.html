@@ -1,0 +1,23 @@
+<!-- banner start -->
+<div><img src="{$fin_img}" alt="" /></div>
+<!-- banner end -->
+
+<!--index start-->
+<section class="box_con">
+	<ul class="jrff_list">
+
+		{volist name="data" id="vo"}
+			<li>
+				<a href="{:url('financial/show',['id'=>$vo.id])}">
+					<div class="fl jrff_list_pic"><img width="128" height="87" src="{$vo.picurl}" class="show_img"/></div>
+					<div class="fr jrff_list_con">
+						<h3>{$vo.title}</h3>
+						<div class="jrff_list_text">{$vo.description|wxp_substr=35,###}</div>
+					</div>
+					<div class="cl"></div>
+				</a>
+			</li>
+		{/volist}
+
+	</ul>
+</section>

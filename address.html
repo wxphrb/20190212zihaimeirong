@@ -1,0 +1,78 @@
+{include file="public/header" /}
+
+<style>
+    .check_nm label {
+        margin-top: 0.23rem;
+        margin-left: 0.25rem;
+        margin-right: 0.15rem;
+    }
+
+    .details_btn {
+        position: inherit;
+        background: none;
+    }
+</style>
+<body>
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn">
+        <p class="title">地址管理</p>
+    </header>
+    <div class="address_cont">
+        {volist name="data" id='add'}
+        <div class="add1">
+            <div class="name font28"><p>{$add.username}<span>{$add.mobile}</span></p></div>
+            <ul class="ul1">
+                {eq name='add.status' value="1"}
+                <li class="li1 font22">
+                    <div>默认</div>
+                </li>
+                {/eq}
+                <li class="li2 font26">{$add.prov}{$add.address}</li>
+                <li class="li3">
+                    <a href="{:url('edit_address',['id'=>$add.id])}">
+                        <img src="__HOME__/img/change_img1.png" alt="" title="">
+                    </a>
+                </li>
+            </ul>
+            {eq name='add.status' value="0"}
+            <div class="moren"  >
+                <div class="check_nm" onclick="defa('{$add.id}')">
+                    <input type="radio" id="input1" name="radio1">
+                    <label for="input1"></label>
+                </div>
+                <p class="font28">设为默认地址</p>
+            </div>
+            {/eq}
+            <div class="gray_t"></div>
+        </div>
+        {/volist}
+        <div class="cont-bottom">
+            <img src="__HOME__/img/gantan.png" alt="" title="">
+            <p>最多保持10个有效地址，每月只能新增或修改10次，本月您已经修改或新增2次。</p>
+        </div>
+    </div>
+    <div class="details_btn"><a href="{:url('My/add_address')}">新增地址</a></div>
+</div>
+</body>
+</html>
+<script>
+    function defa(id) {
+        $.post(
+            "{:url('My/SetUpDefault')}", {id: id}, function (data) {
+                if(data.code == 200){
+                    tips("成功");
+                    setInterval(function () {
+                        window.location.reload();
+                    }, 1000);
+                }else{
+                    tips("失败");
+                    setInterval(function () {
+                        window.location.reload();
+                    }, 1000);
+                    return false;
+                }
+            }
+        )
+    }
+</script>

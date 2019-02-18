@@ -1,0 +1,321 @@
+<style>
+	.bx-controls{display: none;}
+</style>
+<!-- 导航菜单 -->
+{notempty name="data.banner"}
+<!-- banner start -->
+<div class="swipe" style="overflow: hidden; visibility: visible; list-style: none; position: relative;">
+	<ul id="slider" style="position: relative; overflow: hidden; transition: left 600ms ease; ">
+		{volist name="data.banner" id="banner"}
+			{if condition="$banner.target eq 0"}
+				<li style="float: left; display: block;"><a href="javascript:void(0);"><img class="show_img" src="{$banner.picurl}" alt=""></a></li>
+			{elseif condition="$banner.target eq 1"}
+				<li style="float: left; display: block;"><a href="{:url('news/show',['id'=>$banner.id])}"><img class="show_img" src="{$banner.picurl}" alt=""></a></li>
+			{elseif condition="$banner.target eq 2"}
+				<li style="float: left; display: block;"><a href="{:url('OldCar/show',['id'=>$banner.content])}"><img class="show_img" src="{$banner.picurl}" alt=""></a></li>
+			{elseif condition="$banner.target eq 3"}
+				<li style="float: left; display: block;"><a href="{:url('NewCar/show',['id'=>$banner.content])}"><img  class="show_img"src="{$banner.picurl}" alt=""></a></li>
+			{elseif condition="$banner.target eq 4"}
+				<li style="float: left; display: block;"><a href="{$banner.content}"><img class="show_img" src="{$banner.picurl}" alt=""></a></li>
+			{else}
+		<li style="float: left; display: block;"><a href="javascript:void(0);"><img class="show_img" src="{$banner.picurl}" alt=""></a></li>
+			{/if}
+
+		{/volist}
+	</ul>
+	<div id="pagenavi">
+		{volist name="data.banner" id="banner"}
+			{eq name="$i" value='1'}
+				<a class="active" href="javascript:void(0);">{$i}</a>
+			{else/}
+				<a href="javascript:void(0);">{$i}</a>
+			{/eq}
+		{/volist}
+	</div>
+</div>
+{/notempty}
+<script type="text/javascript" src="__JS__/zVy3.js"></script>
+<script type="text/javascript" src="__JS__/zVy5.js"></script>
+<script type="text/javascript">
+	var active=0,
+
+	as=document.getElementById('pagenavi').getElementsByTagName('a');
+
+	for(var i=0;i<as.length;i++){
+
+	(function(){
+
+	var j=i;
+
+	as[i].onclick=function(){
+
+		t2.slide(j);
+
+		return false;
+
+	}
+
+	})();
+
+	}
+
+	var t1=new TouchScroll({id:'wrapper','width':5,'opacity':0.7,color:'#555',minLength:20});
+
+	var t2=new TouchSlider({id:'slider', speed:600, timeout:3000, before:function(index){
+
+	as[active].className='';
+
+	active=index;
+
+	as[active].className='active';
+
+	}});
+</script>
+<!-- banner end -->
+
+<!--index start-->
+
+<!--搜索-->
+<div class="search_box rel">
+	<div class="search_bor">
+		<form action="{:url('OldCar/index')}" method="post">
+			<input type="submit" value="" class="fl search_bor_btn" />
+			<input type="text" placeholder="输入品牌/车型" name="name" class="fl search_inp" />
+			<div class="cl"></div>
+		</form>
+	</div>
+</div>
+
+<!--快速选车-->
+<!--
+<section class="box_con">
+	<div class="index_tit">
+		<span class="fl">快速选车</span>
+		<!--<a href="#" class="fr">更多></a>
+		<div class="cl"></div>
+	</div>
+	<div class="fast_box">
+		<div class="fast_type tc">
+			<a href="javascript:;" class="on">品牌</a>
+			<a href="javascript:;">价格</a>
+			<a href="javascript:;">车型</a>
+			<div class="cl"></div>
+		</div>
+		<div class="fast_con">
+			<div style="display:block;">
+				<ul class="fast_list tc">
+					{volist name="data.brand" id="br"}
+						<li><a href="{:url('OldCar/index',['brand'=>$br.p_pinpai_id])}"><img class="show_img" src="{$br.p_pinpai_logo}"/><br />{$br.p_pinpai}</a></li>
+					{/volist}
+					<div class="cl"></div>
+				</ul>
+				<a href="{:url('OldCar/index',['brand_more'=>1])}" class="tc fast_more">更多品牌 ></a>
+			</div>
+			<div>
+					<ul class="fast_jiage tc">
+						<li>
+							<a href="{:url('OldCar/index',['jiage_id'=>'0'])}">
+								<input type="radio" name="jiage" class="fast_radio" checked />
+								<label>不限</label>
+							</a>
+							<div class="cl"></div>
+						</li>
+
+						{volist name="jiage_type" id="jiage_vo"}
+						<li>
+							<a href="{:url('OldCar/index',['jiage_id'=>$jiage_vo.id])}">
+								<input type="radio" name="jiage" class="fast_radio"/>
+								<label>{$jiage_vo.title}</label>
+							</a>
+							<div class="cl"></div>
+						</li>
+						{/volist}
+
+						<div class="cl"></div>
+					</ul>
+					<div class="fast_jiage_tit">自定义价格<span>/ 万</span></div>
+					<form id="jiage_from" action="{:url('OldCar/index')}">
+						<input type="text" name="price1" id="price1_x" value="" placeholder="输入最小价格" class="fl fast_inp" />
+						<span class="fl fast_text tc">~</span>
+						<input type="text" name="price2" id="price2_x" value="" placeholder="输入最大价格" class="fl fast_inp" />
+						<div class="cl"></div>
+						<a href="javascript:void(0);" class="tc fast_more jg_form">确定 </a>
+					</form>
+			</div>
+			<div>
+				<ul class="fast_cheying tc">
+					{volist name="$data.chexing" id="m_che"}
+						<li><a href="{:url('OldCar/index',['chexing'=>$m_che.id])}"><img class="show_img" src="{$m_che.picurl}"/><br />{$m_che.title}</a></li>
+					{/volist}
+
+					<div class="cl"></div>
+				</ul>
+				<a href="{:url('OldCar/index',['che_more'=>1])}" class="tc fast_more">更多车型 ></a>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			$(".fast_type a").click(function(){
+			$(this).addClass("on").siblings().removeClass("on");
+			var index=$(this).index();
+			$(".fast_con > div").eq(index).show().siblings().hide();
+			});
+		});
+	</script>
+</section>
+-->
+	{notempty name="$activity_img"}
+		<section class="box_con adv_pic">
+			<img class="show_img" src="{$activity_img}" alt="" />
+		</section>
+	{/notempty}
+
+		<!--头条快报-->
+	{notempty name="$nav_hot"}
+		<section class="box_con">
+			<div class="tt_tit">
+				<span class="fl tt_tit_icon"><img class="show_img" src="__IMG__/tt_tit.png" alt="" /></span>
+				<div class="fr tt_tit_con">
+					<marquee direction=up behavior=scroll scrollamount=2 scrolldelay=10 align=top bgcolor=#ffffff height=30 width=100% hspace=0 vspace=0 onmouseover=this.stop() onmouseout=this.start()>
+						{volist name="$nav_hot" id="hot"}
+							<a href="{:url('nav/show',['id'=>$hot.id])}">{$hot.title|wxp_substr=15,###}！</a>				
+						{/volist}
+					</marquee>
+				</div>
+				<div class="cl"></div>
+			</div>
+		</section>
+	{/notempty}
+
+
+
+<!--公司介绍-->
+<section class="box_con">
+	<div class="index_tit">
+		<span class="fl">公司介绍</span>
+		<!--<a href="#" class="fr">更多></a>-->
+		<div class="cl"></div>
+	</div>
+	<div class="about_box" style="overflow: hidden;height:200px;">
+		{$share_details}
+	</div>
+	<div class="tc hot_more details"><a href="javascript:void(0);">查看更多↓</a></div>
+</section>
+
+<!--热门车型-->
+<section class="box_con">
+	<div class="index_tit">
+		<span class="fl">热门车型</span>
+		<a href="{:url('OldCar/index')}" class="fr">更多></a>
+		<div class="cl"></div>
+	</div>
+	<ul class="hot_car">
+		{volist name="car_list" id="car"}
+		<li>
+			<a href="{:url('OldCar/show',['id'=>$car.id])}">
+				<div class="fl hot_car_pic"><img class="show_img" src="{$car.picurl}"/></div>
+				<div class="fr hot_car_con">
+					<h3>{$car.vehicleName}</h3>
+					<span class="grey9">上市时间：{$car.marketDate}</span><br />
+					<div class="fl"><span class="org f3">{$car.car_price/10000|round=###,2}万</span> <s class="grey9">新车价：{$car.listPrice}</s></div>
+					<div class="cl"></div>
+				</div>
+				<div class="cl"></div>
+			</a>
+		</li>
+		{/volist}
+	</ul>
+	<div class="tc hot_more"><a href="{:url('OldCar/index')}">我要看更多></a></div>
+</section>
+{notempty name="kehu_list"}
+<!--客户风采-->
+<section class="box_con">
+	<div class="index_tit">
+		<span class="fl">客户风采</span>
+		<a href="{:url('kehu/index')}" class="fr">更多></a>
+		<div class="cl"></div>
+	</div>
+	<div class="slider8">
+		{volist name="$kehu_list" id="kehu"}
+				<a href="{:url('kehu/index')}">
+					<div class="slide">
+						<img class="show_img" src="{$kehu.picurl}">
+					</div>
+				</a>
+		{/volist}
+
+	</div>
+	<script type="text/javascript">
+        $(document).ready(function(){
+            $('.slider8').bxSlider({
+                slideWidth: 600,
+                adaptiveHeight: true,
+                startSlides: 0,
+                slideMargin: 10,
+				auto:true
+            });
+        });
+	</script>
+	<div class="tc hot_more" style="margin-top: .3rem;"><a href="{:url('kehu/index')}">我要看更多></a></div>
+</section>
+{/notempty}
+<!--新闻中心-->
+{notempty name="nav_list"}
+<section class="box_con">
+	<div class="index_tit">
+		<span class="fl">新闻中心</span>
+		<a href="{:url('nav/index')}" class="fr">更多></a>
+		<div class="cl"></div>
+	</div>
+	<ul class="news_list">
+		{volist name="$nav_list" id="nav"}
+		<li><a href="{:url('nav/show',['id'=>$nav.id])}">
+			<div class="fl news_list_con">
+				<h3>{$nav.title|wxp_substr=12,###}</h3>
+				<div class="news_list_text grey6">{$nav.description|wxp_substr=25,###}</div>
+				<span class="grey9">{$nav.create_time}</span>
+			</div>
+			<div class="fr news_list_pic"><img class="show_img" src="{$nav.picurl}"/></div>
+			<div class="cl"></div>
+		</a></li>
+		{/volist}
+	</ul>
+	<div class="tc hot_more"><a href="{:url('nav/index')}">我要看更多></a></div>
+</section>
+{/notempty}
+<!--index end-->
+
+<script>
+    $('.jg_form').click(function () {
+        price1 = $('#price1_x').val();
+        price2 = $('#price2_x').val();
+        if(!isNumber(price1) || price1 ==''){
+            tips('最小价格输入有误');
+            return false;
+        }
+        if(!isNumber(price2) || price2 ==''){
+            tips('最大价格输入有误');
+            return false;
+        }
+        $('#jiage_from').submit();
+
+    })
+    function isNumber(val){
+
+        var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+        var regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
+        if(regPos.test(val) || regNeg.test(val)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    $('.details').click(function(){
+        $('.about_box').css('overflow','visible');
+        $('.about_box').css('height','auto');
+        $('.details').remove();
+	})
+</script>

@@ -1,0 +1,234 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+        </div>
+        <div class="panel-body panel-body-nopadding">
+        <form class="form-horizontal form-bordered" id="submitForm" onsubmit="return checkform()"  action="" method="post" >
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>车辆名称：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="车辆名称" name="vehicleName" value="{$vo.vehicleName ?? ''}"  required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">品牌分类：</label>
+            <div class="col-sm-6">
+                <select class="select2" name="p_pinpai_id" id="p_pinpai_id" required>
+                    <option value="0">请选择品牌分类</option>
+                    {php}
+                        $p_pinpai_id = !empty($vo['p_pinpai_id']) ? $vo['p_pinpai_id'] : '';
+                    {/php}
+                    {volist name="cartype" id="type"}
+                        <option {eq name="$type.p_pinpai_id" value="$p_pinpai_id"}selected{/eq}  value="{$type.p_pinpai_id}">{$type.p_shouzimu}&nbsp;&nbsp;----&nbsp;&nbsp;{$type.p_pinpai}</option>
+                    {/volist}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">对应车系：</label>
+            <div class="col-sm-6">
+                <select class="select2" name="p_chexi_id" id="p_chexi_id" required>
+                      <option value="0" >{empty name="$new_car_data.p_chexi"}请选择对应车系{else/}{$new_car_data.p_chexi}{/empty}
+                      </option>
+                  </select>
+            </div>
+        </div>
+
+            <input type="hidden" name="up_chexi_id" id="up_chexi_id" value="{$new_car_data.p_chexi_id ?? ''}">
+            <input type="hidden" name="up_new_car_id" id="up_new_car_id" value="{$vo.new_car_id ?? ''}">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">对应新车：</label>
+            <div class="col-sm-6">
+                （匹配新车车型详细参数，参数配置仅供参考，下单前请与销售确认）
+                <select class="select2" name="new_car_id" id="new_car_id" required>
+                      <option value="0">{empty name="$new_car_data.p_chexingmingcheng"}请选择对应新车{else/}{$new_car_data.p_chexingmingcheng}{/empty}
+                      </option>
+                  </select>
+            </div>
+        </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所属车行：</label>
+                <div class="col-sm-6">
+                    <select class="select2" name="ch_id" id="ch_id">
+                        <option value="0" >请选择对应车行</option>
+                        {volist name="$chehang" id="ch"}
+
+                           {empty name="$vo.ch_id"}
+                              <option value="{$ch.id}" >{$ch.shouzimu}&nbsp;&nbsp;--&nbsp;&nbsp;{$ch.title}</option>
+                           {else/}
+                              <option {if condition="$ch.title eq $vo.ch_id"} selected {/if} value="{$ch.id}" >{$ch.shouzimu}&nbsp;&nbsp;--&nbsp;&nbsp;{$ch.title}</option>
+                           {/empty}
+
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+			<div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>行驶里程(/公里)：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="行驶里程" name="licheng" value="{$vo.licheng ?? ''}"  required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>商家售价(/元)：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="商家售价" name="car_price" value="{$vo.car_price ?? ''}"  required>
+            </div>
+        </div>
+
+		<div class="form-group">
+            <label class="col-sm-3 control-label">封面图：</label>
+            <div class="col-sm-6">
+                <input id="fileone" type="file" class="file-loading">
+                <input type="hidden" id="picurl" placeholder="图片" name="picurl" value="{$vo.picurl ?? ''}" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">组图：</label>
+            <div class="col-sm-6">
+                <input id="filepic" type="file" multiple>
+                {present name="vo.picarr"}
+                    {volist name="vo.picarr" id="vop"}
+                        <input type="hidden" value="{$vop.img}" name="picimg[]" >
+                    {/volist}
+                {/present}
+            </div>
+        </div>
+
+        {if condition="$create_type eq 1"}
+         {volist name="car_parma" id="ctype"}
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><!--<span>*</span>-->{$ctype.name}</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="{$ctype.name}" name="{$ctype.value}" value="{$vo[$ctype.value] ?? ''}" >
+                </div>
+            </div>
+
+        {/volist}
+        {/if}
+
+         <div class="panel-footer">
+         <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <input type="hidden" name="id" value="{$vo.id ?? ''}">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+          </div>
+         </div>
+        </div><!-- panel-footer -->
+
+    </form>
+
+</div><!-- panel-body -->
+{/block}
+{block name="fileinput"}{__block__}{/block}
+{block name="ueditor"}{/block}
+{block name="script"}
+<script>
+    $('#p_pinpai_id').change(function(){
+        p_pinpai_id = $(this).val();
+        $.ajax({
+            type:"post",
+            url:"{:url('OldCar/getcarlist')}",
+            data:{ 'p_pinpai_id': p_pinpai_id},
+            dataType: "json",
+            success:  function(data){
+                if(data.code == 400){
+                    tips('网络错误请重新选择');
+                }else{
+                   if(data.data==''){
+                       tips('该品牌没有相关车型');
+                   }else{
+                        $('#p_chexi_id').html('');
+                        arr = data.data;
+                        str = '';
+                        for ( var i = 0; i <arr.length; i++){
+                            if(i == 0){
+                                $('#select2-chosen-2').text(arr[i]['p_chexi']);
+                                str += '<option value="'+arr[i]['p_chexi_id']+'" selected>'+arr[i]['p_chexi']+'</option>'
+                            }else {
+                                str += '<option value="' + arr[i]['p_chexi_id'] + '">' + arr[i]['p_chexi'] + '</option>'
+                            }
+                        }
+                        $('#p_chexi_id').append(str);
+                   }
+
+                }
+
+            }
+        });
+    })
+    $('#p_chexi_id').change(function(){
+        p_chexi_id = $(this).val();
+        $.ajax({
+            type:"post",
+            url:"{:url('OldCar/getchexilist')}",
+            data:{ 'p_chexi_id': p_chexi_id},
+            dataType: "json",
+            success:  function(data){
+                if(data.code == 400){
+                    tips('网络错误请重新选择');
+                }else{
+                    if(data.data==''){
+                        tips('该品牌没有相关车型');
+                    }else{
+                        $('#new_car_id').html('');
+                        arr = data.data;
+                        str = '';
+                        for ( var i = 0; i <arr.length; i++){
+                            if(i == 0) {
+                                $('#select2-chosen-3').text(arr[i]['p_chexingmingcheng']);
+                                str += '<option value="' + arr[i]['id'] + '" selected>' + arr[i]['p_chexingmingcheng'] + '</option>'
+                            }else {
+                                str += '<option value="' + arr[i]['id'] + '">' + arr[i]['p_chexingmingcheng'] + '</option>'
+                            }
+                        }
+                        $('#new_car_id').append(str);
+                    }
+                }
+
+            }
+        });
+    })
+$(document).ready(function() {
+    fileinputOne("fileone","picurl");
+    fileinputMore('filepic','picimg[]','picarr[]');
+    $("[name='parentid']").find("[value='{$vo.parentid ?? '0'}']").attr("selected", true);
+
+    $('#submitForm').bootstrapValidator({
+        message: '这个值是无效的',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+    });
+    //select2
+    jQuery(".select2").select2({
+        width: '100%',
+        minimumResultsForSearch: -1
+    });
+});
+
+
+function checkform(param){
+    uploading =  $('i').hasClass('glyphicon-hand-up');
+    if(uploading){
+        tips('请等待图片上传完成后再提交！');
+        $('.btn-primary').removeAttr('disabled')
+        return false;
+    }
+}
+
+</script>
+{/block}

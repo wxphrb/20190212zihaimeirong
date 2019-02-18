@@ -1,0 +1,77 @@
+<!-- banner start -->
+<!--<div><img src="" alt="" /></div>-->
+<!-- banner end -->
+
+<!--index start-->
+<section class="box_con">
+	<ul class="jrff_list">
+
+		{volist name="data" id="vo"}
+			<li>
+				<a href="{:url('nav/show',['id'=>$vo.id])}">
+					<div class="fl jrff_list_pic"><img width="128" height="87" src="{$vo.picurl}" class="show_img"/></div>
+					<div class="fr jrff_list_con">
+						<h3>{$vo.title}</h3>
+						<div class="jrff_list_text" style="word-wrap: break-word;">{$vo.description}</div>
+					</div>
+					<div class="cl"></div>
+				</a>
+			</li>
+		{/volist}
+	</ul>
+	<div class="tc hot_more" style="display: none;"><a href="javascript:void(0);" id="xl_more">下拉查看更多></a></div>
+</section>
+<script>
+    var Lock = 1;
+    $(document).ready(function () {
+        var winH = $(window).height();
+        var i = 2;
+        $(window).scroll(function () {
+
+            var pageH = $(document.body).height();
+            var scrollT = $(window).scrollTop();
+            //console.log(Lock);
+
+            if (Lock &&  $(document).height() == $(window).height() + $(window).scrollTop() ) {
+                //console.log("---");
+                Lock = 0;
+
+                $.getJSON("{:url('Nav/index')}", {
+                    page       : i,
+                }, function (json) {
+
+                    json = json.data;
+                    //console.log(json);
+                    if (json != '' && json != null ) {
+
+                        i++;
+
+                        $.each(json, function (index, array) {
+                            var str = "";
+
+                            url = '{:url('Nav/show', '', '')}?id=' + array['id'] + '';
+							str += '<li><a href="'+url+'">';
+							str += '<div class="fl jrff_list_pic"><img width="128" height="87" src="'+arrat['picurl']+'" class="show_img"/></div>';
+							str += '<div class="fr jrff_list_con">';
+							str += '<h3>'+array['title']+'</h3>';
+							str += '<div class="jrff_list_text">'+array['description']+'</div>';
+							str += '</div>';
+							str += '<div class="cl"></div></a></li>';
+
+
+
+
+                            $(".jrff_list").append(str);
+                            $('.hot_more').show();
+                            Lock = 1;
+                        });
+                    } else {
+                        $('#xl_more').text('没有更多内容');
+                        Lock = 0;
+                        return false;
+                    }
+                });
+            }
+        });
+    });
+</script>

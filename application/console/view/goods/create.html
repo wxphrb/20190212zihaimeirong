@@ -1,0 +1,377 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+        </div>
+        <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+    </div>
+    <div class="panel-body panel-body-nopadding">
+        <form class="form-horizontal form-bordered" id="submitForm" action="" method="post">
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>名称：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="名称" name="title" value="{$vo.title ?? ''}"
+                           required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>销售价格：</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="销售价格" name="saleprice"
+                           value="{$vo.saleprice ?? ''}" required>
+                </div>
+                <!--<label class="col-sm-2 control-label"><span>*</span>市场价格：</label>-->
+                <!--<div class="col-sm-2">-->
+                <!--<input type="text" class="form-control" placeholder="市场价格" name="marketprice" value="{$vo.marketprice ?? ''}"  required>-->
+                <!--</div>-->
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>商品分类：</label>
+                <div class="col-sm-6">
+                    <select class="select2" name="typeid" onchange="chooseAttr(this.value);" required>
+                        <option value=""> --请选择--</option>
+                        {volist name="goodstype" id="type"}
+                        <option {eq name="$type.parentid" value="0" } disabled="" {/eq} value="{$type.id}">{$type.title}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>属性组{present name="vo"}<a
+                        href="{:url('console/goods/show',['id'=>$vo['id']])}" target="_blank">预览</a>{/present}：</label>
+                <div class="col-sm-6">
+                    <div class="input-group">
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" onclick="addattrs();">添加</button>
+                              </span>
+                        <input type="text" class="form-control" id="attrs_title" value=""/>
+                    </div>
+                </div>
+            </div>
+            <div id="attr_area">
+                {present name="vo"}
+                {volist name="vo.attr" id="voa" key="k"}
+                <div class="form-group" id="attrs{$k-1}_group" style="border: 0;">
+                    <label class="col-sm-3 control-label">{$voa.title}：<input type="hidden" name="attrs_group[]"
+                                                                              value="{$voa.title}"></label>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                                      <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default"
+                                                onclick="addinput('{$k-1}')">添加</button>
+                                      </span>
+                            <input type="text" class="form-control" id="attrs{$k-1}_add" value=""/>
+                        </div>
+                        <span id="attrs{$k-1}_area">
+                                        {volist name="voa.attrs" id="voas"}
+                                          <input type="checkbox" name="attrs{$k-1}[]" onchange="descates();"
+                                                 value="{$voas}" checked>{$voas}
+                                        {/volist}
+                                    </span>
+                    </div>
+                </div>
+                {/volist}
+                {/present}
+            </div>
+
+            <div class="row ">
+                <div class="col-md-3 column"></div>
+                <div class="col-md-6 column">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                        <tr id="theadtr">
+                            {present name="vo"}
+                            {volist name="vo.attr" id="voa"}
+                            <th>{$voa.title}</th>
+                            {/volist}
+                            {/present}
+                            <th id="trhead">价格</th>
+                            <th>运费</th>
+                        </tr>
+                        </thead>
+                        <tbody id="attrs">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-3 column"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">缩略图：</label>
+                <div class="col-sm-6">
+                    <input id="fileone" type="file" class="file-loading">
+                    <input type="hidden" id="picurl" placeholder="缩略图" name="picurl" value="{$vo.picurl ?? ''}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">组图：</label>
+                <div class="col-sm-6">
+                    <input id="filepic" type="file" multiple>
+                    {present name="vo"}
+                    {volist name="vo.picarr" id="vop"}
+                    <input type="hidden" value="{$vop.img}" name="picimg[]">
+                    {/volist}
+                    {/present}
+                </div>
+            </div>
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-3 control-label">简介：</label>-->
+            <!--<div class="col-sm-6">-->
+            <!--<textarea class="form-control" placeholder="" name="intro">{$vo.intro ?? ''}</textarea>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label class="col-sm-3 control-label">图文详情：</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" placeholder="" name="content"
+                              id="container">{$vo.content ?? ''}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">规格参数：</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" placeholder="" name="specifications" id="containers">{$vo.specifications ?? ''}</textarea>
+                </div>
+            </div>
+
+
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-3 control-label">点击量：</label>-->
+            <!--<div class="col-sm-6">-->
+            <!--<input type="number" class="form-control" placeholder="点击量" name="hits" value="{$vo.hits ?? 0}" >-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label class="col-sm-3 control-label">状态：</label>
+                <div class="col-sm-6 wh-inline">
+                    <div class="rdio rdio-primary">
+                        <input type="radio" name="status" id="status-1" value="1">
+                        <label for="status-1">启用</label>
+                    </div>
+                    <div class="rdio rdio-primary">
+                        <input type="radio" name="status" id="status-0" value="0">
+                        <label for="status-0">禁用</label>
+                    </div>
+                </div>
+            </div>
+
+            {if condition="$Request.action eq 'update'"}
+            <div class="form-group">
+                <label class="col-sm-3 control-label">创建时间：</label>
+                <div class="col-sm-6">
+                    <label class="control-label"> {$vo.create_time|date='Y-m-d H:i:s',###}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">上次更新：</label>
+                <div class="col-sm-6">
+                    <label class="control-label"> {$vo.update_time|date='Y-m-d H:i:s',###}</label>
+                </div>
+            </div>
+            {/if}
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <input type="hidden" name="id" value="{$vo.id ?? ''}">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                        <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+                    </div>
+                </div>
+            </div><!-- panel-footer -->
+        </form>
+
+    </div><!-- panel-body -->
+</div>
+
+{/block}
+{block name="fileinput"}{__block__}{/block}
+{block name="ueditor"}{__block__}{/block}
+{block name="js"}
+<script src="__CONSOLE__/js/descates.js"></script>
+{/block}
+{block name="script"}
+<script>
+    $(document).ready(function () {
+        //笛卡尔积初始化
+        descates();
+        $("[name='status'][value='{$vo.status ?? '1'}']").attr("checked", true);
+        $("[name='typeid']").find("[value='{$vo.typeid ?? ''}']").attr("selected", true);
+        fileinputOne("fileone", "picurl");
+        fileinputMore('filepic', 'picimg[]', 'picarr[]');
+        var ue = UE.getEditor("container", {initialFrameWidth: null});
+        var ue = UE.getEditor("containers", {initialFrameWidth: null});
+
+        $('#submitForm').bootstrapValidator({
+            message: '这个值是无效的',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            // fields: {
+            //     saleprice: {
+            //         validators: {
+            //             regexp: {
+            //                 regexp: /^(0|[1-9][0-9]{0,9})(\.[0-9]{1,2})?$/,//金额验证
+            //                 message: '金额格式不正确'
+            //             }
+            //         }
+            //     },
+            //     marketprice: {
+            //         validators: {
+            //             regexp: {
+            //                 regexp: /^(0|[1-9][0-9]{0,9})(\.[0-9]{1,2})?$/,//金额验证
+            //                 message: '金额格式不正确'
+            //             }
+            //         }
+            //     }
+            // }
+        });
+        //select2
+        jQuery(".select2").select2({
+            width: '100%',
+            minimumResultsForSearch: -1
+        });
+    });
+
+
+    //笛卡尔积处理
+    function descates() {
+        var spec_goods_price = {$vo.goodsattr ? ? '[]'};//控制器传过来
+
+        var list = new Array();
+        $("input[type='checkbox'][name^='attrs']:checked").each(function () {
+            if (list.indexOf($(this).attr('name')) == -1) {
+                list.push($(this).attr('name'));
+            }
+        });
+        var list2 = new Array();
+        list.forEach(function (val, key) {
+            list2[key] = new Array();
+            $("input[type='checkbox'][name^='attrs']:checked").each(function () {
+                if (val == $(this).attr('name')) {
+                    list2[key].push($(this).val());
+                }
+            });
+        });
+
+        var result = DescartesUtils.descartes(list2);
+        var html = "";
+        for (var i = 0; i < result.length; i++) {
+            var spec_key = result[i].join("_");
+
+            if (spec_goods_price == '') {
+                var price = $("input[name='saleprice']").val();
+                var oldprice = $("input[name='marketprice']").val();
+                var carriage = '0';
+            }
+            else {
+                var price = spec_goods_price[spec_key]['price']; // 找到对应规格的价格
+//                var oldprice = spec_goods_price[spec_key]['oldprice']; // 找到对应规格的价格
+                var carriage = spec_goods_price[spec_key]['carriage']; // 找到对应规格的库
+            }
+
+            html = html + '<tr><td>' + result[i].join("</td><td>") + '</td><td>  <input type="text" class="form-control" name="price[]" value="' + price + '" placeholder="价格" required/></td>  <td><input type="number" class="form-control" name="carriage[]" value="' + carriage + '" placeholder="运费" required/></td></tr>';
+        }
+
+        $("#attrs").empty();
+        $("#attrs").append(html);
+    }
+    function addattrs() {
+        var title = $('#attrs_title').val();
+
+        var list = new Array();
+        $("input[name='attrs_group[]']").each(function () {
+            list.push($(this).attr('name'));
+        });
+        var num = list.length;
+
+        if (num == 2) {
+            alert("只允许添加两种属性");
+            return false;
+        }
+
+        if (title != '') {
+            $('#trhead').before('<th>' + title + '</th>');
+            $('.tdbody').before('<td></td>');
+
+            var html = '<div class="form-group" id="attrs' + num + '_group"  style="border: 0;">'
+                + '   <label class="col-sm-3 control-label">' + title + '：<input type="hidden" name="attrs_group[]" value="' + title + '"></label>'
+                + '   <div class="col-sm-6">'
+                + '      <div class="input-group">'
+                + '         <span class="input-group-btn">'
+                + '           <button type="button" class="btn btn-default" onclick="addinput(' + num + ')">添加</button>'
+                + '         </span>'
+                + '         <input type="text" class="form-control" id="attrs' + num + '_add" value=""/>'
+                + '       </div>'
+                + '       <span id="attrs' + num + '_area">'
+                + '       </span>'
+                + '    </div>'
+                + ' </div>';
+
+            $('#attr_area').append(html);
+            $('#attrs_title').val('');
+        }
+
+    }
+
+    function addinput(param) {
+        var val = $('#attrs' + param + '_add').val();
+        if (val != '') {
+            $('#attrs' + param + '_area').append('<input type="checkbox" name="attrs' + param + '[]" onchange="descates();" value="' + val + '">' + val);
+            $('#attrs' + param + '_add').val('');
+        }
+    }
+
+    function chooseAttr(val) {
+        $.ajax({
+            url: "{:url('console/goods/getattr')}",    //提交的页面，方法名
+            dataType: "json",     //类型
+            data: {"typeid": val},
+            type: "POST",     //提交方式
+            success: function (data) { //如果执行成功，那么执行此方法
+                //alert(JSON.stringify(data));
+                $('#attrs').empty();
+                $('#attr_area').empty();
+                $('#theadtr').empty();
+                var dataObj = eval("(" + data + ")");//转换为json对象
+                $.each(dataObj, function (index, item) {
+
+                    var html = '<div class="form-group" id="attrs' + index + '_group"  style="border: 0;">'
+                        + '   <label class="col-sm-3 control-label">' + item['title'] + '：<input type="hidden" name="attrs_group[]" value="' + item['title'] + '"></label>'
+                        + '   <div class="col-sm-6">'
+                        + '      <div class="input-group">'
+                        + '         <span class="input-group-btn">'
+                        + '           <button type="button" class="btn btn-default" onclick="addinput(' + index + ')">添加</button>'
+                        + '         </span>'
+                        + '         <input type="text" class="form-control" id="attrs' + index + '_add" value=""/>'
+                        + '       </div>'
+                        + '       <span id="attrs' + index + '_area">';
+                    $.each(item['attrs'], function (index1, item1) {
+                        html += '<input type="checkbox" name="attrs' + index + '[]" onchange="descates();" value="' + item1 + '">' + item1;
+                    });
+                    html += '       </span>'
+                        + '    </div>'
+                        + ' </div>';
+
+                    $('#attr_area').append(html);
+
+                    $('#theadtr').append('<th>' + item['title'] + '</th>');
+
+                });
+                $('#theadtr').append('<th id="trhead">价格</th>');
+//                $('#theadtr').append('<th>原价</th>');
+                $('#theadtr').append('<th>运费</th>');
+            },
+            error: function (err) { //如果执行不成功，那么执行此方法
+                tips('ajax出错了');
+            }
+        });
+    }
+</script>
+{/block}
+

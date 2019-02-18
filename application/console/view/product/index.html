@@ -1,0 +1,225 @@
+{extend name="template/index" /}
+{block name="css"}
+<link href="__CONSOLE__/css/prettyPhoto.css" rel="stylesheet">
+{/block}
+{block name="content"}
+ <ul class="filemanager-options">
+        <li>
+          <div class="ckbox ckbox-default">
+            <input type="checkbox" id="selectall" value="1" />
+            <label for="selectall">全选</label>
+          </div>
+        </li>
+        <li>
+          <a onClick="check_delete('{:url('console/product/delete')}',0);" class="itemopt disabled"><i class="fa fa-trash-o"></i> 删除</a>
+        </li>
+        
+      </ul>
+        
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="row filemanager">
+            {volist name="list" id="vo"}
+            <div class="col-xs-6 col-sm-4 col-md-3 image">
+              <div class="thmb">
+                <div class="ckbox ckbox-default">
+                  <input type="checkbox" id="check{$i}" value="{$vo.id}" name="checkid[]" />
+                  <label for="check{$i}"></label>
+                </div>
+                <div class="btn-group fm-group">
+                    <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu fm-menu" role="menu">
+                      <li>{$vo.id|show_operate='update','编 辑'}</li>
+                      <li>{$vo.id|show_operate='delete','删 除'}</li>
+                    </ul>
+                </div><!-- btn-group -->
+                <div class="thmb-prev">
+                   <a href="__ROOT__{$vo.picurl}" data-rel="prettyPhoto">
+                    <img src="__ROOT__{$vo.picurl}" class="img-responsive" alt="{$vo.intro}" style="height:200px;" />
+                  </a>
+                </div>
+                <h5 class="fm-title"><a href="{:url('console/product/update', ['id' => $vo['id']])}">{$vo.title}</a></h5>
+                <small class="text-muted">{$vo.create_time|date='Y-m-d',###}</small><span class="pull-right">{$vo.status|show_status=$vo.id}</span>
+              </div><!-- thmb -->
+            </div><!-- col-xs-6 -->
+            {/volist}
+          
+          </div><!-- row -->
+        </div><!-- col-sm-9 -->
+        <div class="col-sm-3">
+          <div class="fm-sidebar">
+            
+            <a href="{:url('console/product/create')}" class="btn btn-primary btn-block">添加图文</a>
+            
+            <div class="mb30"></div>
+            
+            <h5 class="subtitle"><a href="{:url('console/product/index')}">全部分类</a> <a href="#" class="pull-right" data-toggle="modal" data-target=".bs-example-modal-lg">+ 创建分类</a></h5>
+
+             <div class="details">
+                <table class="table">
+                    <tbody>
+                    {volist name="type" id="vot"}
+                        <tr {if condition='$tid eq $vot.id'} style="background-color:#BCBCBC;" {/if}>
+                            <td width="60%"><a href="{:url('console/product/index', ['tid' => $vot['id']])}" style="text-decoration:none;"><i class="fa fa-search"></i><span>{$vot.title}</span></a></td>
+                            <td width="40%" style="text-align: right;">
+                            <a href="{:url('console/ProductType/update', ['id' => $vot['id']])}"><i class="fa fa-pencil"></i> 
+                            <a onClick="check_delete('{:url('console/ProductType/delete')}',{$vot.id});"><i class="fa fa-trash-o"></i> </a>
+                            </td>
+                        </tr>
+                    {/volist}
+                        
+                    </tbody>
+                </table>
+            </div><!--details-->
+              <!-- 添加分类 -->
+              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                          <h4 class="modal-title">创建分类</h4>
+                      </div>
+                      <div class="modal-body">
+                       <form class="form-horizontal form-bordered" id="submitForm" action="{:url('console/ProductType/create')}" method="post" >
+                           <div class="form-group">
+                              <label class="col-sm-3 control-label"><span>*</span>分类名称：</label>
+                              <div class="col-sm-6">
+                                  <input type="text" class="form-control" placeholder="分类名称" name="title" value=""  required>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-3 control-label">描述：</label>
+                              <div class="col-sm-6">
+                                  <input type="text" class="form-control" placeholder="描述" name="intro" value="" >
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-3 control-label">排序：</label>
+                              <div class="col-sm-6">
+                                  <input type="text" class="form-control" placeholder="排序" name="orderid" value="{:get_orderid('','orderid','product_type')}" >
+                              </div>
+                          </div>
+
+                              <div class="panel-footer">
+                               <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                  <input type="hidden" name="id" value="">
+                                  <button type="submit" class="btn btn-primary">提交</button>
+                                  <button type="button" class="btn btn-default" aria-hidden="true" data-dismiss="modal" class="close">关闭</button>
+                                </div>
+                               </div>
+                              </div><!-- panel-footer -->
+
+                          </form>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+             {$list->render()}
+          </div>
+        </div><!-- col-sm-3 -->
+      </div>
+    </div>
+ 
+
+{/block}
+{block name="js"}
+<script src="__CONSOLE__/js/jquery.prettyPhoto.js"></script>
+<script src="__CONSOLE__/js/bootstrapValidator.js"></script>
+{/block}
+{block name="script"}
+<script>
+   $(document).ready(function() {
+  
+    $('#submitForm').bootstrapValidator({
+        message: '这个值是无效的',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+    });
+});
+   jQuery(document).ready(function(){
+    
+    "use strict";
+    
+    jQuery('.thmb').hover(function(){
+      var t = jQuery(this);
+      t.find('.ckbox').show();
+      t.find('.fm-group').show();
+    }, function() {
+      var t = jQuery(this);
+      if(!t.closest('.thmb').hasClass('checked')) {
+        t.find('.ckbox').hide();
+        t.find('.fm-group').hide();
+      }
+    });
+    
+    jQuery('.ckbox').each(function(){
+      var t = jQuery(this);
+      var parent = t.parent();
+      if(t.find('input').is(':checked')) {
+        t.show();
+        parent.find('.fm-group').show();
+        parent.addClass('checked');
+      }
+    });
+    
+    
+    jQuery('.ckbox').click(function(){
+      var t = jQuery(this);
+      if(!t.find('input').is(':checked')) {
+        t.closest('.thmb').removeClass('checked');
+        enable_itemopt(false);
+      } else {
+        t.closest('.thmb').addClass('checked');
+        enable_itemopt(true);
+      }
+    });
+    
+    jQuery('#selectall').click(function(){
+      if(jQuery(this).is(':checked')) {
+        jQuery('.thmb').each(function(){
+          jQuery(this).find('input').attr('checked',true);
+          jQuery(this).addClass('checked');
+          jQuery(this).find('.ckbox, .fm-group').show();
+        });
+        enable_itemopt(true);
+      } else {
+        jQuery('.thmb').each(function(){
+          jQuery(this).find('input').attr('checked',false);
+          jQuery(this).removeClass('checked');
+          jQuery(this).find('.ckbox, .fm-group').hide();
+        });
+        enable_itemopt(false);
+      }
+    });
+    
+    function enable_itemopt(enable) {
+      if(enable) {
+        jQuery('.itemopt').removeClass('disabled');
+      } else {
+        
+        // check all thumbs if no remaining checks
+        // before we can disabled the options
+        var ch = false;
+        jQuery('.thmb').each(function(){
+          if(jQuery(this).hasClass('checked'))
+            ch = true;
+        });
+        
+        if(!ch)
+          jQuery('.itemopt').addClass('disabled');
+      }
+    }
+    
+    jQuery("a[data-rel^='prettyPhoto']").prettyPhoto();
+    
+  });
+  
+</script>
+{/block}

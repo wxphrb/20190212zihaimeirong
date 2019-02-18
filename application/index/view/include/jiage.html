@@ -1,0 +1,59 @@
+<div class="car_price">
+    <ul class="fast_jiage tc">
+        <li>
+            <a href="{:url('index',['jiage_id'=>'0','base_param'=>$base_param])}">
+                <input type="radio" name="jiage" class="fast_radio" checked />
+                <label>不限</label>
+            </a>
+            <div class="cl"></div>
+        </li>
+
+        {volist name="jiage_type" id="jiage_vo"}
+            <li>
+                <a href="{:url('index',['jiage_id'=>$jiage_vo.id,'base_param'=>$base_param])}">
+                    <input type="radio" name="jiage" class="fast_radio" {eq name="$jiage_vo.id" value="$jiage_id"}checked{/eq}/>
+                    <label>{$jiage_vo.title}</label>
+                </a>
+                <div class="cl"></div>
+            </li>
+        {/volist}
+
+        <div class="cl"></div>
+    </ul>
+    <div class="fast_jiage_tit">自定义价格<span>/ 万</span></div>
+    <form id="jiage_from">
+        <input type="text" name="price1" id="price1_x" value="{$price1 ?? ''}" placeholder="输入最小价格" class="fl fast_inp" />
+        <span class="fl fast_text tc">~</span>
+        <input type="text" name="price2" id="price2_x" value="{$price2 ?? ''}" placeholder="输入最大价格" class="fl fast_inp" />
+        <div class="cl"></div>
+        <input type="hidden" name="base_param" value="{$base_param}">
+        <a href="javascript:void(0);" class="tc fast_more jg_form">确定 </a>
+    </form>
+</div>
+<script>
+    $('.jg_form').click(function () {
+        price1 = $('#price1_x').val();
+        price2 = $('#price2_x').val();
+        if(!isNumber(price1) || price1 ==''){
+            tips('最小价格输入有误');
+            return false;
+        }
+        if(!isNumber(price2) || price2 ==''){
+            tips('最大价格输入有误');
+            return false;
+        }
+        $('#jiage_from').submit();
+
+    })
+    function isNumber(val){
+
+        var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+        var regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
+        if(regPos.test(val) || regNeg.test(val)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+</script>

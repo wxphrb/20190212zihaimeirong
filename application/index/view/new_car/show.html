@@ -1,0 +1,219 @@
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $("#tubiao").bind("click",function (){
+            $("#ceng").toggle(500);
+            var height=$(window).height();
+            $("#ceng").css(document.body.scrollHeight);
+        })
+        $("#close").bind("click",function (){
+            $("#ceng").toggle(500);
+        })
+    });
+</script>
+<!-- 导航菜单 -->
+
+<!--index start-->
+<section class="buycar_banner rel">
+	<div class="slider8">
+		{volist name="banner" id="ban" length='3'}
+		<div class="slide"><img class="show_img" src="{$ban.img}"></div>
+		{/volist}
+	</div>
+	<script type="text/javascript">
+        $(document).ready(function(){
+            $('.slider8').bxSlider({
+                slideWidth: 600,
+                adaptiveHeight: true,
+                startSlides: 0,
+                slideMargin: 10,
+				auto:true
+            });
+        });
+	</script>
+</section>
+<section class="box_con">
+	<h3 class="buycar_con_tit">{$car_info.p_chexingmingcheng}</h3>
+	<!--<div class="buycar_con_text grey9">-->
+	<!--<span>2017-03</span>|-->
+	<!--<span>2.58公里</span>|-->
+	<!--<span>哈尔滨</span>|-->
+	<!--<span>1.5L</span>-->
+	<!--</div>-->
+	<div class="buycar_con_text grey9">
+		<span>上市时间：{$car_info.p_shangshishijian}</span>|
+		<span>发动机：{$car_info.p_fadongji}</span>
+	</div>
+	<!--<div class="fl buycar_price">-->
+	<!--<span class="org f3">新车指导价：{$car_info.p_changshangzhidaojia_yuan}</span>-->
+	<!--<span class="grey9">（不包含过户费）</span><br />-->
+	<!--<span>新车价含税价：7.01万，省5000元。</span>-->
+	<!--</div>-->
+	<div class="fl buycar_price">
+		<!--<span class="grey9">级别：{$car_info.p_jibie}</span><br />-->
+		<span class="grey9"><s>新车指导价：{$car_info.p_changshangzhidaojia_yuan}</s></span><br />
+		<span class="org f3">{$car_info.car_price/10000|round=###,2}万</span>
+	</div>
+	<a href="javascript:void(0);" class="fr buycar_zixun tc">询问低价</a>
+	<div class="cl"></div>
+</section>
+<div class="line15"></div>
+
+<!--留言 -->
+
+<div class="gbook_pos">
+	<div class="tr gbook_close"><a href="javascript:void(0);"><img src="__IMG__/gbook_close.png"/></a></div>
+	<h3 class="tc gbook_tit">询最低价</h3>
+	<div class="tc gbook_text">输入您的手机号，我们会尽快联系您!</div>
+	<input type="tel" id="mobile" placeholder="您的手机号" class="gbook_inp" />
+	<input type="hidden" value="{$car_info.id}" id="car_id"  class="gbook_inp" />
+	<input type="hidden" value="new" id="car_type"  class="gbook_inp" />
+	<input type="button" id="tj_form" value="立即咨询" class="gbook_btn tc" />
+</div>
+
+<!--留言 -->
+
+<section class="buycar_fangan">
+	<a href="{:url('Financial/info',['type'=>'new','id'=>$car_info.id])}">
+		<span class="fl buycar_fangan_icon"><img src="__IMG__/icon04.png" alt="" /></span>
+		<span class="fl">金融方案</span>
+		<span class="fr buycar_fangan_sj"><img src="__IMG__/sj03.png" alt="" /></span>
+		<span class="fr grey6">首付{$f_info.shoufu}万</span>
+		<span class="fr buycar_fangan_pad grey9">|</span>
+		<span class="fr grey6">月供{$f_info.yuegong}元</span>
+	</a>
+	<div class="cl"></div>
+</section>
+<div class="line15"></div>
+
+<section>
+	<div class="buycar_type tc">
+		<a href="#clxx" class="on">车辆信息</a>
+		<a href="#xxpz">详细配置</a>
+		<a href="#clsp">车辆实拍</a>
+		<div class="cl"></div>
+	</div>
+
+	<!--车辆信息-->
+	<div class="buycar_type_con" id="clxx">
+		<div class="clxx_tit tc"><span>基本信息</span></div>
+		<ul class="clxx_list">
+			<li>
+				<span class="fl clxx_list_tab">年款</span>
+				<span class="fl grey9">{$car_info.p_niankuan}</span>
+				<div class="cl"></div>
+			</li>
+			<li>
+				<span class="fl clxx_list_tab">上市时间</span>
+				<span class="fl grey9">{$car_info.p_shangshishijian}</span>
+				<div class="cl"></div>
+			</li>
+			<li>
+				<span class="fl clxx_list_tab">厂商指导价（元）</span>
+				<span class="fl grey9">{$car_info.p_changshangzhidaojia_yuan}</span>
+				<div class="cl"></div>
+			</li>
+			<li>
+				<span class="fl clxx_list_tab">变速箱</span>
+				<span class="fl grey9">{$car_info.p_biansuxiang}</span>
+				<div class="cl"></div>
+			</li>
+			<li>
+				<span class="fl clxx_list_tab">排量</span>
+				<span class="fl grey9">{$car_info.p_fadongji}</span>
+				<div class="cl"></div>
+			</li>
+			<li>
+				<span class="fl clxx_list_tab">车门数（个）</span>
+				<span class="fl grey9">{$car_info.p_chemenshu_ge}</span>
+				<div class="cl"></div>
+			</li>
+			<li>
+				<span class="fl clxx_list_tab">座位数（个）</span>
+				<span class="fl grey9">{$car_info.p_zuoweishu_ge}</span>
+				<div class="cl"></div>
+			</li>
+			<li>
+				<span class="fl clxx_list_tab">油箱容积（L）</span>
+				<span class="fl grey9">{$car_info.p_youxiangrongji_l}</span>
+				<div class="cl"></div>
+			</li>
+			<li>
+				<span class="fl clxx_list_tab">行李箱容积（L）</span>
+				<span class="fl grey9">{$car_info.p_xinglixiangrongji_l}</span>
+				<div class="cl"></div>
+			</li>
+
+		</ul>
+	</div>
+	<div class="line15"></div>
+
+	<!--详细配置-->
+	<div class="buycar_type_con" id="xxpz">
+		<div class="xxpz_tit">
+			<b class="f3">详细配置</b><br />
+			<span class="grey9">成型配置仅供参考，具体配置以实车为主</span>
+		</div>
+		<dl class="xxpz_list">
+
+			<!--循环展示参数-->
+			{volist name="car_parma" id="ctype1"}
+			<dt>{$ctype1.title}</dt>
+			<dd>
+				<div style="text-align: right;width: 100%; border-bottom: 0.5px solid #e4dfdf;    color: #4a4a4a;">●标配 ○选配 -无</div>
+				{volist name="$ctype1.data" id="ctype"}
+				<div style="border-bottom: 0.5px solid #e4dfdf;    width: 100%;line-height: 35px;" class="fl">
+								<span class="fl grey6">
+										{$ctype.name}
+								</span>
+					<span class="fr">
+									{empty name="$car_info[$ctype.value]"}
+										-
+									{else/}
+										{$car_info[$ctype.value]}
+									{/empty}
+								</span>
+				</div>
+				<div class="cl"></div>
+				{/volist}
+			</dd>
+
+
+			{/volist}
+		</dl>
+		<script type="text/javascript">
+            $(function(){
+                $(".xxpz_list dt").click(function(){
+                    $(this).toggleClass("xxpz_list_on").siblings(".xxpz_list dt").removeClass("xxpz_list_on");
+                    $(this).next(".xxpz_list dd").slideToggle(300).siblings(".xxpz_list dd").slideUp(500);
+                })
+            })
+		</script>
+	</div>
+	<div class="line15"></div>
+
+	<!--车辆实拍-->
+	<div class="buycar_type_con" id="clsp">
+		<div class="xxpz_tit">
+			<b class="f3">车辆实拍</b>
+		</div>
+		<div class="clsp_pic" style="font-size: 14px;color: #999;text-align: center;">
+			{empty name="$car_info.picarr"}
+			暂无车辆实拍
+			{else/}
+			{volist name="banner" id="ban"}
+			<img class="show_img" src="{$ban.img}" alt="" />
+			{/volist}
+			{/empty}
+
+		</div>
+	</div>
+</section>
+<script>
+    $('.zz').click(function () {
+        $('.zz').hide();
+        $('.gbook_pos').hide();
+    })
+</script>
+<!--index end-->
+
+

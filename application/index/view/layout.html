@@ -1,0 +1,178 @@
+<!DOCTYPE html >
+<html>
+<head>
+  <title>{$web_title}</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <link href="__STYLE__/webstyle.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="__JS__/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="__JS__/rem.js"></script>
+  <script type="text/javascript" src="__JS__/jquery.bxslider.js"></script>
+  <script src="__JS__/layer/layer.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+</head>
+
+<body style="max-width:750px;margin:0 auto;">
+<header class="rel top_box tc">
+  {$web_title}
+  <a href="javascript:history.back(-1);" class="top_colse"><img src="__IMG__/fh.png"/></a>
+</header>
+<div class="zz"></div>
+<script type="text/javascript">
+    $(document).ready(function(e) {
+
+        $("#tubiao").bind("click",function (){
+            $("#ceng").toggle(500);
+            var height=$(window).height();
+            $("#ceng").css(document.body.scrollHeight);
+        })
+        $("#close").bind("click",function (){
+            $("#ceng").toggle(500);
+        })
+    });
+</script>
+{__CONTENT__}
+<!--footer start-->
+<footer>
+  <div style="height:1.2rem;"></div>
+  <ul class="nav_pos nav_list tc">
+    <li {eq name="$bottom" value="1"} class="on" {/eq}><a href="{:url('index/index')}"><img  {eq name="$bottom" value="1"} src="__IMG__/nav01a.png" {else/} src="__IMG__/nav01.png" {/eq} alt="" /><br />首页</a></li>
+    <li {eq name="$bottom" value="2"} class="on" {/eq}><a href="{:url('NewCar/index')}"><img {eq name="$bottom" value="2"} src="__IMG__/nav02a.png" {else/} src="__IMG__/nav02.png" {/eq} alt="" /><br />新车</a></li>
+    <li {eq name="$bottom" value="3"} class="on" {/eq}><a href="{:url('OldCar/index')}"><img {eq name="$bottom" value="3"} src="__IMG__/nav03a.png" {else/} src="__IMG__/nav03.png" {/eq} alt="" /><br />二手车</a></li>
+    <li {eq name="$bottom" value="4"} class="on" {/eq}><a href="{:url('SellCar/index')}"><img {eq name="$bottom" value="4"} src="__IMG__/nav04a.png" {else/} src="__IMG__/nav04.png" {/eq} alt="" /><br />卖车</a></li>
+    <li {eq name="$bottom" value="5"} class="on" {/eq}><a href="{:url('Financial/index')}"><img {eq name="$bottom" value="5"} src="__IMG__/nav05a.png" {else/} src="__IMG__/nav05.png" {/eq} alt="" /><br />汽车金融</a></li>
+    <div class="cl"></div>
+  </ul>
+</footer>
+<!--footer end-->
+</body>
+</html>
+<script>
+wx.config({
+
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+
+        appId: '{$share.appId}', // 必填，公众号的唯一标识
+
+        timestamp:"{$share.timestamp}" , // 必填，生成签名的时间戳
+
+        nonceStr: '{$share.nonceStr}', // 必填，生成签名的随机串
+
+        signature: '{$share.signature}',// 必填，签名，见附录1
+
+        jsApiList: [
+			'onMenuShareAppMessage',
+
+            'onMenuShareTimeline',
+            // 所有要调用的 API 都要加到这个列表中
+			/*
+            'updateAppMessageShareData',
+
+            'updateTimelineShareData',
+			*/
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+ });
+	var url = "{$url}";
+	wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+	wx.onMenuShareAppMessage({
+
+            title: '{$share_title}',
+
+            desc: '{$share_desc}',
+
+            link: url,
+
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+
+            imgUrl: '{$share_img}', // 分享图标
+
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+
+            success: function () {
+
+                tips('分享成功');
+
+                //location.reload();
+
+            },
+
+            cancel: function () {
+				tips('取消分享');
+            }
+
+        });
+
+        wx.onMenuShareTimeline({
+
+            title: '{$share_title}',
+
+            desc: '{$share_desc}',
+
+            link: url,
+
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+
+            imgUrl: '{$share_img}', // 分享图标
+
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+
+            success: function () {
+
+                tips('分享成功');
+
+                //location.reload();
+
+            },
+
+            cancel: function () {
+
+               tips('取消分享');
+
+            }
+
+        });
+		/*
+		wx.updateAppMessageShareData({ 
+			title: '{$web_title}', // 分享标题
+			desc: '', // 分享描述
+			link: '{$url}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+			imgUrl: '{$share_img}', // 分享图标
+			success: function () {
+				tips('分享成功');
+			}
+		});
+		wx.updateTimelineShareData({ 
+			title: '{$web_title}', // 分享标题
+			link: '{$url}', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+			imgUrl: '{$share_img}', // 分享图标
+			success: function () {
+				// 设置成功
+				tips('分享成功');
+			}
+		});
+		*/
+	});
+    function tips(data) {
+
+        layer.msg(data);
+
+    }
+
+    $(".show_img").on("error", function () {  //加入相应的图片类名
+        $(this).attr("src", "/error_small.jpg");
+    });
+
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b28e073ebaa252e7472b32de740daa36";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>

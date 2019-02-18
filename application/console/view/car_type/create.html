@@ -1,0 +1,195 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+        </div>
+        <div class="panel-body panel-body-nopadding">
+
+        <form class="form-horizontal form-bordered" id="submitForm" action="" method="post" >
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>名称：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="名称" name="title" value="{$vo.title ?? ''}"  required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">上级分类：</label>
+            <div class="col-sm-6">
+                <select class="select2" name="parentid" required  onchange="chooseAttr(this.value);">
+                      <option value="0">一级分类</option>
+                      {volist name="goodstype" id="type"}
+                           <option value="{$type.id}">{$type.title}</option>
+                      {/volist}
+                  </select>
+            </div>
+        </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>参数1：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="参数1" name="param1" value="{$vo.param1 ?? ''}" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>参数2：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="参数2" name="param2" value="{$vo.param2 ?? ''}" >
+                </div>
+            </div>
+        <!--<div class="form-group">-->
+            <!--<label class="col-sm-3 control-label">属性组：</label>-->
+            <!--<div class="col-sm-6">-->
+                <!--<div class="input-group">-->
+                  <!--<span class="input-group-btn">-->
+                    <!--<button type="button" class="btn btn-default" onclick="addattrs();">添加</button>-->
+                  <!--</span>-->
+                  <!--<input type="text" class="form-control" id="attrs_title"  value=""/>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+		<div class="form-group">
+            <label class="col-sm-3 control-label">缩略图（二级分类）：</label>
+            <div class="col-sm-6">
+                <input id="fileone" type="file" class="file-loading">
+                <input type="hidden" id="picurl" placeholder="图片" name="picurl" value="{$vo.picurl ?? ''}" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">排序：</label>
+            <div class="col-sm-6">
+                <input type="number" class="form-control" placeholder="排序" name="orderid" value="{$Request.param.id|get_orderid}"  required>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+         <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <input type="hidden" name="id" value="{$vo.id ?? ''}">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+          </div>
+         </div>
+        </div><!-- panel-footer -->
+
+    </form>
+
+</div><!-- panel-body -->
+{/block}
+{block name="fileinput"}{__block__}{/block}
+{block name="ueditor"}{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+    fileinputOne("fileone","picurl");
+    $("[name='parentid']").find("[value='{$vo.parentid ?? '0'}']").attr("selected", true);
+
+    $('#submitForm').bootstrapValidator({
+        message: '这个值是无效的',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+    });
+    //select2
+    jQuery(".select2").select2({
+        width: '100%',
+        minimumResultsForSearch: -1
+    });
+});
+function addattrs(){
+    var title = $('#attrs_title').val();
+
+    var list=new Array();
+    $("input[name='attrs_group[]']").each(function(){
+            list.push($(this).attr('name'));
+    });
+    //console.log(list);
+    var num = list.length;
+
+    if(title!=''){
+        $('#trhead').before('<th>'+title+'</th>');
+        $('.tdbody').before('<td></td>');
+
+        var html = '<div class="form-group" id="attrs'+num+'_group"  style="border: 0;">'
+                 +'   <label class="col-sm-3 control-label">'+title+'：<input type="hidden" name="attrs_group[]" value="'+title+'"></label>'
+                 +'   <div class="col-sm-6">'
+                 +'      <div class="input-group">'
+                 +'         <span class="input-group-btn">'
+                 +'           <button type="button" class="btn btn-default" onclick="addinput('+num+')">添加</button>'
+                 +'         </span>'
+                 +'         <input type="text" class="form-control" id="attrs'+num+'_add" value=""/>'
+                 +'       </div>'
+                 +'       <span id="attrs'+num+'_area">'
+                 +'       </span>'
+                 +'    </div>'
+                 +' </div>';
+
+        $('#attr_area').append(html);
+        $('#attrs_title').val('');
+    }
+
+}
+
+function addinput(param){
+    var val = $('#attrs'+param+'_add').val();
+    if(val!=''){
+        $('#attrs'+param+'_area').append('<input type="checkbox" name="attrs'+param+'[]" value="'+val+'" checked>'+val);
+        $('#attrs'+param+'_add').val('');
+    }
+}
+
+function chooseAttr(val){
+     $.ajax({
+             url: "{:url('console/goods/getattr')}",    //提交的页面，方法名
+             dataType: "json",     //类型
+             data:{"typeid":val},
+             type: "POST",     //提交方式
+             success: function (data) { //如果执行成功，那么执行此方法
+             //alert(JSON.stringify(data));
+                $('#attrs').empty();
+                $('#attr_area').empty();
+                $('#theadtr').empty();
+                var dataObj=eval("("+data+")");//转换为json对象
+                $.each( dataObj, function(index,item){
+
+                   var html = '<div class="form-group" id="attrs'+index+'_group"  style="border: 0;">'
+                             +'   <label class="col-sm-3 control-label">'+item['title']+'：<input type="hidden" name="attrs_group[]" value="'+item['title']+'"></label>'
+                             +'   <div class="col-sm-6">'
+                             +'      <div class="input-group">'
+                             +'         <span class="input-group-btn">'
+                             +'           <button type="button" class="btn btn-default" onclick="addinput('+index+')">添加</button>'
+                             +'         </span>'
+                             +'         <input type="text" class="form-control" id="attrs'+index+'_add" value=""/>'
+                             +'       </div>'
+                             +'       <span id="attrs'+index+'_area">';
+                             $.each( item['attrs'], function(index1,item){
+                                html +='<input type="checkbox" name="attrs'+index+'[]" value="'+item+'" checked>'+item;
+
+                             });
+                        html +='       </span>'
+                             +'    </div>'
+                             +' </div>';
+
+                    $('#attr_area').append(html);
+
+                    $('#theadtr').append('<th>'+item['title']+'</th>');
+
+                });
+                $('#theadtr').append('<th id="trhead">价格</th>');
+                $('#theadtr').append('<th>库存</th>');
+           },
+           error: function (err) { //如果执行不成功，那么执行此方法
+            tips('ajax出错了1');
+           }
+       });
+}
+</script>
+{/block}
