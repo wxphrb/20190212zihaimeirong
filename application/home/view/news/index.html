@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/phone.css" type="text/css" rel="stylesheet">
+    <link href="css/swiper.min.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="js/swiper.min.js" type="text/javascript"></script>
+    <script src="js/phone.js" type="text/javascript"></script>
+</head>
+<body style="background: #f4f4f4;">
+<div class="wrap">
+    <header>
+        <img src="img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">消息中心</p>
+    </header>
+    <div class="message_content">
+        <ul class="nav">
+            <li><a href="##" class="nav_a_style">最新公告</a></li>
+            <li><a href="##">消息推送</a><img src="img/have_img_03.png"></li>
+        </ul>
+        <div class="ul_cont">
+            <!--最新公告-->
+            <div class="ul_div">
+                <ul>
+                    <li>
+                        <p class="p1">好消息：推出一款铭心产品，于明日上线.....</p>
+                        <p class="p2"> 2017-10-20   17：20</p>
+                    </li>
+                    <li>
+                        <p class="p1">好消息：推出一款铭心产品，于明日上线.....</p>
+                        <p class="p2"> 2017-10-20   17：20</p>
+                    </li>
+                </ul>
+            </div>
+            <!--消息推送-->
+            <div class="ul_div" style="display: none">
+                <ul>
+                    <li>
+                        <p class="p1"><img src="img/have_img_03.png">好消息：推出一款铭心产品，于明日上线.....</p>
+                        <p class="p2" style="padding-left: 0.3rem"> 2017-10-20   17：20</p>
+                    </li>
+                    <li>
+                        <p class="p1">好消息：推出一款铭心产品，于明日上线.....</p>
+                        <p class="p2"> 2017-10-20   17：20</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        $(".message_content .nav li").click(function(){
+            $(this).children("a").addClass("nav_a_style");
+            $(this).siblings().children("a").removeClass("nav_a_style");
+            var index=$(this).index();
+            $(".ul_div").eq(index).show().siblings().hide();
+        })
+    })
+</script>

@@ -27,16 +27,6 @@ use think\Url;
  * 一定不要修改、删除，否则 curl 可能无法上传文件
 
  */
-/*前端多余字符输出*/
-function wxp_substr($num = 20,$str){
-	$length = mb_strlen($str);
-	if($length > $num){
-		$title = mb_substr($str,0,$num,'utf-8')."...";
-	}else{
-		$title = $str;
-	}
-	return $title;
-}
 if (!function_exists('curl_file_create')) {
 
     function curl_file_create($filename, $mimetype = '', $postname = '')
@@ -159,8 +149,11 @@ function show_title($id, $name)
 
 {
 
-    $title = db($name)->where('id', $id)->value('title');
-
+    //$title = db($name)->where('id', $id)->value('title');
+    if($name == 'user'){
+        $arr =  ['游客','共享天使','共享店主','城市合伙人','联合创始人'];
+    }
+    $title = $arr[$id];
     return $title;
 
 }

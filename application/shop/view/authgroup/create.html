@@ -1,0 +1,73 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+        </div>
+        <div class="panel-body panel-body-nopadding">
+
+        <form class="form-horizontal form-bordered" id="submitForm" action="" method="post" >
+         <div class="form-group">
+            <label class="col-sm-3 control-label"><span class="c-red">*</span>管理组名称：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="管理组名称" name="title" value="{$vo.title ?? ''}" required="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">管理组描述：</label>
+            <div class="col-sm-6">
+                <textarea class="form-control" placeholder="管理组描述" name="description" >{$vo.description ?? ''}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">状态：</label>
+            <div class="col-sm-6 wh-inline">
+                <div class="rdio rdio-primary">
+                    <input type="radio" name="status" id="status-1" value="1">
+                    <label for="status-1">启用</label>
+                </div>
+                <div class="rdio rdio-primary">
+                    <input type="radio" name="status" id="status-0" value="0">
+                    <label for="status-0">禁用</label>
+                </div>
+            </div>
+        </div>
+
+            <div class="panel-footer">
+             <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <input type="hidden" name="id" value="{$vo.id ?? ''}">
+                <input type="hidden" name="rules" value="{$vo.rules ?? ''}">
+                <button type="submit" class="btn btn-primary">提交</button>
+                <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+              </div>
+             </div>
+            </div><!-- panel-footer -->
+
+        </form>
+          
+</div><!-- panel-body -->
+{/block}
+{block name="fileinput"}{/block}
+{block name="ueditor"}{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+    $("[name='status'][value='{$vo.status ?? '1'}']").attr("checked", true);
+
+    $('#submitForm').bootstrapValidator({
+        message: '这个值是无效的',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+    });
+});
+</script>
+{/block}

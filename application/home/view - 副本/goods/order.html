@@ -1,0 +1,174 @@
+<!--顶部导航-->
+{include file="public/header" /}
+    <style>
+        .details_btn{
+            position: inherit;
+            background: none;
+        }
+        .product .pro_right span{
+            font-size: 0.3rem !important;
+        }
+        .product .pro_right .num{
+            float: right !important;
+            color: #4c4c4c !important;
+            font-size: 0.26rem !important;
+        }
+        .product .pro_right .price{
+            margin-top: 0.13rem;
+        }
+        .product .left_img{
+            width: 1.8rem;
+        }
+        .product .pro_right{
+            width: 4rem;
+        }
+        .product .pro_right .price span{
+            margin-left: 0;
+        }
+    </style>
+
+<body style="background: #f4f4f4">
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">确认订单</p>
+    </header>
+    <div class="qr_content">
+
+        <div class="address">
+            {if condition="$address['id'] eq ''"}
+            <div style="overflow: hidden">
+                <p class="name">请选择收货地址</p>
+            </div>
+            {else/}
+            <div style="overflow: hidden">
+                <p class="name"><img src="__HOME__/img/qr_img_06.png"><span>{$address['username']}</span></p>
+                <p class="phone"><img src="__HOME__/img/qr_img_03.png"><span>{$address['mobile']}</span></p>
+            </div>
+            <p class="address1"><img src="__HOME__/img/qr_img_10.png"><span>{$address['address']}</span></p>
+            {/if}
+        </div>
+
+        <div>
+
+            <div class="product">
+                <p class="product_title">{$data.store_title}</p>
+
+                <img src="__ROOT__{$data.picurl}" alt="" class="left_imgs">
+                <div class="pro_right">
+                    <p class="name">{$data.title}</p>
+                    <p class="gg">{$data.attr}</p>
+                    <div class="price"><span>￥{$data.price}</span><span class="num">×{$data.num}</span></div>
+                </div>
+
+            </div>
+
+            <div class="message">
+                <div class="d1">运费<span>￥{$data.carriage}</span></div>
+                <div class="d2">
+                    <p>买家留言（选项）</p>
+                    <textarea placeholder="点击就可填写" name="message"></textarea>
+                </div>
+                <p class="p3">共计1件商品  合计：<span>￥{$data.total}</span></p>
+            </div>
+        </div>
+
+
+
+        <div class="pay_choose" style="padding-bottom: 1.5rem">
+            <p class="title">选择支付方式</p>
+            <ul>
+                <li>
+                    <img src="__HOME__/img/pay_logo_03.png" class="logo">
+                    <p>微信支付</p>
+                    <div class="check_nm">
+                        <input type="radio" id="input1" name="radio1" value="1">
+                        <label for="input1"></label>
+                    </div>
+                </li>
+                <li>
+                    <img src="__HOME__/img/pay_logo_06.png" class="logo">
+                    <p>支付宝支付</p>
+                    <div class="check_nm">
+                        <input type="radio" id="input2" name="radio1" value="2">
+                        <label for="input2"></label>
+                    </div>
+                </li>
+                <li>
+                    <img src="__HOME__/img/pay_logo_09.png" class="logo" >
+                    <p>线下支付</p>
+                    <div class="check_nm">
+                        <input type="radio" id="input3" name="radio1" value="3">
+                        <label for="input3"></label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pay_bottom">
+        <p>合计 : <span>¥{$data['total']}</span></p>
+        <input type="button" value="提交订单" onclick="tj()">
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var chickable=0;//防止表单重复提交
+    function tj(){
+      var pay_type =$(".pay_choose").find("input:checked").val();
+      var address_id = "{$address['id']}";
+        var str=[];
+        var i =0;
+        $("textarea[name='message']").each(function(){
+            str[i] = $(this).val();
+            ++i;
+        })
+        var attr="{$data['attr']}";
+        var num="{$data['num']}";
+        var carriage = "{$data['carriage']}";
+        var goods_price = "{$data['goods_price']}";
+        var goods_id= "{$data['id']}";
+        if(chickable==0){
+            chickable=1;
+        $.ajax({
+            url: "{:url('goods/place_order')}",
+            type: 'post',
+            dataType: 'json',
+            data:{pay_type:pay_type,address_id:address_id,message:str,attr:attr,num:num,carriage:carriage,goods_price:goods_price,goods_id:goods_id},
+            success: function (data) {
+                    if (data.code == 200) {
+                        if (data.par_type == 1) {
+                            setTimeout(function () {
+                                window.location.href = "{:url('home/wei_pay/index')}?order_sn=" + data.order_sn+"&attach=2";
+                                //console.log(data.data);
+                            }, 2000);
+                        }
+                        if (data.par_type == 2) {
+                            setTimeout(function () {
+                                window.location.href = "{:url('home/Alipay/pay')}?order_sn=" + data.order_sn + "&type=2";
+                            }, 2000);
+                        }
+                        if (data.par_type == 3) {
+                            setTimeout(function () {
+                                var ordersnum = data.data;
+                                window.location.href = "{:url('home/wei_pay/index')}?order_sn=" + data.order_sn;
+                            }, 2000);
+                        }
+//                    layer.msg('提交成功!', {
+//                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+//                    }, function(){
+//                        if(pay_type == 1) {
+//                            window.location.href="{:url('home/wei_pay/index')}?order_sn="+data.order_sn;
+//                        }
+//                    });
+                    } else {
+                        layer.msg(data.message);
+                    }
+
+            }
+        })
+
+        }
+
+     }
+</script>

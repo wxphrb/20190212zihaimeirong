@@ -1,0 +1,118 @@
+
+<!--顶部导航-->
+{include file="public/header" /}
+<body>
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">商品评价</p>
+    </header>
+    <div style="padding-bottom: 2rem">
+        <div class="go_pj_content">
+            <ul class="font26">
+                <li>差评</li>
+                <li class="go_pj_content_li_style">中评</li>
+                <li>好评</li>
+            </ul>
+            <div class="left">
+                <img src="__HOME__/img/find_bottom_img_03.png" alt="">
+            </div>
+            <div class="right">
+                <textarea placeholder="亲，留下您的评价吧~~" class="font26"></textarea>
+            </div>
+            <div class="d1">
+                <div style="margin :0px auto; width:990px;">
+                    <div class="sc_div" style="float: left">
+                        <input type="file"  name="file" id="doc" multiple="multiple"  style="width:150px;" onchange="javascript:setImagePreviews();" accept="image/*" />
+                        <label for="doc"></label>
+                    </div>
+                    <div id="dd" style=" width:990px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="gray_t"></div>
+        <div class="go_pj_content">
+            <ul class="font26">
+                <li>差评</li>
+                <li class="go_pj_content_li_style">中评</li>
+                <li>好评</li>
+            </ul>
+            <div class="left">
+                <img src="__HOME__/img/find_bottom_img_03.png" alt="">
+            </div>
+            <div class="right">
+                <textarea placeholder="亲，留下您的评价吧~~" class="font26"></textarea>
+            </div>
+            <div class="d1">
+                <img src="__HOME__/img/photo1_03.png" alt="">
+                <input type="file" class="input1">
+                <p class="send font28">发照片</p>
+            </div>
+        </div>
+    </div>
+    <div class="go_pj_foot">
+        <div class="check_nm" style="margin-left: 0.25rem">
+            <input type="checkbox" id="input1">
+            <label for="input1"></label>
+        </div>
+        <p class="p1 font32">匿名评价</p>
+        <a href="#" class="comment_bt font32">发表评论</a>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        $(".go_pj_content ul li").click(function(){
+            $(this).addClass("go_pj_content_li_style").siblings().removeClass("go_pj_content_li_style")
+        })
+    })
+</script>
+<!--多图上传-->
+<script type="text/javascript">
+    //下面用于多图片上传预览功能
+    function setImagePreviews(avalue) {
+        var docObj = document.getElementById("doc");
+        var dd = document.getElementById("dd");
+        dd.innerHTML = "";
+        var fileList = docObj.files;
+        for (var i = 0; i < fileList.length; i++) {
+
+            dd.innerHTML += "<div style='float:left' > <img style='margin-top: 0;margin-right: 0.1rem' id='img" + i + "'  /> </div>";
+            var imgObjPreview = document.getElementById("img"+i);
+            if (docObj.files && docObj.files[i]) {
+                //火狐下，直接设img属性
+                imgObjPreview.style.display = 'block';
+                imgObjPreview.style.width = '1.1rem';
+                imgObjPreview.style.height = '1.1rem';
+                //imgObjPreview.src = docObj.files[0].getAsDataURL();
+                //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+                imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
+            }
+            else {
+                //IE下，使用滤镜
+                docObj.select();
+                var imgSrc = document.selection.createRange().text;
+                alert(imgSrc)
+                var localImagId = document.getElementById("img" + i);
+                //必须设置初始大小
+                localImagId.style.width = "150px";
+                localImagId.style.height = "180px";
+                //图片异常的捕捉，防止用户修改后缀来伪造图片
+                try {
+                    localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                    localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+                }
+                catch (e) {
+                    alert("您上传的图片格式不正确，请重新选择!");
+                    return false;
+                }
+                imgObjPreview.style.display = 'none';
+                document.selection.empty();
+            }
+        }
+
+        return true;
+    }
+
+</script>

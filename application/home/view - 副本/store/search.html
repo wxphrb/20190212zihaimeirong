@@ -1,0 +1,33 @@
+<!--顶部导航-->
+{include file="public/header" /}
+
+<body>
+<div class="wrap">
+    <div class="search_head">
+        <img src="__HOME__/img/back_btn_03.png" class="back-btn" onclick="javascript:history.go(-1)">
+        <input type="text" placeholder="输入商品名称" id="keyword">
+        <a href="##" class="search_btn" onclick="searchs()">搜索</a>
+    </div>
+    <div class="search_content">
+        <!--<p class="title">历史足迹</p>-->
+        <!--<ul>-->
+            <!--<li>大众</li>-->
+            <!--<li>丰田</li>-->
+            <!--<li>别克</li>-->
+            <!--<li>福特</li>-->
+            <!--<li>丰田</li>-->
+            <!--<li>别克</li>-->
+            <!--<li>福特</li>-->
+        <!--</ul>-->
+        <!--<div class="delete_btn"><img src="__HOME__/img/delete_logo_03.png"><span>清空足迹</span></div>-->
+    </div>
+</div>
+</body>
+
+</html>
+<script>
+    function searchs(){
+        var keyword = $("#keyword").val();
+        window.location.href="{:url('goods/index')}?store_id="+'{$store_id}'+"&keyword="+keyword;
+    }
+</script>

@@ -1,0 +1,53 @@
+<!--顶部导航-->
+{include file="public/header" /}
+<!--顶部导航-->
+<style>
+    .details_btn{
+        position: inherit;
+        /*background: none;*/
+    }
+</style>
+<body style="background: #f4f4f4">
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn">
+        <p class="title">修改昵称</p>
+    </header>
+    <div class="change_cont">
+        <input type="text" placeholder="请输入新的昵称（2-20个字符）" class="name" value="{$username ?? ''}" id="username">
+        <div class="details_btn"><a href="javascript:void(0);" onclick="submitss()">完成</a></div>
+    </div>
+    <!--<div class="details_btn">-->
+        <!--<a href="#" onclick="loginOut()">退出登录</a></div>-->
+</div>
+</body>
+</html>
+<script>
+    function submitss() {
+        var username = $("#username").val();
+        if(username == "") {
+            layer.msg('昵称不能为空');
+            return false;
+        }
+        if(username.length >= 20){
+            layer.msg('昵称不得超过20字符');
+            return false;
+        }
+        if(username.length < 2){
+            layer.msg('昵称不能小于2字符');
+            return false;
+        }
+//        alert(username.length);return false;
+        $.post("{:url('home/user/update_username')}",{username:username},function(data){
+            if(data == 1) {
+                layer.msg('修改成功',{
+                    time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                }, function () {
+                    window.location.href = "{:url('home/user/personal_data')}";
+                });
+            } else {
+                layer.msg('修改失败');
+            }
+        });
+    }
+</script>

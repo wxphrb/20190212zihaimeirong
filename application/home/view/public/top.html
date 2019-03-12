@@ -1,0 +1,124 @@
+    <div class="layout-header am-hide-sm-only">
+      <div class="header-box" data-am-sticky>
+        <!--header start-->
+          <div class="container">
+            <div class="header">
+              <div class="am-g">
+                <div class="am-u-lg-2 am-u-sm-12">
+                  <div class="logo">
+                   <a href="{:url('home/index/index')}">{$Think.config.web_config.web_name}</a>
+                  </div>
+                </div>
+                <div class="am-u-md-10">
+                  <div class="header-right am-fr">
+                    <div class="header-contact">
+                      <div class="header_contacts--item">
+  											<div class="contact_mini">
+  												<i style="color:#7c6aa6" class="contact-icon am-icon-phone"></i>
+  												<strong>{$Think.config.web_config.web_hotline}</strong>
+  												<span>{$Think.config.web_config.web_hotline_more}</span>
+  											</div>
+  										</div>
+                      <div class="header_contacts--item">
+  											<div class="contact_mini">
+  												<i style="color:#7c6aa6" class="contact-icon am-icon-envelope-o"></i>
+  												<strong>{$Think.config.web_config.web_email}</strong>
+  												<span>{$Think.config.web_config.web_email_more}</span>
+  											</div>
+  										</div>
+                      <div class="header_contacts--item">
+  											<div class="contact_mini">
+  												<i style="color:#7c6aa6" class="contact-icon am-icon-map-marker"></i>
+  												<strong>{$Think.config.web_config.web_address}</strong>
+  												<span>{$Think.config.web_config.web_address_more}</span>
+  											</div>
+  										</div>
+                    </div>
+                    {eq name="uid" value="0"}
+                    <a href="{:url('home/login/index')}" class="contact-btn">
+                      <button type="button" class="am-btn am-btn-secondary am-radius">登录</button>
+                    </a>&nbsp;&nbsp;
+                    <a href="{:url('home/login/reg')}" class="contact-btn">
+                      <button type="button" class="am-btn am-btn-secondary am-radius">注册</button>
+                    </a>
+                    {else/}
+                    <a href="{:url('home/login/logout')}" class="contact-btn">
+                      <button type="button" class="am-btn am-btn-secondary am-radius">注销</button>
+                    </a>
+                    {/eq}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!--header end-->
+
+
+        <!--nav start-->
+        <div class="nav-contain">
+          <div class="nav-inner">
+            <ul class="am-nav am-nav-pills am-nav-justify">
+              {volist name="nav" id="vo"}
+      				   <li><a href="{$vo.url}">{$vo.title}</a>
+      				   {notempty name="vo.sub"}
+      				    <ul class="sub-menu">
+      				      {volist name="vo.sub" id="vo1"}
+	                  <li class="menu-item"><a href="{$vo1.url}">{$vo1.title}</a></li>
+	                  {/volist}
+	                </ul>
+      				   {/notempty}
+      				   </li>
+      			  {/volist}
+            </ul>
+          </div>
+        </div>
+        <!--nav end-->
+      </div>
+    </div>
+
+    <!--mobile header start-->
+    <div class="m-header">
+      <div class="am-g am-show-sm-only">
+        <div class="am-u-sm-2">
+          <div class="menu-bars">
+            <a href="#doc-oc-demo1" data-am-offcanvas="{effect: 'push'}"><i class="am-menu-toggle-icon am-icon-bars"></i></a>
+            <!-- 侧边栏内容 -->
+            <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas >
+            <a href="javascript: void(0)" class="am-menu-toggle"></a>
+
+            <div class="am-offcanvas" >
+              <div class="am-offcanvas-bar">
+              <ul class="am-menu-nav am-avg-sm-1">
+                  {volist name="nav" id="vo"}
+        					   {notempty name="vo.sub"}
+        					   <li class="am-parent"><a href="{$vo.url}">{$vo.title}</a>
+        					    <ul class="am-menu-sub am-collapse ">
+        					      {volist name="vo.sub" id="vo1"}
+  		                  <li class=""><a href="{$vo1.url}" class="">{$vo1.title}</a></li>
+  		                  {/volist}
+  		                </ul>
+  		               {else/}
+  		               <li><a href="{$vo.url}">{$vo.title}</a>
+        					   {/notempty}
+        					   </li>
+        				  {/volist}
+                  {eq name="uid" value="0"}
+                  <li class=""><a href="{:url('home/login/index')}" class="" >登录</a></li>
+                  <li class=""><a href="{:url('home/login/reg')}" class="" >注册</a></li>
+                  {/eq}
+              </ul>
+
+              </div>
+            </div>
+          </nav>
+
+          </div>
+        </div>
+        <div class="am-u-sm-5 am-u-end">
+          <div class="m-logo">
+            <a href="{:url('home/index/index')}">{$Think.config.web_config.web_name}</a>
+          </div>
+        </div>
+      </div>
+    <!--mobile header end-->
+    </div>

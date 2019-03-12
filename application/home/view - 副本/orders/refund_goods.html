@@ -1,0 +1,62 @@
+<!--顶部导航-->
+{include file="public/header" /}
+    <style>
+        .qr_content .address{
+            margin: 0;
+        }
+        .details_btn{
+            position: inherit;
+            background: none;
+            height: 1.8rem;
+        }
+    </style>
+
+<body style="background: #f4f4f4">
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn">
+        <p class="title">{$title}</p>
+    </header>
+    <div class="application_return qr_content">
+        <p class="title">输入退货原因</p>
+        <textarea placeholder="输入退货原因" id="cause"></textarea>
+        <p class="title">退货地址</p>
+        <div class="address">
+            <div style="overflow: hidden">
+                <p class="name"><img src="__HOME__/img/qr_img_06.png"><span>{$data['manned']}</span></p>
+                <p class="phone"><img src="__HOME__/img/qr_img_03.png"><span>{$data.mobile}</span></p>
+            </div>
+            <p class="address1"><img src="__HOME__/img/qr_img_10.png"><span>{$data.address}</span></p>
+        </div>
+        <div class="details_btn"><a href="#" onclick="tj('{$order.order_sn}')">提交</a></div>
+        <div class="back_flow">
+            <p class="tit1">退货流程</p>
+           {$content}
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    /*取消订单*/
+    function tj(order_sn){
+        var cause = $("#cause").val();
+        $.ajax({
+            url: "{:url('orders/refund_goods')}",
+            type: 'post',
+            dataType: 'json',
+            data:{ordersn:order_sn,cause:cause},
+            success: function (data) {
+                if(data.code==200){
+                    layer.msg('申请退货成功!', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function(){
+                        window.location.href="{:url('orders/index')}?status="+11;
+                    });
+                }else{
+                    layer.msg(data.message);
+                }
+            }
+        });
+    }
+</script>

@@ -1,0 +1,191 @@
+{include file="public/header" /}
+
+
+
+<style>
+
+    .details_btn {
+
+        position: inherit;
+
+        background: none;
+
+    }
+
+
+
+    .password_content .d1 p {
+
+        width: 1.5rem;
+
+    }
+
+
+
+    .validate1 {
+
+        background-color: #DCDCDC !important;
+
+        color: #666 !important;
+
+    }
+
+
+
+    .validate {
+
+        background-color: #3099e9 !important;
+
+        color: white !important;
+
+    }
+
+</style>
+
+<body style="background: #f4f4f4">
+
+<div class="wrap">`
+
+    <header>
+
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn">
+
+        <p class="title">{$title}</p>
+
+    </header>
+
+    <div class="password_content">
+
+        <div class="d1">
+
+            <p>设置密码</p>
+
+            <input type="password" name="password" value="" placeholder="输入登录密码" id="pwd">
+
+        </div>
+
+        <div class="d1">
+
+            <p>确认密码</p>
+
+            <input type="password" name="password2" placeholder="输入登录密码" value="" id="pwd2">
+
+        </div>
+
+    </div>
+    <input type="hidden" value="{$data['mobile']}" id="mobile">
+    <input type="hidden" value="{$data['sms_code']}" id="code">
+    <div class="details_btn"><a href="#" id="submit" onClick="CheckReg();">确定</a></div>
+
+</div>
+
+</body>
+
+</html>
+
+<input type="hidden" id="realvalidate" value="">
+
+
+
+<script>
+
+    var chickable = 0; //全局变量 防止多次点击事件
+    function CheckReg() {
+
+        var ckmobile = /1[3|4|5|7|8|][0-9]{9}/;
+
+        var ckpassword = /[A-Za-z0-9]{6,12}/;
+
+        var mobile = $("#mobile").val();
+
+        var password = $("#pwd").val();
+
+        var code = $("#code").val();
+
+        var repassword = $("#pwd2").val();
+
+
+
+        if (chickable == 0) {
+
+            chickable = 1;
+
+            $.ajax({
+
+                type: "POST",     //提交方式
+
+                dataType: "JSON",     //类型
+
+                url: "{:url('Login/forget2')}",    //提交的页面，方法名
+
+                data:
+                "mobile=" + mobile + "&password=" + password + "&sms_code="+code+"&repassword="+repassword,
+
+                success: function (data) { //如果执行成功，那么执行此方法
+
+                    if (data.code == "200") {
+
+
+                        tips("修改成功");
+
+                        setInterval(function () {
+
+                            window.location.href = "{:url('login/login')}";
+
+                        }, 1000);
+
+                    }
+
+                    if (data.code  == "400") {
+
+                        chickable = 0;
+
+                        tips(data.message);
+
+                    }
+
+                    if (data.data  == "3") {
+
+                        chickable = 0;
+
+                        tips("账号已存在！");
+
+                    }
+
+                },
+
+                error: function (err) { //如果执行不成功，那么执行此方法
+
+                    chickable = 0;
+
+                    tips("注册失败，请重试！");
+
+                }
+
+            });
+
+        }
+
+    }
+
+
+
+
+
+    function tips(data) {
+
+        /*layer.open({
+
+         content: data
+
+         });*/
+
+        layer.msg(data);
+
+    }
+
+
+
+
+
+</script>

@@ -53,17 +53,40 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label">所在城市：</label>
+                <label class="col-sm-3 control-label">所在省份：</label>
                 <div class="col-sm-6">
-                    <select name="pro" class="select2">
-                        <option value="">请选择所在城市</option>
+                    <select name="pro" class="select2" id="pro">
+                        <option value="">请选择所在省份</option>
                         {volist name="pro" id="info"}
-                        <option value="{$info.name}">{$info.name}</option>
+                            <option value="{$info.name}" code="{$info.code}">{$info.name}</option>
                         {/volist}
                     </select>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所在城市：</label>
+                <div class="col-sm-6">
+                    <select name="city" class="select2" id="city">
+                        <option value="">请选择所在城市</option>
 
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所在地区：</label>
+                <div class="col-sm-6">
+                    <select name="area" class="select2" id="area">
+                        <option value="">请选择所在地区</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">详细地址:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="address" placeholder="详细地址" value="{$vo.address ?? ''}">
+                </div>
+            </div>
 
             <div class="form-group">
                 <label class="col-sm-3 control-label">状态：</label>
@@ -115,6 +138,79 @@
 {/block}
 {block name="script"}
 <script>
+    $('#pro').change(function(){
+       code =  $(this).find("option:selected").attr("code");
+        $.ajax({
+
+            url: "{:url('store/get_city')}",
+
+            type: 'post',
+
+            dataType: 'json',
+
+            data:{code:code},
+
+            success: function (data) {
+
+                if(data.code==200){
+                    var str = '';
+
+                    $.each(data.data,function(i,val){  //遍历二维数组
+
+                        str +='<option value="'+val['name']+'" code="'+val['code']+'">'+val['name']+'</option>'
+                    })
+
+                    $('#city').empty();
+                    $('#city').append(str);
+
+                }else{
+
+                    alert(data.message);
+
+                }
+
+            }
+
+        });
+
+    })
+    $('#city').change(function(){
+
+        code =  $(this).find("option:selected").attr("code");
+
+        $.ajax({
+
+            url: "{:url('store/get_area')}",
+
+            type: 'post',
+
+            dataType: 'json',
+
+            data:{code:code},
+
+            success: function (data) {
+
+                if(data.code==200){
+                    var str = '';
+                    console.log(data.data)
+                    $.each(data.data,function(i,val){  //遍历二维数组
+
+                        str +='<option value="'+val['name']+'" code="'+val['code']+'">'+val['name']+'</option>'
+                    })
+                    $('#area').empty();
+                    $('#area').append(str);
+
+                }else{
+
+                    alert(data.message);
+
+                }
+
+            }
+
+        });
+
+    })
     $(document).ready(function () {
 
 

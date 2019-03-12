@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>第三方登录---微信登录</title>
+</head>
+<body>
+
+<div id="login_container">
+    这是装二维码的容器div
+</div>
+
+<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<script type="text/javascript">
+    //id和scope不用改、appid和redirect_uri改为自己的
+    var obj = new WxLogin({
+        id:"login_container",
+        appid: "***************",
+        scope: "snsapi_login",
+        redirect_uri:"http%3A%2F%2Fwww.baidu.cn",
+        state: "",
+        style: "black",
+        href: ""
+    });
+
+</script>
+</body>
+</html>
+
+---------------------
+
+本文来自 不如喫茶去 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/qq_32737755/article/details/79271865?utm_source=copy 

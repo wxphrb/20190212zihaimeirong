@@ -18,23 +18,26 @@
                     <input type="text" class="form-control" placeholder="标题" name="title" value="{$vo.title ?? ''}"
                            required>
                 </div>
+            </div>			<div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>描述：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="描述" name="description" value="{$vo.description ?? ''}"
+                       required>
             </div>
-
+        </div>
             
             <div class="form-group">
-                <label class="col-sm-3 control-label">封面图：</label>
+                <label class="col-sm-3 control-label">组图：</label>
                 <div class="col-sm-6">
-                    <input id="fileone" type="file" class="file-loading">
+                    <input id="filepic" type="file" multiple>
+                    {present name="vo"}
+                    {volist name="vo.picarr" id="vop"}
+                    <input type="hidden" value="{$vop.img}" name="picimg[]" >
+                    {/volist}
+                    {/present}
+                </div>
+            </div>
 
-                    <input type="hidden" id="picurl" placeholder="图片" name="picurl" value="{$vo.picurl ?? ''}">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">描述：</label>
-                <div class="col-sm-6">
-                    <textarea class="form-control" placeholder="描述" name="description" >{$vo.description ?? ''}</textarea>
-                </div>
-            </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">内容：</label>
                 <div class="col-sm-6">
@@ -79,7 +82,7 @@
     {/block}
     {block name="script"}
     <script>
-        fileinputOne('fileone', 'picurl');
+        fileinputMore('filepic', 'picimg[]', 'picarr[]');
         $(document).ready(function () {
             $("[name='status'][value='{$vo.status ?? '1'}']").attr("checked", true);
             $("[name='picarr_type'][value='{$vo.picarr_type ?? '3'}']").attr("checked", true);

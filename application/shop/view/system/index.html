@@ -1,0 +1,163 @@
+<!-- 模板继承 -->
+{extend name="template/base" /}
+{block name="css"}<link href="__CONSOLE__/css/bootstrap-editable.css" rel="stylesheet">{/block}
+{block name="content"}
+      <div class="row">
+        <div class="col-md-12 mb30">
+        
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs connectList" id="sortable-list">
+          {volist name="list" id="vo"}
+          <li {eq name="i" value="1"}class="active"{/eq} id="{$vo.id}"><a href="#sys{$vo.id}" data-toggle="tab"><strong>{$vo.title}</strong></a></li>
+          {/volist}
+        </ul>
+        
+        <!-- Tab panes -->
+        <div class="tab-content mb30">
+          {volist name="list" id="vo"}
+           {switch name="vo.id"}
+             {case value="5"}
+                     <div class="tab-pane {eq name='i' value='1'}active{/eq}" id="sys5">
+                      <form action="{:url('Console/system/create')}" method="post" id="subform">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>所属配置组</label>
+                                        <select class="select2" name="vargroup">
+                                            {volist name="type" id="vot"}
+                                              <option value="{$vot.id}">{$vot.title}</option>
+                                            {/volist}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>变量名称</label>
+                                        <input class="form-control" name="varname" placeholder="系统会自动为变量添加 'web_' 前缀" value="" required>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>参数说明</label>
+                                        <input class="form-control" type="text" name="varinfo" placeholder="变量的描述信息" value="" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>变量值</label>
+                                        <input class="form-control" type="text" name="varvalue" placeholder="请填写变量值" value=""  required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>变量类型</label>
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="vartype" value="text" checked >文本
+                                            </label>
+                                            &nbsp;&nbsp;
+                                            <label>
+                                            <input type="radio" name="vartype" value="select">布尔(Y/N)
+                                            </label>
+                                            &nbsp;&nbsp;
+                                            <label>
+                                            <input type="radio" name="vartype" value="textarea">多行文本
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                        <button type="button" class="btn btn-default" onClick="javascript:history.go(-1);">返回</button>
+                                    </div>
+                                </div>
+                                </form>
+                    </div>
+              {/case}
+           {default /}
+           <div class="tab-pane {eq name='i' value='1'}active{/eq} connectList2 sortable-list2" id="sys{$vo.id}" style="list-style: none;">
+           {volist name="vo.info" id="vo1"}
+                 <div class="row editable-list-item" id="{$vo1.varname}">
+                    <div class="col-sm-3"><span>{$vo1.varinfo}({$vo1.varname})</span></div>
+                    {switch name="vo1.vartype"}
+                        {case value="select"}
+                        <div class="col-sm-9"><span><a class="selectEdit" data-pk="{$vo1.varname}" data-value="{$vo1.varvalue}" data-title="{$vo1.varinfo}" data-type="{$vo1.vartype}" data-url="{:url('Console/common/editable')}">{eq name="vo1.varvalue" value="Y"}是{else/}否{/eq}</a></span></div>
+                        {/case}
+                        {default /}
+                         <div class="col-sm-9"><span><a class="basicEdit" data-pk="{$vo1.varname}" data-type="{$vo1.vartype}" data-title="{$vo1.varinfo}" data-url="{:url('Console/common/editable')}">{$vo1.varvalue}</a></span></div>
+                    {/switch}
+                </div><!-- row -->
+              
+            {/volist}    
+          </div>
+          {/switch}
+          {/volist}
+        </div>
+        
+        
+      </div><!-- col-md-12 -->
+      </div><!-- row -->
+{/block}
+{block name="js"}
+<script src="__CONSOLE__/js/jquery-ui-1.10.4.min.js"></script>
+<script src="__CONSOLE__/js/bootstrap-editable.min.js"></script>
+{/block}
+{block name="script"}
+<script>
+  jQuery(document).ready(function() { 
+        // Basic Popup Example
+        jQuery('.basicEdit').editable();
+        jQuery('.selectEdit').editable({
+            source: [
+                     {value: "Y", text: "是"},
+                     {value: "N", text: "否"}
+                    ]
+        });
+       
+     $("#sortable-list").sortable(
+      {
+        connectWith:".connectList",
+        update: function ()
+        {
+        var serial = $('#sortable-list').sortable('toArray');
+        $.ajax({
+            url: "{:url('Console/common/sortable')}",
+            type: "post",
+            data: {sort:serial},
+            dataType: "json",
+            success: function(msg) {
+               //swal("更新成功", "排序更新成功", "success");               
+            },
+            error: function(msg){
+              swal("出错了", "排序更新出错"+JSON.stringify(msg), "error");
+            }
+        });
+
+        }
+
+    }
+      ).disableSelection();
+
+   $(".sortable-list2").sortable(
+      {
+        connectWith:".connectList2",
+        cancel: "span",
+        update: function ()
+        {
+        var serial = $('.sortable-list2').sortable('toArray');
+        $.ajax({
+            url: "{:url('Console/common/sortConfig')}",
+            type: "post",
+            data: {sort:serial},
+            dataType: "json",
+            success: function(msg) {
+              //swal("更新成功", "排序更新成功", "success");               
+            },
+            error: function(msg){
+              swal("出错了", "排序更新出错"+JSON.stringify(msg), "error");
+            }
+        });
+
+        }
+
+    }
+      );  
+       jQuery(".select2").select2({
+        width: '100%',
+        minimumResultsForSearch: -1
+    });
+  });
+
+</script>
+{/block}

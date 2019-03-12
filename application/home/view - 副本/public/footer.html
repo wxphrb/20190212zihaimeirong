@@ -1,0 +1,65 @@
+<div class="index_footer">
+    <ul>
+        <li>
+            <a href="{:url('index/index')}">
+                {if condition="$Request.controller eq 'Index'"}
+                <img src="__HOME__/img/tab/bottom_logo_03.png">
+                <p style="color: #269ce3">首页</p>
+                {else/}
+                    <img src="__HOME__/img/tab/bottom_logo_13.png">
+                    <p>首页</p>
+                {/if}
+            </a>
+        </li>
+        <li>
+            <a href="{:url('goodstype/index')}">
+                {if condition="$Request.controller eq 'Goodstype'"}
+                <img src="__HOME__/img/tab/bottom_logo_15.png">
+                <p style="color: #269ce3">分类</p>
+                {else/}
+                <img src="__HOME__/img/bottom_logo_05.png">
+                <p>分类</p>
+                {/if}
+
+            </a>
+        </li>
+        <li>
+            <a href="{:url('car/index')}">
+                {if condition="$Request.controller eq 'Car'"}
+                <img src="__HOME__/img/tab/bottom_logo_17.png">
+                <p style="color: #269ce3">购物车</p>
+                {else/}
+                <img src="__HOME__/img/bottom_logo_07.png">
+                <p>购物车</p>
+                {/if}
+            </a>
+        </li>
+        <li>
+            <a href="{:url('user/index')}">
+                {if condition="$Request.controller eq 'User'"}
+                <img src="__HOME__/img/tab/bottom_logo_20.png">
+                <p style="color: #269ce3">我的</p>
+                {else/}
+                <img src="__HOME__/img/bottom_logo_10.png">
+                <p>我的</p>
+                {/if}
+
+            </a>
+        </li>
+    </ul>
+</div>
+<script>
+
+    function tips(data) {
+
+        /*layer.open({
+
+         content: data
+
+         });*/
+
+        layer.msg(data);
+
+    }
+
+</script>

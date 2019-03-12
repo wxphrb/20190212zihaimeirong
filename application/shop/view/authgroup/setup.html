@@ -1,0 +1,111 @@
+{extend name="template/base" /}
+{block name="content"}
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+        </div>
+        <div class="panel-body panel-body-nopadding">
+          
+          <form class="form-horizontal form-bordered" action="" method="post" >
+              <div class="form-group">
+                  <label class="col-sm-3 control-label">管理组名称：</label>
+                  <div class="col-sm-6"><label class="control-label">{$acldata.title ?? ''}[{$acldata.description ?? ''}]</label>
+                  </div>
+              </div>
+              <div class="form-group">
+                      <label class="col-sm-3 control-label">全部权限：</label>
+                      <div class="col-sm-6">
+                          <div class="col-sm-12 whh-inline">
+                            <div class="ckbox ckbox-danger checkbox-inline" style="padding-top:0;">
+                                    <input type="checkbox" onClick="select_all(this,0);" id="all"/>
+                                    <label for="all" color="red">全选(将管理员选为超级管理员比全选更好)</label>
+                            </div>
+                          </div>  
+                      </div>  
+                </div>  
+               {foreach name="acl_list" item="vo" key="ke"}   
+                <div class="form-group">
+                      <label class="col-sm-3 control-label">{$vo['low_title']['0']}：</label>
+                      <div class="col-sm-9">
+                            <div class="col-sm-12 whh-inline">
+                                <div class="ckbox ckbox-warning checkbox-inline" style="padding-top:0;">
+                                        <input type="checkbox" onClick="select_all(this,1);" id="fa{$ke}"/>
+                                        <label for="fa{$ke}">全选</label>
+                                </div>
+                            </div>
+
+                                     {foreach name="vo['low_leve']" item="vs" key="fmodel"}   
+
+                                     {foreach name="vs" item="acitem" key="keyname"}  
+
+                                     {neq name="keyname" value="data"}
+                                          <br/>
+
+                                           <div class="col-sm-12 whh-inline">
+                                              <div class="col-sm-3 whh-inline">
+                                               <div class="ckbox ckbox-success checkbox-inline" style="padding-top:0;">
+                                                    <input type="checkbox" onClick="select_all(this,2);" id="{$fmodel}"/>
+                                                    <label for="{$fmodel}">{$keyname}：</label>
+                                               </div>
+                                             </div>
+                                             <div class="col-sm-8 whh-inline">
+                                              {foreach name="acitem.1" item="itemkey" key="itemname"}  
+                                               <div class="ckbox ckbox-primary checkbox-inline" style="padding-top:0;">
+                                                  <input type="checkbox" name="model[{$fmodel}][]" {if condition="(isset($acldata['rules'][$fmodel])) AND (array_keys($acldata['rules'][$fmodel],$itemkey))"}checked="checked" {/if} class="check" value="{$itemkey}" id="{$fmodel}{$itemkey}" />
+                                                 <label for="{$fmodel}{$itemkey}">{$itemname}</label>
+                                              </div><!-- rdio -->
+                                               {/foreach}
+                                            </div>
+                                          </div>
+                                          {/neq}
+                                          
+                                      {/foreach}   
+                                 {/foreach}   
+                      </div>
+                </div><!-- form-group -->                 
+                {/foreach}   
+                   <div class="panel-footer">
+                   <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                      <input type="hidden" name="id" value="{$acldata.id ?? ''}">
+                      <button type="submit" class="btn btn-primary">提交</button>
+                      <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+                    </div>
+                   </div>
+                  </div><!-- panel-footer -->
+
+            </form>
+        </div>
+     </div>
+  </div><!-- rightpanel -->
+
+{/block}
+{block name="script"}
+<script type="text/javascript">
+    function select_all(o,i){
+        if(i==0){
+            var obj = $('input[type="checkbox"]');
+        }else if(i==1){
+            var obj = $(o).parent().parent().parent().find('input');
+        }else if(i==2){
+            var model = $(o).attr('id');
+            var obj = $('input[name="model['+model+'][]"]');
+        }
+        if($(o).is(':checked')){
+            obj.each(function(i,obj){
+                $(this).prop('checked','true');
+            });
+         
+        }else{
+            obj.each(function(i,obj){
+                $(this).prop('checked','');
+            });
+        }
+
+    }
+</script>
+{/block}

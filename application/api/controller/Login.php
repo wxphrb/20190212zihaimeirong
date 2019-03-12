@@ -1,263 +1,1 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2018/1/4
- * Time: 10:28
- */
-namespace app\api\controller;
-use app\api\model\Supply as SupplyModel;
-use app\api\model\User;
-use app\api\model\Integral;
-use app\api\model\IntegralInfo;
-use mrmiao\encryption\RSACrypt;
-use think\Cache;
-use think\Controller;
-use think\Db;
-use think\Request;
-class Login extends Controller
-{
-    /*
-     * 登录接口
-     * 参数：用户名 密码
-     * */
-    public function login(RSACrypt $crypt, User $user)
-    {
-        $request = $crypt->request();
-        $result = $this->validate($request, 'Login.login');  //验证参数
-        if ($result !== true) {
-            return $crypt->response(['code' => 400, 'message' => $result]);
-        }
-        $data = $user->where(['mobile' => $request['mobile'], 'password' => md5(md5($request['password']))])->field('id,username')->find();
-        if (!empty($data)) {
-            return $crypt->response(['code' => 200, 'message' => '登录成功！', 'data' => $data]);
-        } else {
-            return $crypt->response(['code' => 400, 'message' => '密码错误！']);
-        }
-    }
-    public function bindUsername(RSACrypt $crypt, User $user){
-        $request = $crypt->request();
-        $result = $this->validate($request, 'Login.bindUsername');  //验证参数
-        if ($result !== true) {
-            return $crypt->response(['code' => 400, 'message' => $result]);
-        }
-        $data = $user->where('id',$request['user_id'])->update(['username'=>$request['username']]);
-        if($data){
-            return $crypt->response(['code' => 200, 'message' => '绑定成功！']);
-        }else{
-            return $crypt->response(['code' => 400, 'message' => '绑定失败！']);
-        }
-    }
-    /*
-     * 微信登录
-     * */
-    public function wxLogin(RSACrypt $crypt, User $user)
-    {
-        $request = $crypt->request();
-        $result = $this->validate($request, 'Login.wxLogin');  //验证参数
-        if ($result !== true) {
-            return $crypt->response(['code' => 400, 'message' => $result]);
-        }
-        $openid = json_decode($this->get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $request['token'] . '&openid=' . $request['openid']), true);
-//        halt($openid);
-        if (!empty($openid['errcode'])) return $crypt->response(['code' => 400, 'message' => '登录失败']);
-        $data = $user->where('openid', $request['openid'])->find();
-        if (empty($data)) {//第一次登录
-            $arr['username'] = $openid['nickname'];
-            $arr['openid'] = $request['openid'];
-            $arr['picurl'] = $openid['headimgurl'];
-            $add = $user->allowField(true)->save($arr);
-            $data = ['id' => $user->id, 'mobile' => ''];
-            if ($add) {
-                return $crypt->response(['code' => 200, 'message' => '登录成功！', 'data' => $data]);
-            } else {
-                return $crypt->response(['code' => 400, 'message' => '登录失败！', 'data' => $user->id]);
-            }
-        } else {//以前登录过
-            $data = $user->where(["openid" => $request['openid'], 'status' => 1])->field('id,mobile')->find();
-            if (empty($data)) {
-                return $crypt->response(['code' => 400, "message" => "账号冻结"]);
-            }
-            return $crypt->response(['code' => 200, "message" => "登录成功", "data" => $data]);
-        }
-    }
-    public function get_contents($url)
-    {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        return $response;
-    }
-    /*
-     * 注册接口
-     * 参数：用户名 密码
-     * */
-    public function regist(RSACrypt $crypt, User $user, IntegralInfo $info)
-    {
-        $request = $crypt->request();
-        $result = $this->validate($request, 'Login.regist');  //验证参数
-        if ($result !== true) {
-            return $crypt->response(['code' => 400, 'message' => $result]);
-        }
-        //邀请码不为空，查看邀请人存不存在
-        if (!empty($request['invited_code'])) {
-            $request['invited_id'] = $user->where(['icode' => $request['invited_code'], 'status' => 1])->value('id');
-            if (empty($request['invited_id'])) {
-                return $crypt->response(['code' => 400, 'message' => '邀请人不存在']);
-            }
-        }
-        $request['password'] = md5(md5($request['password']));
-        $data = $user->allowField(true)->isUpdate(false)->save($request);
-        if ($data) {
-            if (!empty($request['invited_id'])) {
-                $reward = Db::name('webconfig')->where('varname', 'web_invited')->value('varvalue');//推荐注册奖励积分
-                $user->where('id', $request['invited_id'])->setInc('integral', $reward);//给邀请人增加积分
-                $info->save(['user_id' => $request['invited_id'], 'type' => 4, 'num' => $reward]);//增加积分明细
-            }
-            return $crypt->response(['code' => 200, 'message' => '注册成功！']);
-        } else {
-            return $crypt->response(['code' => 400, 'message' => '注册失败！']);
-        }
-    }
-    /*
-     * 微信绑定手机号
-     * */
-    public function binding(RSACrypt $crypt, User $user, IntegralInfo $info)
-    {
-        $request = $crypt->request();
-        $result = $this->validate($request, 'Login.binding');  //验证参数
-        if ($result !== true) {
-            return $crypt->response(['code' => 400, 'message' => $result]);
-        }
-        $mobile = $user->where(['mobile' => $request['mobile'], 'status' => 1])->find();//查一下要绑定的手机号注册过没
-        if (!empty($mobile)) {//绑定的手机号已存在
-            $openid = $user->where('id', $request['user_id'])->value('openid');
-            $res = $user->where('mobile', $request['mobile'])->update(['openid' => $openid]);//将openid绑定在已注册的手机号上
-            $user->where('id', $request['user_id'])->delete();//将登录的微信删除
-            $data = ['id' => $mobile['id'], 'state' => 0];//state=0不需要再设置密码
-        } else {//绑定的手机号不存在
-            $res = $user->where('id', $request['user_id'])->update(['mobile' => $request['mobile']]);//直接将手机号跟微信绑定
-            //查询手机密码
-            $pass = $user->where('id',$request['user_id'])->value('password');
-            if(empty($pass)) {
-                $aa = 1;
-            } else {
-                $aa = 0;
-            }
-            $data = ['id' => $request['user_id'], 'state' => $aa];//state=1 需要再设置密码
-        }
-        return $crypt->response(['code' => 200, 'message' => '绑定成功！', 'data' => $data]);
-    }
-    /*
-     * 绑定完手机号设置密码
-     * */
-    public function bindingSetPass(RSACrypt $crypt, User $user, IntegralInfo $info)
-    {
-        $request = $crypt->request();
-        $result = $this->validate($request, 'Login.binding');  //验证参数
-//        if ($result !== true) {
-//            return $crypt->response(['code' => 400, 'message' => $result]);
-//        }
-        //邀请码不为空，查看邀请人存不存在
-        if ($request['invited_code'] != '') {
-            $request['invited_id'] = $user->where(['icode' => $request['invited_code'], 'status' => 1])->value('id');
-            if (empty($request['invited_id'])) {
-                return $crypt->response(['code' => 400, 'message' => '邀请人不存在']);
-            }
-            $reward = Db::name('webconfig')->where('varname', 'web_invited')->value('varvalue');//推荐注册奖励积分
-            $user->where('id', $request['invited_id'])->setInc('integral', $reward);//给邀请人增加积分
-            $info->save(['user_id' => $request['invited_id'], 'type' => 4, 'num' => $reward]);//增加积分明细
-        }else{
-            $request['invited_id']='';
-        }
-        $res = $user->where('id', $request['user_id'])->update(['password' => md5(md5($request['password'])), 'invited_id' => $request['invited_id']]);
-        $data['id'] = $request['user_id'];
-        if ($res) {
-            return $crypt->response(['code' => 200, 'message' => '设置成功', 'data' => $data]);
-        } else {
-            return $crypt->response(['code' => 400, 'message' => '设置失败']);
-        }
-    }
-    /*
-    * 注册接口
-    * 参数：用户名 密码
-    * */
-    public function forget(RSACrypt $crypt, User $user, IntegralInfo $info)
-    {
-        $request = $crypt->request();
-        $result = $this->validate($request, 'Login.forgetPassMobile');  //验证参数
-        if ($result !== true) {
-            return $crypt->response(['code' => 400, 'message' => $result]);
-        }
-        $request['password'] = md5(md5($request['password']));
-        $data = $user->where(['mobile'=>$request['mobile']])->update(['password'=> $request['password']]);
-        if ($data) {
-            return $crypt->response(['code' => 200, 'message' => '修改成功！']);
-        } else {
-            return $crypt->response(['code' => 400, 'message' => '修改失败！']);
-        }
-    }
-    /*获取验证码*/
-    public function getcode(RSACrypt $crypt)
-    {
-        $request = $crypt->request();
-        $code = Cache::get('sms_verify_' . $request['type'] . '_time_' . $request['mobile']);
-        if ($code) {
-            return $crypt->response(['code' => 400, 'message' => '操作频繁，请稍后再发']);
-        }
-        switch ($request['type']) {
-            case 'reg'://注册获取验证码;
-                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');
-                if ($id) return $crypt->response(['code' => 400, 'message' => '用户已注册']);
-                break;
-            case 'find'://找回密码 或 验证码登录   获取验证码；
-                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');
-                if (!$id) return $crypt->response(['code' => 400, 'message' => '用户未注册']);
-                break;
-            case 'forget'://忘记密码；
-                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');
-                if (!$id) return $crypt->response(['code' => 400, 'message' => '用户未注册']);
-                break;
-            case 'upshop'://开店
-                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');
-                if (empty($id)) return $crypt->response(['code' => 400, 'message' => '用户未注册']);
-                break;
-            case 'bind'://绑定获取验证码;
-                $user = Db::name('user')->where(['mobile' => $request['mobile']])->find();
-                if($user){
-                    if(!empty($user['openid'])){
-                        return $crypt->response(['code' => 400, 'message' => '用户已注册']);
-                    }
-                }
-                break;
-            default:
-                return $crypt->response(['code' => 422, 'message' => 'TYPE_ERROR']);
-                break;
-        }
-            $codes = rand(100000, 999999);
-            Cache::set('sms_verify_' . $request['type'] . '_time_' . $request['mobile'], $codes, 60); // 短信请求有效期
-            Cache::set('sms' . $request['type'] . '_code' . $request['mobile'], $codes, 900);     // 短信保存有效期
-            header('Content-Type: text/plain; charset=utf-8');
-            $ch = curl_init();
-            $post_data = array(
-                "account" => "sdk_wantao123",
-                "password" => "wantao456",
-                "destmobile" => $request['mobile'],
-                "msgText" => "尊敬用户,您的验证码为" . $codes . "【万淘装备】" ,
-                "sendDateTime" => ""
-            );
-             curl_setopt($ch, CURLOPT_HEADER, false);
-             curl_setopt($ch, CURLOPT_POST, true);
-             curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-             $post_data = http_build_query($post_data);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-            curl_setopt($ch, CURLOPT_URL, 'http://www.jianzhou.sh.cn/JianzhouSMSWSServer/http/sendBatchMessage');
-            if (curl_exec($ch) > 0)
-                curl_close($ch);
-                return $crypt->response(['code' => 200, 'message' => '发送成功', 'data' => ['phone' => $request['mobile'], 'code' => $codes]]);
-    }
-}
+<?php/** * Created by PhpStorm. * User: Administrator * Date: 2018/1/4 * Time: 10:28 */namespace app\api\controller;use app\api\model\Supply as SupplyModel;use app\api\model\User;use app\api\model\Integral;use app\api\model\IntegralInfo;use mrmiao\encryption\RSACrypt;use think\Cache;use think\Controller;use think\Db;use think\Request;class Login extends Controller{    /*     * 登录接口     * 参数：用户名 密码     * */    public function login(RSACrypt $crypt, User $user)    {        $request = $crypt->request();        $result = $this->validate($request, 'Login.login');  //验证参数        if ($result !== true) {            return $crypt->response(['code' => 400, 'message' => $result]);        }        $data = $user->where(['mobile' => $request['mobile'], 'password' => md5(md5($request['password']))])->field('id,username')->find();        if (!empty($data)) {            return $crypt->response(['code' => 200, 'message' => '登录成功！', 'data' => $data]);        } else {            return $crypt->response(['code' => 400, 'message' => '密码错误！']);        }    }    public function bindUsername(RSACrypt $crypt, User $user){        $request = $crypt->request();        $result = $this->validate($request, 'Login.bindUsername');  //验证参数        if ($result !== true) {            return $crypt->response(['code' => 400, 'message' => $result]);        }        $data = $user->where('id',$request['user_id'])->update(['username'=>$request['username']]);        if($data){            return $crypt->response(['code' => 200, 'message' => '绑定成功！']);        }else{            return $crypt->response(['code' => 400, 'message' => '绑定失败！']);        }    }    /*     * 微信登录     * */    public function wxLogin(RSACrypt $crypt, User $user)    {        $request = $crypt->request();        $result = $this->validate($request, 'Login.wxLogin');  //验证参数        if ($result !== true) {            return $crypt->response(['code' => 400, 'message' => $result]);        }        $openid = json_decode($this->get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $request['token'] . '&openid=' . $request['openid']), true);//        halt($openid);        if (!empty($openid['errcode'])) return $crypt->response(['code' => 400, 'message' => '登录失败']);        $data = $user->where('openid', $request['openid'])->find();        if (empty($data)) {//第一次登录            $arr['username'] = $openid['nickname'];            $arr['openid'] = $request['openid'];            $arr['picurl'] = $openid['headimgurl'];            $add = $user->allowField(true)->save($arr);            $data = ['id' => $user->id, 'mobile' => ''];            if ($add) {                return $crypt->response(['code' => 200, 'message' => '登录成功！', 'data' => $data]);            } else {                return $crypt->response(['code' => 400, 'message' => '登录失败！', 'data' => $user->id]);            }        } else {//以前登录过            $data = $user->where(["openid" => $request['openid'], 'status' => 1])->field('id,mobile')->find();            if (empty($data)) {                return $crypt->response(['code' => 400, "message" => "账号冻结"]);            }            return $crypt->response(['code' => 200, "message" => "登录成功", "data" => $data]);        }    }    public function get_contents($url)    {        $ch = curl_init();        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);        curl_setopt($ch, CURLOPT_URL, $url);        $response = curl_exec($ch);        curl_close($ch);        return $response;    }    /*     * 注册接口     * 参数：用户名 密码     * */    public function regist(RSACrypt $crypt, User $user, IntegralInfo $info)    {        $request = $crypt->request();        $result = $this->validate($request, 'Login.regist');  //验证参数        if ($result !== true) {            return $crypt->response(['code' => 400, 'message' => $result]);        }        //邀请码不为空，查看邀请人存不存在        if (!empty($request['invited_code'])) {            $request['invited_id'] = $user->where(['icode' => $request['invited_code'], 'status' => 1])->value('id');            if (empty($request['invited_id'])) {                return $crypt->response(['code' => 400, 'message' => '邀请人不存在']);            }        }        $request['password'] = md5(md5($request['password']));        $data = $user->allowField(true)->isUpdate(false)->save($request);        if ($data) {            if (!empty($request['invited_id'])) {                $reward = Db::name('webconfig')->where('varname', 'web_invited')->value('varvalue');//推荐注册奖励积分                $user->where('id', $request['invited_id'])->setInc('integral', $reward);//给邀请人增加积分                $info->save(['user_id' => $request['invited_id'], 'type' => 4, 'num' => $reward]);//增加积分明细            }            return $crypt->response(['code' => 200, 'message' => '注册成功！']);        } else {            return $crypt->response(['code' => 400, 'message' => '注册失败！']);        }    }    /*     * 微信绑定手机号     * */    public function binding(RSACrypt $crypt, User $user, IntegralInfo $info)    {        $request = $crypt->request();        $result = $this->validate($request, 'Login.binding');  //验证参数        if ($result !== true) {            return $crypt->response(['code' => 400, 'message' => $result]);        }        $mobile = $user->where(['mobile' => $request['mobile'], 'status' => 1])->find();//查一下要绑定的手机号注册过没        if (!empty($mobile)) {//绑定的手机号已存在            $openid = $user->where('id', $request['user_id'])->value('openid');            $res = $user->where('mobile', $request['mobile'])->update(['openid' => $openid]);//将openid绑定在已注册的手机号上            $user->where('id', $request['user_id'])->delete();//将登录的微信删除            $data = ['id' => $mobile['id'], 'state' => 0];//state=0不需要再设置密码        } else {//绑定的手机号不存在            $res = $user->where('id', $request['user_id'])->update(['mobile' => $request['mobile']]);//直接将手机号跟微信绑定            //查询手机密码            $pass = $user->where('id',$request['user_id'])->value('password');            if(empty($pass)) {                $aa = 1;            } else {                $aa = 0;            }            $data = ['id' => $request['user_id'], 'state' => $aa];//state=1 需要再设置密码        }        return $crypt->response(['code' => 200, 'message' => '绑定成功！', 'data' => $data]);    }    /*     * 绑定完手机号设置密码     * */    public function bindingSetPass(RSACrypt $crypt, User $user, IntegralInfo $info)    {        $request = $crypt->request();        $result = $this->validate($request, 'Login.binding');  //验证参数//        if ($result !== true) {//            return $crypt->response(['code' => 400, 'message' => $result]);//        }        //邀请码不为空，查看邀请人存不存在        if ($request['invited_code'] != '') {            $request['invited_id'] = $user->where(['icode' => $request['invited_code'], 'status' => 1])->value('id');            if (empty($request['invited_id'])) {                return $crypt->response(['code' => 400, 'message' => '邀请人不存在']);            }            $reward = Db::name('webconfig')->where('varname', 'web_invited')->value('varvalue');//推荐注册奖励积分            $user->where('id', $request['invited_id'])->setInc('integral', $reward);//给邀请人增加积分            $info->save(['user_id' => $request['invited_id'], 'type' => 4, 'num' => $reward]);//增加积分明细        }else{            $request['invited_id']='';        }        $res = $user->where('id', $request['user_id'])->update(['password' => md5(md5($request['password'])), 'invited_id' => $request['invited_id']]);        $data['id'] = $request['user_id'];        if ($res) {            return $crypt->response(['code' => 200, 'message' => '设置成功', 'data' => $data]);        } else {            return $crypt->response(['code' => 400, 'message' => '设置失败']);        }    }    /*    * 注册接口    * 参数：用户名 密码    * */    public function forget(RSACrypt $crypt, User $user, IntegralInfo $info)    {        $request = $crypt->request();        $result = $this->validate($request, 'Login.forgetPassMobile');  //验证参数        if ($result !== true) {            return $crypt->response(['code' => 400, 'message' => $result]);        }        $request['password'] = md5(md5($request['password']));        $data = $user->where(['mobile'=>$request['mobile']])->update(['password'=> $request['password']]);        if ($data) {            return $crypt->response(['code' => 200, 'message' => '修改成功！']);        } else {            return $crypt->response(['code' => 400, 'message' => '修改失败！']);        }    }    /*获取验证码*/    public function getcode(RSACrypt $crypt)    {        $request = $crypt->request();        $code = Cache::get('sms_verify_' . $request['type'] . '_time_' . $request['mobile']);        if ($code) {            return $crypt->response(['code' => 400, 'message' => '操作频繁，请稍后再发']);        }        switch ($request['type']) {            case 'reg'://注册获取验证码;                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');                if ($id) return $crypt->response(['code' => 400, 'message' => '该手机号已存在']);                break;            case 'login'://验证码登录                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');                if (!$id) return $crypt->response(['code' => 400, 'message' => '用户未注册']);                break;            case 'find'://找回密码 或 验证码登录   获取验证码；                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');                if (!$id) return $crypt->response(['code' => 400, 'message' => '用户未注册']);                break;            case 'forget'://忘记密码；                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');                if (!$id) return $crypt->response(['code' => 400, 'message' => '用户未注册']);                break;            case 'upshop'://开店                $id = Db::name('user')->where(['mobile' => $request['mobile']])->value('id');                if (empty($id)) return $crypt->response(['code' => 400, 'message' => '用户未注册']);                break;            case 'bind'://绑定获取验证码;                $user = Db::name('user')->where(['mobile' => $request['mobile']])->find();                if($user){                    if(!empty($user['openid'])){                        return $crypt->response(['code' => 400, 'message' => '该手机号已存在']);                    }                }                break;            default:                return $crypt->response(['code' => 422, 'message' => 'TYPE_ERROR']);                break;        }            $codes = rand(100000, 999999);            Cache::set('sms_verify_' . $request['type'] . '_time_' . $request['mobile'], $codes, 60); // 短信请求有效期            Cache::set('sms' . $request['type'] . '_code' . $request['mobile'], $codes, 900);     // 短信保存有效期            header('Content-Type: text/plain; charset=utf-8');            $ch = curl_init();            $post_data = array(                "account" => "sdk_wantao123",                "password" => "wantao456",                "destmobile" => $request['mobile'],                "msgText" => "尊敬用户,您的验证码为" . $codes . "【资海美容】" ,                "sendDateTime" => ""            );        return $crypt->response(['code' => 200, 'message' => '发送成功', 'data' => ['phone' => $request['mobile'], 'code' => $codes]]);             curl_setopt($ch, CURLOPT_HEADER, false);             curl_setopt($ch, CURLOPT_POST, true);             curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);             $post_data = http_build_query($post_data);            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);            curl_setopt($ch, CURLOPT_URL, 'http://www.jianzhou.sh.cn/JianzhouSMSWSServer/http/sendBatchMessage');            if (curl_exec($ch) > 0)                curl_close($ch);                return $crypt->response(['code' => 200, 'message' => '发送成功', 'data' => ['phone' => $request['mobile'], 'code' => $codes]]);    }}

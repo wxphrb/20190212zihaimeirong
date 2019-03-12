@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="__HOME__/css/phone.css" type="text/css" rel="stylesheet">
+    <link href="__HOME__/css/swiper.min.css" type="text/css" rel="stylesheet">
+    <script src="__HOME__/js/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="__HOME__/js/swiper.min.js" type="text/javascript"></script>
+    <script src="__HOME__/js/phone.js" type="text/javascript"></script>
+    <script type="text/javascript" src="__HOME__/layer/2.1/layer.js"></script>
+    <style>
+        .details_btn{
+            position: inherit;
+            background: none;
+        }
+    </style>
+    <script>
+        //退出
+        function loginOut() {
+            layer.confirm('确定要退出吗', {
+                btn: ['确定', '取消'] //可以无限个按钮
+            }, function(index, layero){
+                window.location.href = "{:url('home/login/logout')}";
+            }, function(index){
+                layer.close(index);
+            });
+        }
+
+        //修改密码
+        function updatePass() {
+            window.location.href = "{:url('home/set/update_pass')}";
+        }
+
+        //关于我们
+        function about() {
+            window.location.href = "{:url('home/set/about')}";
+        }
+        //返回
+        function back() {
+            window.location.href = "{:url('home/user/index')}";
+        }
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" onclick="back()" class="back_btn">
+        <p class="title">设置</p>
+    </header>
+    <div class="center_content">
+        <ul class="bottom_li">
+            <a href="#" onclick="updatePass()">
+                <li>
+                    <span>修改密码</span>
+                    <img src="__HOME__/img/right_img_03.png" alt="" class="right_logo" style="margin-left: 0.15rem">
+                </li>
+            </a>
+            <a href="#" onclick="about()">
+                <li>
+                    <span>关于</span>
+                    <img src="__HOME__/img/right_img_03.png" alt="" class="right_logo" style="margin-left: 0.15rem">
+                </li>
+            </a>
+        </ul>
+        <div class="details_btn"><a href="#" onclick="loginOut()">退出登录</a></div>
+    </div>
+</div>
+</body>
+</html>

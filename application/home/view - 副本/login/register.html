@@ -1,0 +1,307 @@
+{include file="public/header" /}
+
+
+
+
+
+
+
+<style>
+
+
+
+    .details_btn {
+
+
+
+        position: inherit;
+
+
+
+        background: none;
+
+
+
+    }
+
+
+
+
+
+
+
+    .password_content .d1 p {
+
+
+
+        width: 1.5rem;
+
+
+
+    }
+
+
+
+
+
+
+
+    .validate1 {
+
+
+
+        background-color: #DCDCDC !important;
+
+
+
+        color: #666 !important;
+
+
+
+    }
+
+
+
+
+
+
+
+    .validate {
+
+
+
+        background-color: #3099e9 !important;
+
+
+
+        color: white !important;
+
+
+
+    }
+
+
+
+</style>
+
+
+
+<body style="background: #f4f4f4">
+
+
+
+<div class="wrap">
+
+
+
+    <header>
+
+
+
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn">
+
+
+
+        <p class="title">注册</p>
+
+
+
+    </header>
+
+
+
+    <div class="password_content">
+
+
+
+        <div class="d1">
+
+
+
+            <p>手机号码</p>
+
+
+
+            <input type="tel" name="mobile" value="" id="mobile" placeholder="输入手机号码" maxlength="11">
+
+
+
+        </div>
+
+
+
+        <div class="d1">
+
+
+
+            <p>输入验证码</p>
+
+
+
+            <input type="text" placeholder="输入验证码" id="code" style="width: 2rem" value="">
+
+
+
+            <a href="JavaScript:;" class="gain validate" onclick="send();" id="validate">
+                <div href="##" id='sms' class="hq_btn cl">获取验证码</div>
+            </a>
+        </div>
+        <div class="d1">
+            <p>填写邀请码</p>
+            <input type="text" name="yqm" value="" placeholder="输入邀请码（选填）" id="yqm">
+        </div>
+        <div class="d1">
+            <p>设置密码</p>
+            <input type="password" name="password" value="" placeholder="输入登录密码" id="pwd">
+        </div>
+        <div class="d1">
+            <p>确认密码</p>
+            <input type="password" name="password2" placeholder="输入登录密码" value="" id="pwd2">
+        </div>
+    </div>
+    <div class="details_btn"><a href="#" id="submit" onClick="CheckReg();">确定</a></div>
+</div>
+</body>
+</html>
+<input type="hidden" id="realvalidate" value="">
+<script>
+    var sendable = 0; //全局变量 防止多次点击事件
+    function count() {
+        $("#sms").attr("disabled", true);
+        var sec = 60;
+        var intt = setInterval(function jishi() {
+                if (sec > 0) {
+                    sec--;
+                    var str = sec + "秒后重发";
+                    $("#sms").html(str);
+                }
+                else {
+                    $("#validate").css("background-color", '#DCDCDC');
+                    $("#sms").attr("disabled", false);
+                    $('#validate').removeClass('validate1').addClass('validate');
+                    $("#sms").html("点击重新发送");
+                    sendable = 0;
+                    clearInterval(intt);
+                }
+            }
+            , 1000);
+    }
+    function send() {
+        var ckmobile = /^[1][0-9]{10}/;
+        var mobile = $("#mobile").val();
+        if (!mobile) {
+            tips("手机号码为空！");
+            $("#mobile").focus();
+            return false;
+        } else {
+            if(!ckmobile.test(mobile)){
+                tips("手机号码格式错误！");
+                $("#mobile").focus();
+                return false;
+            }
+            if (sendable == 0) {
+                sendable = 1;
+                $.ajax({
+                    type: 'post',
+                    url: "{:url('api/login/getcode')}",
+                    data: "mobile=" + mobile + "&type=reg",
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.code == 200) {
+                            $('#validate').removeClass('validate').addClass('validate1');
+                            $("#mobile").attr("readonly", true);
+                            $("#realvalidate").val(data.codes);
+                            count();
+                            tips("发送成功。");
+                        }
+                        if (data['code'] == 400) {
+                            sendable = 0;
+                            tips(data.message);
+                            $("#mobile").val("");
+                        }
+                    },
+                    error: function (err) { //如果执行不成功，那么执行此方法
+                        sendable = 0;
+                        tips("请求失败，请重试！");
+                    }
+                });
+            }
+        }
+    }
+    var chickable = 0; //全局变量 防止多次点击事件
+    function CheckReg() {
+        var ckmobile = /^[1][0-9]{10}/;
+        var ckpassword = /[A-Za-z0-9]{6,12}/;
+        var user_phone = $("#mobile").val();
+        var password = $("#pwd").val();
+        var invited_id = $("#yqm").val();
+        var code = $("#code").val();
+        var repassword = $("#pwd2").val();
+        if(!user_phone){
+            tips('注册账户不能为空!');
+            $("#mobile").focus();
+            return false;
+        }
+        if(!ckmobile.test(user_phone)){
+            tips("手机号码格式错误！");
+            $("#mobile").focus();
+            return false;
+        }
+        if(!code){
+            tips('短信验证码不能为空!');
+            $("#code").focus();
+            return false;
+        }
+        if(!password){
+            tips('用户密码不能为空!');
+            $("#pwd").focus();
+            return false;
+        }
+        if(!repassword){
+            tips('确认密码不能为空!');
+            $("#pwd2").focus();
+            return false;
+        }
+        if(repassword != password){
+            tips('两次密码输入不一致!');
+            $("#pwd2").focus();
+            return false;
+        }
+        if (chickable == 0) {
+            chickable = 1;
+            $.ajax({
+                type: "POST",     //提交方式
+                dataType: "JSON",     //类型
+                url: "{:url('Login/register')}",    //提交的页面，方法名
+                data:
+                "mobile=" + user_phone + "&password=" + password + "&invited_id=" + invited_id+"&sms_code="+code+"&repassword="+repassword,
+                success: function (data) { //如果执行成功，那么执行此方法
+                    if (data.code == "200") {
+                        tips("注册成功");
+                        setInterval(function () {
+                            window.location.href = "{:url('login/login')}";
+                        }, 1000);
+                    }
+                    if (data.code  == "400") {
+                        chickable = 0;
+                        tips(data.message);
+                    }
+                    if (data.data  == "3") {
+                        chickable = 0;
+                        tips("账号已存在！");
+                    }
+                },
+                error: function (err) { //如果执行不成功，那么执行此方法
+                    chickable = 0;
+                    tips("注册失败，请重试！");
+                }
+            });
+        }
+    }
+    function tips(data) {
+        /*layer.open({
+         content: data
+         });*/
+        layer.msg(data);
+    }
+</script>

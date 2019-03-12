@@ -1,0 +1,133 @@
+<!--顶部导航-->
+{include file="public/header" /}
+    <style>
+        .details_btn{
+            position: inherit;
+            background: none;
+            height: 1.5rem;
+        }
+        .password_content .d1 p{
+            width: 1.5rem;
+        }
+    </style>
+
+<body style="background: #f4f4f4">
+<form name="form" id="form" method="post" enctype="multipart/form-data" >
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">我要开店</p>
+    </header>
+
+    <div class="password_content">
+        <div class="d1">
+            <p>手机号码</p>
+            <input type="text" placeholder="输入手机号码" name='mobile' id='mobile'>
+        </div>
+        <div class="d1">
+            <p>输入验证码</p>
+            <input type="text" placeholder="输入验证码" style="width: 2rem" name='sms_code' id='sms_code'>
+            <!--<input  class="hq_btn"  id="btnSendCode" value="获取验证码" readonly="readonly" />-->
+            <a href="##" class="hq_btn" id="btnSendCode" onclick="putsms()">获取验证码</a>
+        </div>
+        <div class="d1">
+            <p>姓名</p>
+            <input type="text" placeholder="输入真实姓名" name="manned" value="">
+        </div>
+        <div class="d1">
+            <p>所在地</p>
+            <input type="text" placeholder="输入所在省份" name="pro" value="">
+        </div>
+        <div class="d1">
+            <p>店名</p>
+            <input type="text" placeholder="输入店铺名称" name="title" value="">
+        </div>
+    </div>
+    <div class="details_btn"><a href="#" onclick="tj()">确认提交</a></div>
+    <p class="p_all">
+
+    </p>
+</div>
+</form>
+</body>
+</html>
+<script type="text/javascript" src="__HOME__/js/radialIndicator.js"></script>
+<script>
+    var InterValObj; //timer变量，控制时间
+    var count = 60; //间隔函数，1秒执行
+    var curCount;//当前剩余秒数
+    //获取验证码
+
+    function putsms(){
+        var mobile = $("#mobile").val();
+
+        var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        if(mobile.length==0){
+            layer.msg('手机号码不能为空哦！');
+            $('#mobile').focus();
+            return false;
+        }else if(mobile.length !=11){
+            layer.msg('请输入有效的手机号码！');
+            $('#mobile').focus();
+            return false;
+        }else if(!myreg.test(mobile)){
+            layer.msg('请输入有效的手机号码！');
+            $('#mobile').focus();
+            return false;
+        }
+
+        //判断手机号
+        $.ajax({
+            url: "{:url('Login/getcode')}",
+            type: 'post',
+            dataType: 'json',
+            data: {mobile: mobile,type:'upshop'},
+            success: function (data) {
+                if(data.code==200){
+                    layer.msg('发送成功');
+                    curCount = count;
+                    //设置button效果，开始计时
+                    $('#btnSendCode').removeAttr('onclick');
+                    $("#btnSendCode").text(curCount + "s");
+                    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                }else{
+                    layer.msg(data.message);
+                    return false;
+                }
+            }
+        });
+    }
+
+    //timer处理函数
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj);//停止计时器
+            $('#btnSendCode').attr('onclick','putsms()');
+            $("#btnSendCode").text("重新发送");
+        }else {
+            curCount--;
+            $("#btnSendCode").text(curCount + "s");
+        }
+    }
+
+    function tj(){
+        $.ajax({
+            url: "{:url('store/openStore')}",
+            type: 'post',
+            dataType: 'json',
+            data:$("form").serialize(),
+            success: function (data) {
+                if(data.code==200){
+                    layer.msg('添加成功!', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function(){
+                        window.location.href="{:url('user/index')}";
+
+                    });
+                }else{
+                    layer.msg(data.message);
+                }
+            }
+        });
+}
+</script>

@@ -1,0 +1,242 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+        </div>
+        <div class="panel-body panel-body-nopadding">
+
+        <form class="form-horizontal form-bordered" id="submitForm" action="" method="post" >
+        <div class="form-group">
+              <label class="col-sm-3 control-label">用户名:</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" name="username" placeholder="请输入用户名"  value="{$vo.username ?? ''}" {if condition="$Request.action eq 'update'"}readonly{else/}required{/if} >
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="col-sm-3 control-label">密码:</label>
+              <div class="col-sm-6">
+                  <input type="password" class="form-control" name="password" placeholder="请输入密码" {if condition="$Request.action eq 'create'"}required{/if}>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="col-sm-3 control-label">确认密码:</label>
+              <div class="col-sm-6">
+                  <input type="password" class="form-control" name="repassword" placeholder="请输入确认密码" {if condition="$Request.action eq 'create'"}required{/if}>
+              </div>
+          </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>真实姓名：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="真实姓名" name="truename" value="{$vo.truename ?? ''}"  required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">性别：</label>
+            <div class="col-sm-6 wh-inline">
+                <div class="rdio rdio-primary">
+                    <input type="radio" name="sex" id="sex-1" value="1">
+                    <label for="sex-1">男</label>
+                </div>
+                <div class="rdio rdio-primary">
+                    <input type="radio" name="sex" id="sex-2" value="2">
+                    <label for="sex-2">女</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>手机号：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="手机号" name="mobile" value="{$vo.mobile ?? ''}"  required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>邮箱：</label>
+            <div class="col-sm-6">
+                <input type="email" class="form-control" placeholder="邮箱" name="email" value="{$vo.email ?? ''}"  required>
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">所在地区：</label>
+          <div class="col-sm-2">
+            <select class="form-control" name="prov" onchange="GetRegion(this.value,1)" required>
+                    <option value=""> --请选择省-- </option>
+                    {volist name="prov_data" id="prov_vo"}
+                          <option value="{$prov_vo.code}">{$prov_vo.name} </option>
+                    {/volist}
+            </select>
+          </div>
+          <div class="col-sm-2">
+            <select class="form-control" name="city" id="city" onchange="GetRegion(this.value,2)" required>
+                    <option value=""> --请选择市-- </option>
+            </select>
+          </div>
+          <div class="col-sm-2">
+            <select class="form-control" name="area" id="area" required>
+                    <option value=""> --请选择区-- </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">详细地址：</label>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="address" placeholder="详细地址" datatype="*" value="{$vo.address ?? ''}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">状态：</label>
+            <div class="col-sm-6 wh-inline">
+                <div class="rdio rdio-primary">
+                    <input type="radio" name="status" id="status-1" value="1">
+                    <label for="status-1">启用</label>
+                </div>
+                <div class="rdio rdio-primary">
+                    <input type="radio" name="status" id="status-0" value="0">
+                    <label for="status-0">禁用</label>
+                </div>
+            </div>
+        </div>
+        {if condition="$Request.action eq 'update'"}
+        <div class="form-group">
+            <label class="col-sm-3 control-label">创建时间：</label>
+            <div class="col-sm-6">
+                <label class="control-label"> {$vo.create_time|date='Y-m-d H:i:s',###}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">上次更新：</label>
+            <div class="col-sm-6">
+                <label class="control-label"> {$vo.update_time|date='Y-m-d H:i:s',###}</label>
+            </div>
+        </div>
+        {/if} 
+
+        <div class="panel-footer">
+         <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <input type="hidden" name="id" value="{$vo.id ?? ''}">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+          </div>
+         </div>
+        </div><!-- panel-footer -->
+
+    </form>
+          
+</div><!-- panel-body -->
+{/block}
+{block name="fileinput"}{/block}
+{block name="ueditor"}{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+    $("[name='sex'][value='{$vo.sex ?? '1'}']").attr("checked", true);
+    $("[name='status'][value='{$vo.status ?? '1'}']").attr("checked", true);
+
+    $('#submitForm').bootstrapValidator({
+        message: '这个值是无效的',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            {if condition="$Request.action eq 'create'"}
+            username: {
+                message: '用户名必填不能为空',
+                validators: {
+                    stringLength: {
+                        max: 30,
+                        message: '用户名最大长度30个字符'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: '用户名只能由字母、数字、点和下划线组成'
+                    },
+                    remote: {
+                        url: "{:url('console/common/validonly',['table'=>'user'])}",
+                        message: '用户名已经存在'
+                    }
+                    
+                }
+            },
+            {/if}
+            password: {
+                validators: {
+                   identical: {
+                        field: 'repassword',
+                        message: '密码和确认密码不一致'
+                    }
+                }
+            },
+            repassword: {
+                validators: {
+                    identical: {
+                        field: 'password',
+                        message: '密码和确认密码不一致'
+                    }
+                }
+            },
+            mobile: {
+                validators: {
+                    regexp: {
+                        regexp: /^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$/,//手机号正则表达式
+                        message: '手机号格式不正确'
+                    },
+                    remote: {
+                        url: "{:url('console/common/validonly',['table'=>'user'])}",
+                        message: '手机号已经存在'
+                    }
+                }
+            }
+        }
+    });
+    //select2
+    jQuery(".select2").select2({
+        width: '100%',
+        minimumResultsForSearch: -1
+    });
+});
+//省市区联动
+function GetRegion(val,level){
+      var $city = $("#city");
+      var $area = $("#area");
+      $.ajax({
+            type: "post",
+            url: "{:url('Console/common/getRegion')}",
+            data: { pcode: val,level:level}, 
+            beforeSend: function() {
+                if(level=='1'){
+                    $city.html('<option value=""> --请选择市-- </option>');
+                    $city.val('');
+                }
+                $area.html('<option value=""> --请选择区-- </option>');
+                $area.val('');
+            },
+            success: function(data) {
+                var dataObj=eval("("+data+")");//转换为json对象   
+                if(dataObj['code']==1){
+                    if(level=='1'){
+                        $.each(dataObj['list'], function(i, item) {
+                              $city.append('<option value="'+item['code']+'">'+item['name']+'</option>');
+                           });
+                    }else{
+                        $.each(dataObj['list'], function(i, item) {
+                              $area.append('<option value="'+item['code']+'">'+item['name']+'</option>');
+                           });
+                    }
+                }
+            },
+            error: function(err){
+                alert(JSON.stringify(err));
+            }
+       });
+  }
+</script>
+{/block}

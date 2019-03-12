@@ -1,0 +1,97 @@
+<!--顶部导航-->
+{include file="public/header" /}
+<!--顶部导航-->
+<body>
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="user_index()">
+        <script>
+            function user_index() {
+                window.location.href="{:url('home/user/index')}";
+            }
+        </script>
+        <p class="title">个人资料</p>
+    </header>
+    <div style="display:none;">
+        <input type="file" id="filepic" accept="image/*" class="inputPic">
+    </div>
+    <div class="center_content">
+        <ul class="bottom_li">
+            <li style="height:1.2rem;">
+                <span style="line-height: 1.2rem">修改头像</span>
+                {if condition="$vo.picurl neq ''"}
+                <img src="{$vo.picurl}" alt="" onerror="this.src='__HOME__/img/tab/touzw.png'" onclick="$('#filepic').click();" style="float: right;width: 0.8rem;height: 0.8rem;border-radius: 0.4rem;margin-top: 0.2rem">
+                {else /}
+                <img src="__HOME__/img/tab/touzw.png" onclick="$('#filepic').click();" style="float: right;width: 0.8rem;height: 0.8rem;border-radius: 0.4rem;margin-top: 0.2rem">
+                {/if}
+            </li>
+            <li>
+                <span>昵称</span>
+                <img src="__HOME__/img/right_img_03.png" alt="" class="right_logo" style="margin-left: 0.15rem" onclick="update_username('{$vo.username}')">
+                <p class="right_p" onclick="update_username('{$vo.username}')">{$vo.username}</p>
+            </li>
+            <script>
+                function update_username(username) {
+                    window.location.href = "{:url('home/user/update_username')}?username="+username;
+                }
+            </script>
+            <li>
+                <span>账号 </span>
+                <p class="right_p">{$vo.account}</p>
+            </li>
+            <li>
+                <span>邀请</span>
+                <p class="right_p">{$vo.icode}</p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function fileinputOne(fileid) {
+        var maxFileSize=150*1024;
+        //单图上传
+        var $input = $("#" + fileid);
+//        alert($input);return false;
+        $input.fileinput({
+            uploadUrl: "{:url('home/common/upload')}",
+            overwriteInitial: true,
+        }).on("filebatchselected", function (event, files) {
+            var files = Array.prototype.slice.call(this.files);
+            files.forEach(function (file, i) {
+                if(file.size > 3145728) {
+                    layer.msg("图片超出限制3M");return false;
+                }
+            });
+//            return false;
+            $input.fileinput("upload");//选择后自动上传
+        }).on('fileuploaded', function (event, data, previewId, index) {
+//            console.log(data);
+            var dataObj = eval("(" + data.response + ")");
+//            alert(dataObj['code']);
+            if (dataObj['code'] == 0) {
+                var picurl = dataObj['img'];
+                $.ajax({
+                    type: "post",
+                    url: "{:url('home/user/touxiang')}",
+                    data: {avatar: picurl},
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#avatar').attr('src', '/' + data['src']);
+                        layer.msg("修改成功");
+                        location.reload();
+                    },
+                    error: function (err) {
+                        layer.msg(JSON.stringify(err));
+                        layer.msg(JSON.stringify(err));
+                    }
+                });
+            } else {
+                layer.msg(dataObj['error']);
+//                alert();
+            }
+        });
+    }
+    fileinputOne('filepic');
+</script>

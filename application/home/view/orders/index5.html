@@ -1,0 +1,192 @@
+<!--顶部导航-->
+{include file="public/header" /}
+<!--顶部导航-->
+<style>
+        .product{
+            padding: 0;
+        }
+        .product .pro_right .name{
+            background: none !important;
+            padding:0 !important;
+        }
+        .product .pro_right{
+            width: 4.1rem;
+        }
+
+        .product .left_img{
+
+            width: 1.75rem;
+
+            height: 1.75rem;
+
+            margin-right: 0.15rem;
+
+        }
+
+        .product .pro_right .gg{
+
+            margin-top: 0;
+
+        }
+
+        .product .pro_right .gg span{
+
+            margin-left: 0.5rem;
+
+        }
+
+        .product .pro_right .price span{
+
+            font-size: 0.3rem;
+
+            margin-left: 0;
+
+        }
+
+        .product .pro_right .price .num{
+
+            font-size: 0.26rem;
+
+            color: #4c4c4c;
+
+            float: right;
+
+            line-height: 0.5rem;
+
+        }
+
+    </style>
+<body>
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="user_index()">
+        <p class="title">我的订单</p>
+        <script>
+            function user_index() {
+                window.location.href="{:url('home/user/index')}";
+            }
+        </script>
+        <span class="right_span"><img style="width: 0.4rem" src="__HOME__/img/search_img_03.png"></span>
+    </header>
+    <div class="order_all">
+        <div class="order_nav">
+            <ul>
+                <li>
+                    <a href="{:url('home/orders/index',array('status'=>11))}">全部</a>
+                </li>
+                <li>
+                    <a href="{:url('home/orders/index',array('status'=>111))}">待付款</a>
+                </li>
+                <li>
+                    <a href="{:url('home/orders/index',array('status'=>1))}" >待发货</a>
+                </li>
+                <li>
+                    <a href="{:url('home/orders/index',array('status'=>2))}" >待收货</a>
+                </li>
+                <li>
+                    <a href="{:url('home/orders/index',array('status'=>3))}"  >待评价</a>
+                </li>
+                <li>
+                    <a href="{:url('home/orders/index',array('status'=>4))}" class="order_all_a_style">退货/退款</a>
+                </li>
+            </ul>
+        </div>
+        <div class="order_content">
+            <!--退货/退款-->
+            <div class="order1" >
+
+                {volist name="list" id="vo"}
+                <div class="order1">
+                    <div class="order1_1">
+                        <div class="name">
+                            <p class="name1"><span>{$vo.title}</span><img src="__HOME__/img/right_img_03.png"></p>
+                            <p class="zt">
+                                {switch name="vo.status"}
+                                {case value="5"}退款中{/case}
+                                {case value="7"}退款失败{/case}
+                                {case value="8"}退货中{/case}
+                                {case value="9"}退货失败{/case}
+                                {default /}default
+                                {/switch}
+                            </p>
+                        </div>
+                        <ul class="product">
+                            {volist name="vo.orderlist" id="vv"}
+                            <li>
+                                <img src="__ROOT__{$vv.goods_picurl}" alt="" class="left_img">
+                                <div class="pro_right">
+                                    <p class="name">{$vv.goods_title}</p>
+                                    <p class="gg">{$vv.goods_attr}</p>
+                                    <div class="price"><span>￥{$vv.goods_price}</span><span class="num">×{$vv.num}</span></div>
+                                </div>
+                            </li>
+                            {/volist}
+                        </ul>
+                        <div class="button_div">
+                            {switch name="vo.status"}
+                            {case value="5"}<p class="zt_p">已申请退款，待处理</p>
+                            <a href="#" style="background: #4d86db;color: #fff" onclick="take_goods('{$vo.order_sn}')">确认收货</a>{/case}
+                            {case value="7"}
+                            <p class="zt_p">退款申请被拒绝</p>
+                            {/case}
+                            {case value="8"}
+                            <p class="zt_p">已申请退货，待处理</p>
+                            {/case}
+                            {case value="9"}退货失败{/case}
+                            {default /}default
+                            {/switch}
+
+                        </div>
+                    </div>
+                </div>
+                {/volist}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
+<script>
+
+    $(function(){
+
+        $(".order_all .order_nav ul li").click(function(){
+
+            $(this).children("a").addClass("order_all_a_style");
+
+            $(this).siblings().children("a").removeClass("order_all_a_style");
+
+            var index=$(this).index();
+
+            $(".order_all .order_content .order1").eq(index).show().siblings().hide();
+
+        })
+
+    })
+    /*确认收货*/
+    function take_goods(order_sn){
+        $.ajax({
+            url: "{:url('orders/order_del')}",
+            type: 'post',
+            dataType: 'json',
+            data:{order_sn:order_sn},
+            success: function (data) {
+                if(data.code==200){
+                    layer.msg('收货成功!', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function(){
+                        window.location.reload();
+                    });
+                }else{
+                    layer.msg(data.message);
+                }
+            }
+        });
+    }
+</script>

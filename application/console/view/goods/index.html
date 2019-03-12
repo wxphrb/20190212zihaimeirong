@@ -22,11 +22,11 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>所属商家</th>
                     <th>图片</th>
                     <th>名称</th>
                     <th>销售价格</th>
                     <th>销量</th>
+                    <th>总库存</th>
                     <th>是否推荐</th>
                     <th>状态</th>
                     <th>操作</th>
@@ -37,11 +37,11 @@
                 {volist name="list" id="vo"}
                 <tr>
                     <td>{$vo.id}</td>
-                    <td>{$vo.store_id|show_store_name=$vo.store_id}</td>
                     <td>{$vo.picurl|show_img}</td>
                     <td>{$vo.title}</td>
                     <td>&yen;{$vo.saleprice}</td>
                     <td>{$vo.sell}</td>
+                    <td>{$vo.kucun_all}</td>
 
                     <td>{$vo.hot|show_hot=$vo.id}</td>
                     <td>{$vo.status|show_status=$vo.id}</td>

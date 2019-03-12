@@ -1,0 +1,28 @@
+<!--顶部导航-->
+{include file="public/header" /}
+
+<body>
+
+<div id="page">
+
+<div class="xian"></div>
+
+<div class="tx_gong">
+共提现<p>{$count}元</p>
+
+</div>
+<div class="xian"></div>
+
+    {volist name="list" id="vo"}
+        <!--一组-->
+        <div class="tx_list">
+            <div class="tx_list1">{$vo.content}<span>-{$vo.money}</span></div>
+            <div class="tx_list2">{$vo.creattime}<span>交易成功</span></div>
+        </div>
+    {/volist}
+
+<div class="pb100"></div>
+
+</div>
+</body>
+</html>

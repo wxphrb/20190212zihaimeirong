@@ -29,14 +29,4 @@ class Info extends Base
             return true;
         }
     }
-    public function setUseTypeAttr($value)
-    {
-        $use_type = json_encode($value);
-        return $use_type;
-    }
-    public function getUseTypeAttr($value)
-    {
-        $use_type = json_decode($value);
-        return $use_type;
-    }
 }

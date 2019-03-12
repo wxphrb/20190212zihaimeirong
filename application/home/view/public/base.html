@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{$Think.config.web_config.web_name}</title>
+  <meta name="description" content="{$Think.config.web_config.web_description}" />
+  <meta name="author" content="{$Think.config.web_config.web_author}" />
+  <link rel="shortcut icon" href="__CONSOLE__/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="__HOME__/css/amazeui.css" />
+  <link rel="stylesheet" href="__HOME__/css/common.min.css" />
+  {block name="css"}{/block}
+</head>
+<body>
+  <div class="layout">
+    <!--===========layout-header================-->
+    {include file="public:top" /}
+  </div>
+
+
+
+    <!--===========layout-container================-->
+    {block name="container"}{/block}
+    
+
+
+  <!--===========layout-footer================-->
+  <div class="layout-footer">
+    <div class="footer">
+      <div style="background-color:#383d61" class="footer--bg"></div>
+      <div class="footer--inner">
+        <div class="container">
+          <div class="footer_main">
+            <div class="am-g">
+              <div class="am-u-md-3 ">
+                <div class="footer_main--column">
+                  <strong class="footer_main--column_title">公司简介</strong>
+                  <div class="footer_about">
+                      <p class="footer_about--text">
+                        {$Think.config.web_config.web_company}
+                      </p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="am-u-md-9 ">
+                <div class="footer_main--column">
+                  <strong class="footer_main--column_title">联系我们</strong>
+                  <ul class="footer_contact_info">
+                    <li class="footer_contact_info--item"><i class="am-icon-phone"></i><span>{$Think.config.web_config.web_hotline}</span></li>
+                    <li class="footer_contact_info--item"><i class="am-icon-envelope-o"></i><span>{$Think.config.web_config.web_email}</span></li>
+                    <li class="footer_contact_info--item"><i class="am-icon-map-marker"></i><span>{$Think.config.web_config.web_address_more}{$Think.config.web_config.web_address}</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="__HOME__/js/jquery-2.1.0.js" charset="utf-8"></script>
+  <script src="__HOME__/js/amazeui.js" charset="utf-8"></script>
+  {block name="js"}{/block}
+
+</body>
+
+</html>
+

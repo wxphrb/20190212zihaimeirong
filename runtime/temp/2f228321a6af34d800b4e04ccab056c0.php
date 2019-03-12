@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\dashboard\index.html";i:1550202051;s:90:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\base.html";i:1550202078;s:93:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\sidebar.html";i:1550202077;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\topbar.html";i:1550202077;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\footer.html";i:1550202077;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\dashboard\index.html";i:1540438807;s:90:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\base.html";i:1540438818;s:93:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\sidebar.html";i:1540438817;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\topbar.html";i:1540438817;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\footer.html";i:1540438818;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh_cn">
 <head>
@@ -78,7 +78,43 @@
   
   <div class="mainpanel">
     
-     <div class="headerbar">      <a class="menutoggle"><i class="fa fa-bars"></i></a>      <div class="header-right">        <ul class="headermenu">          <li>            <div class="btn-group">            <a href="<?php echo url('index/index/index'); ?>" target="_blank">              <button class="btn btn-default tp-icon" title="预览网站">                <i class="fa fa-send"></i>              </button>              </a>            </div>          </li>          <li>            <div class="btn-group">              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">                <img src="__CONSOLE__/images/photos/user<?php echo $user['avatar']; ?>.jpg" alt="">                <?php echo $user['username']; ?>                <span class="caret"></span>              </button>              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">                <li><a href="#" data-toggle="modal" data-target=".bs-myinfo-modal-lg"><i class="fa fa-user"></i> 我的信息</a></li><!--                 <li><a href="#"><i class="glyphicon glyphicon-cog"></i> 账号设置</a></li>                <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> 帮助</a></li> -->                <li><a onClick="logout('<?php echo url('Console/login/logout'); ?>');"><i class="fa fa-sign-out"></i> 退出</a></li>              </ul>            </div>          </li>        </ul>      </div><!-- header-right -->    </div><!-- headerbar -->   
+     <div class="headerbar">
+
+      <a class="menutoggle"><i class="fa fa-bars"></i></a>
+
+      <div class="header-right">
+        <ul class="headermenu">
+          <li>
+            <div class="btn-group">
+            <a href="<?php echo url('Home/index/index'); ?>" target="_blank">
+              <button class="btn btn-default tp-icon" title="预览网站">
+                <i class="fa fa-send"></i>
+              </button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <img src="__CONSOLE__/images/photos/user<?php echo $user['avatar']; ?>.jpg" alt="">
+                <?php echo $user['username']; ?>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                <li><a href="#" data-toggle="modal" data-target=".bs-myinfo-modal-lg"><i class="fa fa-user"></i> 我的信息</a></li><!-- 
+                <li><a href="#"><i class="glyphicon glyphicon-cog"></i> 账号设置</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> 帮助</a></li> -->
+                <li><a onClick="logout('<?php echo url('Console/login/logout'); ?>');"><i class="fa fa-sign-out"></i> 退出</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div><!-- header-right -->
+
+    </div><!-- headerbar -->
+
+
+   
     
     <div class="pageheader">
       <h2><i class="fa fa-home"></i> <?php echo $mate_title; ?> <span><?php echo $mate_operate; ?></span></h2>
@@ -91,7 +127,137 @@
       </div>
     </div>
     <div class="contentpanel">
-               <div class="row">        <div class="col-sm-6 col-md-3">          <div class="panel panel-success panel-stat">            <div class="panel-heading">              <div class="stat">                <div class="row">                  <div class="col-xs-4">                    <img src="__CONSOLE__/images/is-user.png" alt="" />                  </div>                  <div class="col-xs-8">                    <small class="stat-label">新车数量</small>                    <h1><?php echo $count['newcar']; ?></h1>                  </div>                </div><!-- row -->                <div class="mb15"></div>                <div class="row">                                 </div><!-- row -->              </div><!-- stat -->            </div><!-- panel-heading -->          </div><!-- panel -->        </div><!-- col-sm-6 -->        <div class="col-sm-6 col-md-3">          <div class="panel panel-danger panel-stat">            <div class="panel-heading">              <div class="stat">                <div class="row">                  <div class="col-xs-4">                    <img src="__CONSOLE__/images/is-document.png" alt="" />                  </div>                  <div class="col-xs-8">                    <small class="stat-label">二手车数量</small>                    <h1><?php echo $count['oldcar']; ?></h1>                  </div>                </div><!-- row -->                <div class="mb15"></div>                           </div><!-- stat -->            </div><!-- panel-heading -->          </div><!-- panel -->        </div><!-- col-sm-6 -->        <div class="col-sm-6 col-md-3">          <div class="panel panel-primary panel-stat">            <div class="panel-heading">              <div class="stat">                <div class="row">                  <div class="col-xs-4">                    <img src="__CONSOLE__/images/is-document.png" alt="" />                  </div>                  <div class="col-xs-8">                    <small class="stat-label">留言总量</small>                    <h1><?php echo $count['message']; ?></h1>                  </div>                </div><!-- row -->                <div class="mb15"></div>                            </div><!-- stat -->            </div><!-- panel-heading -->          </div><!-- panel -->        </div><!-- col-sm-6 -->        <div class="col-sm-6 col-md-3">          <div class="panel panel-primary panel-stat">            <div class="panel-heading">              <div class="stat">                <div class="row">                  <div class="col-xs-4">                    <img src="__CONSOLE__/images/is-document.png" alt="" />                  </div>                  <div class="col-xs-8">                    <small class="stat-label">咨询总量</small>                    <h1><?php echo $count['sellcar']; ?></h1>                  </div>                </div><!-- row -->                <div class="mb15"></div>                           </div><!-- stat -->            </div><!-- panel-heading -->          </div><!-- panel -->        </div><!-- col-sm-6 -->      </div><!-- row -->      <!--<div class="row">-->        <!--<div class="col-sm-12">-->          <!--<div class="panel panel-default">-->            <!--<div class="panel-body">-->              <!--<div class="row">-->               <!--&lt;!&ndash;http://tianqi.2345.com/plugin&ndash;&gt;-->               <!--&lt;!&ndash;显示五天 &ndash;&gt;<iframe allowtransparency="true" frameborder="0" width="100%" height="98" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=1&v=0&d=5&bd=0&k=000000&f=0080ff&q=1&e=1&a=1&c=50953&w=100%&align=left"></iframe>-->              <!--</div>-->              <!--&lt;!&ndash; row &ndash;&gt;-->            <!--</div>&lt;!&ndash; panel-body &ndash;&gt;-->          <!--</div>&lt;!&ndash; panel &ndash;&gt;-->        <!--</div>&lt;!&ndash; col-sm-9 &ndash;&gt;-->      <!--</div>&lt;!&ndash; row &ndash;&gt;-->
+         
+
+      <div class="row">
+
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-success panel-stat">
+            <div class="panel-heading">
+
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <img src="__CONSOLE__/images/is-user.png" alt="" />
+                  </div>
+                  <div class="col-xs-8">
+                    <small class="stat-label">会员数量</small>
+                    <h1><?php echo $count['user']; ?></h1>
+                  </div>
+                </div><!-- row -->
+
+                <div class="mb15"></div>
+
+                <div class="row">
+                  <div class="col-xs-6">
+                    <small class="stat-label">管理员</small>
+                    <h4><?php echo $count['manager']; ?></h4>
+                  </div>
+
+                  <div class="col-xs-6">
+                    <small class="stat-label">管理组</small>
+                    <h4><?php echo $count['authgroup']; ?></h4>
+                  </div>
+                </div><!-- row -->
+              </div><!-- stat -->
+
+            </div><!-- panel-heading -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-danger panel-stat">
+            <div class="panel-heading">
+
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <img src="__CONSOLE__/images/is-document.png" alt="" />
+                  </div>
+                  <div class="col-xs-8">
+                    <small class="stat-label">商品数量</small>
+                    <h1><?php echo $count['goods']; ?></h1>
+                  </div>
+                </div><!-- row -->
+
+                <div class="mb15"></div>
+
+                <small class="stat-label">意见反馈</small>
+                <h4><?php echo $count['message']; ?></h4>
+
+              </div><!-- stat -->
+
+            </div><!-- panel-heading -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-primary panel-stat">
+            <div class="panel-heading">
+
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <img src="__CONSOLE__/images/is-document.png" alt="" />
+                  </div>
+                  <div class="col-xs-8">
+                    <small class="stat-label">供求平台</small>
+                    <h1><?php echo $count['supply']; ?></h1>
+                  </div>
+                </div><!-- row -->
+
+                <div class="mb15"></div>
+
+                <small class="stat-label">帖子</small>
+                <h4><?php echo $count['posts']; ?></h4>
+
+              </div><!-- stat -->
+
+            </div><!-- panel-heading -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-primary panel-stat">
+            <div class="panel-heading">
+
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <img src="__CONSOLE__/images/is-document.png" alt="" />
+                  </div>
+                  <div class="col-xs-8">
+                    <small class="stat-label">商家</small>
+                    <h1><?php echo $count['store']; ?></h1>
+                  </div>
+                </div><!-- row -->
+
+                <div class="mb15"></div>
+
+                <small class="stat-label">订单</small>
+                <h4><?php echo $count['orders']; ?></h4>
+
+              </div><!-- stat -->
+
+            </div><!-- panel-heading -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+      </div><!-- row -->
+      <!--<div class="row">-->
+        <!--<div class="col-sm-12">-->
+          <!--<div class="panel panel-default">-->
+            <!--<div class="panel-body">-->
+              <!--<div class="row">-->
+               <!--&lt;!&ndash;http://tianqi.2345.com/plugin&ndash;&gt;-->
+               <!--&lt;!&ndash;显示五天 &ndash;&gt;<iframe allowtransparency="true" frameborder="0" width="100%" height="98" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=1&v=0&d=5&bd=0&k=000000&f=0080ff&q=1&e=1&a=1&c=50953&w=100%&align=left"></iframe>-->
+
+              <!--</div>-->
+              <!--&lt;!&ndash; row &ndash;&gt;-->
+            <!--</div>&lt;!&ndash; panel-body &ndash;&gt;-->
+          <!--</div>&lt;!&ndash; panel &ndash;&gt;-->
+        <!--</div>&lt;!&ndash; col-sm-9 &ndash;&gt;-->
+      <!--</div>&lt;!&ndash; row &ndash;&gt;-->
+
     </div><!-- contentpanel -->
   </div><!-- mainpanel -->
   
@@ -160,7 +326,7 @@
                     <label class="col-sm-3 control-label">头像选择:</label>
                     <div class="col-sm-6 avatar-size">
                         <input type="hidden" name="avatar" value="<?php echo isset($user['avatar']) ? $user['avatar'] :  1; ?>" id="avatar2">
-                        <?php $__FOR_START_32613__=1;$__FOR_END_32613__=9;for($i=$__FOR_START_32613__;$i < $__FOR_END_32613__;$i+=1){ ?>
+                        <?php $__FOR_START_28016__=1;$__FOR_END_28016__=9;for($i=$__FOR_START_28016__;$i < $__FOR_END_28016__;$i+=1){ ?>
                         <img src="__CONSOLE__/images/photos/user<?php echo $i; ?>.jpg" class="img-circle" onClick="chooseImg2(<?php echo $i; ?>);" myflagImg="<?php echo $i; ?>">
                         <?php } ?>
                     </div>

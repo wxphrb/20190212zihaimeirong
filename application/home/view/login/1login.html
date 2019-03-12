@@ -1,0 +1,60 @@
+{include file="public/header" /}
+<style>
+    .details_btn {
+        position: inherit;
+        background: none;
+        height: 1.6rem;
+    }
+</style>
+<body style="background: #f4f4f4">
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">登录</p>
+        <a href="{:url('login/register')}"><span class="right_span">注册</span></a>
+    </header>
+    <div class="password_content">
+        <div class="d1">
+            <p>账号</p>
+            <input type="tel" id="mobile"  placeholder="输入手机号码" value="" maxlength="11">
+        </div>
+        <div class="d1">
+            <p>密码</p>
+            <input type="password" id="password"  placeholder="输入登录密码" value="">
+        </div>
+        <a href="{:url('login/forget')}" class="forget_pass">忘记密码</a>
+    </div>
+    <div class="details_btn">
+        <a href="#"  onclick="subm()">登录</a>
+    </div>
+    <p class="three_login">【使用第三方登录】</p>
+    <div class="weixin">
+        <a href="{:url('wxapi/index/index')}"><img src="__HOME__/img/weixin_03.png"></a>
+        <p>微信</p>
+    </div>
+</div>
+</body>
+</html>
+<script>
+
+    function subm(){
+        mobile = $("#mobile").val();
+        password = $("#password").val();
+        $.post(
+            "{:url('login/login')}",{mobile:mobile,password:password},function (data) {
+                if(data.code == 200){
+                    tips("登录成功");
+                    setInterval(function () {
+                        if(data.username==''){
+                            window.location.href = "{:url('login/bing_username')}";
+                        }else{
+                            window.location.href = "{:url('index/index')}";
+                        }
+                    }, 1000);
+                }else{
+                    tips("登录失败");
+                }
+            }
+        )
+    }
+</script>

@@ -1,0 +1,38 @@
+<!--顶部导航-->
+
+{include file="public/header" /}
+
+<!--顶部导航-->
+
+<body>
+
+<div id="page">
+
+<div class="xian"></div>
+
+<div class="tx_gong">
+总佣金<p>{$money}元</p>
+
+</div>
+<div class="xian"></div>
+
+<!--一组-->
+    {volist name="data" id="vo"}
+        <div class="tx_list">
+            <div class="tx_list1"><span>+{$vo.money}</span></div>
+            <div class="tx_list2">{$vo.create_time}<span>交易成功</span></div>
+        </div>
+    {/volist}
+
+
+
+
+
+
+
+
+
+
+
+
+{include file="public/footer" /}

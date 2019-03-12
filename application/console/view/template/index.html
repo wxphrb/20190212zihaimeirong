@@ -1,1 +1,78 @@
-<!DOCTYPE html><html lang="zh_cn"><head>  <meta charset="utf-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">  <meta http-equiv="content-type" content="text/html;charset=utf-8">  <meta name="description" content="">  <meta name="author" content="">  <link rel="shortcut icon" href="__CONSOLE__/images/favicon.png" type="image/png">  <title>{block name="title"}{$mate_title}-{$Think.config.web_config.web_name}{/block}</title>    <link href="__CONSOLE__/css/style.default.css" rel="stylesheet">  <!--   sweetalert弹出样式 -->  <link href="__PLUGIN__/sweetalert/css/sweetalert.css" rel="stylesheet">  <link href="__CONSOLE__/css/jquery.datatables.css" rel="stylesheet">  {block name="css"}{/block}  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->  <!--[if lt IE 9]>  <script src="__CONSOLE__/js/html5shiv.js"></script>  <script src="__CONSOLE__/js/respond.min.js"></script>  <![endif]--></head><body><!-- Preloader --><div id="preloader">    <div id="status"><i class="fa fa-spinner fa-spin"></i></div></div><section>  {include file="template:sidebar" /}    <div class="mainpanel">        {include file="template:topbar" /}        <div class="pageheader">      <h2><i class="fa fa-list-ul"></i> {$mate_title} <span>{$mate_operate}</span></h2>      <div class="breadcrumb-wrapper">        <span class="label">现在所在位置:</span>        <ol class="breadcrumb">          <li>{$mate_title} </li>          <li class="active">{$mate_operate}</li>        </ol>      </div>    </div>    <div class="contentpanel">         {block name="content"}{/block}         <div id="renew_submit" style="display: none;"></div>    </div><!-- contentpanel -->  </div><!-- mainpanel -->    </section><script src="__CONSOLE__/js/jquery-1.11.1.min.js"></script><script src="__CONSOLE__/js/jquery-migrate-1.2.1.min.js"></script><script src="__CONSOLE__/js/bootstrap.min.js"></script><script src="__CONSOLE__/js/modernizr.min.js"></script><script src="__CONSOLE__/js/jquery.sparkline.min.js"></script><script src="__CONSOLE__/js/toggles.min.js"></script><script src="__CONSOLE__/js/retina.min.js"></script><script src="__CONSOLE__/js/jquery.cookies.js"></script><script src="__CONSOLE__/js/select2.min.js"></script><script src="__CONSOLE__/js/custom.js"></script><script src="__PLUGIN__/sweetalert/js/sweetalert.min.js"></script><script src="__CONSOLE__/layer/layer.js" type="text/javascript"></script><script src="__CONSOLE__/js/jquery.datatables.min.js"></script><script src="__CONSOLE__/js/listing.js"></script><!-- 列表页处理js 手写 --><!-- 验证 --><script src="__CONSOLE__/js/bootstrapValidator.js"></script>{block name="js"}{/block}{block name="script"}{/block}{include file="template:footer" /}</body><script>    function tips(data) {        layer.msg(data);    }</script></html>
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="__CONSOLE__/images/favicon.png" type="image/png">
+
+  <title>{block name="title"}{$mate_title}-{$Think.config.web_config.web_name}{/block}</title>
+  
+  <link href="__CONSOLE__/css/style.default.css" rel="stylesheet">
+  <!--   sweetalert弹出样式 -->
+  <link href="__PLUGIN__/sweetalert/css/sweetalert.css" rel="stylesheet">
+  <link href="__CONSOLE__/css/jquery.datatables.css" rel="stylesheet">
+  {block name="css"}{/block}
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="__CONSOLE__/js/html5shiv.js"></script>
+  <script src="__CONSOLE__/js/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<section>
+  
+{include file="template:sidebar" /}
+  
+  <div class="mainpanel">
+    
+    {include file="template:topbar" /}
+    
+    <div class="pageheader">
+      <h2><i class="fa fa-list-ul"></i> {$mate_title} <span>{$mate_operate}</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">现在所在位置:</span>
+        <ol class="breadcrumb">
+          <li>{$mate_title} </li>
+          <li class="active">{$mate_operate}</li>
+        </ol>
+      </div>
+    </div>
+    <div class="contentpanel">
+         {block name="content"}{/block}
+         <div id="renew_submit" style="display: none;"></div>
+    </div><!-- contentpanel -->
+  </div><!-- mainpanel -->
+  
+  
+</section>
+<script src="__CONSOLE__/js/jquery-1.11.1.min.js"></script>
+<script src="__CONSOLE__/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="__CONSOLE__/js/bootstrap.min.js"></script>
+<script src="__CONSOLE__/js/modernizr.min.js"></script>
+<script src="__CONSOLE__/js/jquery.sparkline.min.js"></script>
+<script src="__CONSOLE__/js/toggles.min.js"></script>
+<script src="__CONSOLE__/js/retina.min.js"></script>
+<script src="__CONSOLE__/js/jquery.cookies.js"></script>
+
+<script src="__CONSOLE__/js/select2.min.js"></script>
+<script src="__CONSOLE__/js/custom.js"></script>
+<script src="__PLUGIN__/sweetalert/js/sweetalert.min.js"></script>
+
+<script src="__CONSOLE__/js/jquery.datatables.min.js"></script>
+<script src="__CONSOLE__/js/listing.js"></script><!-- 列表页处理js 手写 -->
+<!-- 验证 -->
+<script src="__CONSOLE__/js/bootstrapValidator.js"></script>
+
+{block name="js"}{/block}
+{block name="script"}{/block}
+
+{include file="template:footer" /}
+</body>
+</html>

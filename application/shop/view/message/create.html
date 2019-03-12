@@ -1,0 +1,96 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+        </div>
+        <div class="panel-body panel-body-nopadding">
+
+        <form class="form-horizontal form-bordered" id="submitForm" action="" method="post" >
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>姓名：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="姓名" name="truename" value="{$vo.truename ?? ''}"  required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>电话：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="电话" name="mobile" value="{$vo.mobile ?? ''}"  required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">内容：</label>
+            <div class="col-sm-6">
+                <textarea class="form-control" placeholder="" name="content" >{$vo.content ?? ''}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Ip：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="Ip" name="ip" value="{$vo.ip ?? ''}" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">回复：</label>
+            <div class="col-sm-6">
+                <textarea class="form-control" placeholder="" name="rebody" >{$vo.rebody ?? ''}</textarea>
+            </div>
+        </div>
+        {if condition="$Request.action eq 'update'"}
+        <div class="form-group">
+            <label class="col-sm-3 control-label">创建时间：</label>
+            <div class="col-sm-6">
+                <label class="control-label"> {$vo.create_time|date='Y-m-d H:i:s',###}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">上次更新：</label>
+            <div class="col-sm-6">
+                <label class="control-label"> {$vo.update_time|date='Y-m-d H:i:s',###}</label>
+            </div>
+        </div>
+        {/if} 
+
+            <div class="panel-footer">
+             <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <input type="hidden" name="id" value="{$vo.id ?? ''}">
+                <button type="submit" class="btn btn-primary">提交</button>
+                <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+              </div>
+             </div>
+            </div><!-- panel-footer -->
+
+        </form>
+          
+</div><!-- panel-body -->
+{/block}
+{block name="fileinput"}{/block}
+{block name="ueditor"}{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+
+
+    $('#submitForm').bootstrapValidator({
+        message: '这个值是无效的',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+    });
+    //select2
+    jQuery(".select2").select2({
+        width: '100%',
+        minimumResultsForSearch: -1
+    });
+});
+</script>
+{/block}

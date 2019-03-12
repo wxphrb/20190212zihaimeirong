@@ -1,0 +1,36 @@
+<!--顶部导航-->
+{include file="public/header" /}
+    <style>
+        .search_head input{
+            width: 5.5rem;
+        }
+    </style>
+</head>
+<body style="background: #f4f4f4">
+<div class="wrap">
+    <div class="search_head">
+        <img src="__HOME__/img/back_btn_03.png" class="back-btn" onclick="javascript:history.go(-1)">
+        <input type="text" placeholder="输入商品名称">
+    </div>
+    <div class="shop_banner">
+        <img src="__ROOT__{$data['pic']}" alt="" class="img1">
+        <div class="sc_div">
+            <img src="__HOME__/img/sc_img_03.png">
+            <p>{$data['collect_num']}人收藏</p>
+        </div>
+        <img src="__ROOT__{$data['picurl']}" alt="" class="logo1">
+    </div>
+    <div class="shop_content">
+        <p class="p1_shop">-{$data['title']}-</p>
+        <div class="jj_div">
+            <ul class="jj_ul">
+                <li>掌柜名:<span>{$data['manned']}</span></li>
+                <li>官方热线:<span>{$data['mobile']}</span></li>
+                <li>开店时间:<span>{$data.create_time|date="Y-m-d H:i:s",###}</span></li>
+                <li>所在地:<span>{$data['pro']}</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

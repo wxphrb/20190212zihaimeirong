@@ -1,0 +1,476 @@
+<!--顶部导航-->
+
+{include file="public/header" /}
+
+<style>
+
+    .search_head input {
+
+        width: 5.5rem;
+
+    }
+
+    .call_shop_mask {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: none;
+        z-index: 6;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .call_shop_mask_cont {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3rem;
+    }
+
+    .call_shop_mask_cont ul {
+        width: 94%;
+        height: 1.6rem;
+        margin: auto;
+        background: #fff;
+        -webkit-border-radius: 0.1rem;
+        -moz-border-radius: 0.1rem;
+        border-radius: 0.1rem;
+        overflow: hidden;
+    }
+
+    .call_shop_mask_cont ul li {
+        width: 100%;
+        height: 0.8rem;
+        border-bottom: 1px solid #efefef;
+        color: #333;
+        line-height: 0.8rem;
+    }
+
+    .call_shop_mask_cont ul li img {
+        width: 0.5rem;
+        height: 0.5rem;
+        float: left;
+        margin-right: 0.2rem;
+        margin-top: 0.15rem;
+    }
+
+    .call_shop_mask_cont ul li span {
+        float: left;
+        font-size: 0.26rem;
+    }
+
+    .call_shop_mask_btn {
+        width: 94%;
+        margin: 0.2rem auto 0;
+    }
+
+    .call_shop_mask_btn button {
+        width: 100%;
+        height: 0.8rem;
+        -webkit-border-radius: 0.1rem;
+        -moz-border-radius: 0.1rem;
+        border-radius: 0.1rem;
+        background: #fff;
+        border: none;
+        color: #269ce3;
+        outline: none;
+        font-size: 0.26rem;
+    }
+    .jia_shop_img {
+        position: absolute;
+        bottom: -0.5rem;
+        left: 30%;
+        height: 0.8rem;
+        width: 40%;
+        -webkit-border-radius: 1.2rem;
+        -moz-border-radius: 1.2rem;
+        border-radius: 1.2rem;
+        background: #fff;
+    }
+    .jia_shop_img img {
+        width: 0.6rem!important;
+        height: 0.6rem!important;
+        top: 0.1rem!important;
+        left: 50%!important;
+        margin-left: -0.3rem!important;
+    }
+</style>
+
+
+<body style="background: #f4f4f4">
+
+<div class="wrap">
+
+    <div class="search_head">
+
+        <img src="__HOME__/img/back_btn_03.png" class="back-btn" onclick="javascript:history.go(-1)">
+
+
+        <a href="{:url('store/search',['store_id'=>$store_id])}">
+            <input type="text" placeholder="输入商品名称">
+        </a>
+
+    </div>
+
+    <div class="shop_banner">
+
+        <img src="__ROOT__{$data['pic']}" alt="" class="img1">
+
+        <div class="sc_div">
+
+            {if condition="$data['collection'] eq 0"}
+
+            <a href="#" class="sc"> <img src="__HOME__/img/sc_img_03.png" onclick="sc('{$data.id}',2)"></a>
+
+            {else/}
+
+            <a href="#" class="sc"> <img src="__HOME__/img/sc_img_03.png" onclick="qx('{$data.collection_id}')"></a>
+
+            {/if}
+
+            <p>{$data['collect_num']}人收藏</p>
+
+        </div>
+        <div class="jia_shop_img">
+            <img src="__ROOT__{$data['picurl']}" alt="" class="logo1">
+        </div>
+
+    </div>
+
+    <div class="shop_content">
+
+        <p class="p1_shop">-{$data['title']}-</p>
+
+        <ul class="ul1">
+
+            <li onclick="alls()">全部商品</li>
+
+            <li onclick="tj()">推荐商品</li>
+
+            <li onclick="news()">上新</li>
+
+        </ul>
+
+        <ul class="ul2">
+
+            {switch name="comprehensive" }
+
+            {case value=""}
+            <li onclick="comprehensive('{$comprehensive}')"><span style="color: black">综合</span><img
+                    src="__HOME__/img/fl_kist_logo_06.png"></li>
+            {/case}
+
+            {case value="1"}
+            <li onclick="comprehensive('{$comprehensive}')"><span style="color: #00aeee">综合</span><img
+                    src="__HOME__/img/fl_kist_logo_061.png"></li>
+            {/case}
+
+            {case value="2"}
+            <li onclick="comprehensive('{$comprehensive}')"><span style="color: #00aeee">综合</span><img
+                    src="__HOME__/img/fl_kist_logo_062.png"></li>
+            {/case}
+
+            {default /}默认情况
+
+            {case value=""}
+            <li onclick="comprehensive('{$comprehensive}')">综合<img src="__HOME__/img/fl_kist_logo_06.png"></li>
+            {/case}
+
+            {/switch}
+
+
+            {switch name="sell" }
+
+            {case value=""}
+            <li onclick="sell('{$sell}')"><span style="color: black">销量</span><img
+                    src="__HOME__/img/fl_kist_logo_06.png"></li>
+            {/case}
+
+            {case value="1"}
+            <li onclick="sell('{$sell}')"><span style="color: #00aeee">销量</span><img
+                    src="__HOME__/img/fl_kist_logo_061.png"></li>
+            {/case}
+
+            {case value="2"}
+            <li onclick="sell('{$sell}')"><span style="color: #00aaee">销量</span><img
+                    src="__HOME__/img/fl_kist_logo_062.png"></li>
+            {/case}
+
+            {default /}默认情况
+
+            {case value=""}
+            <li onclick="sell('{$sell}')">销量<img src="__HOME__/img/fl_kist_logo_06.png"></li>
+            {/case}
+
+            {/switch}
+
+
+            {switch name="saleprice" }
+
+            {case value=""}
+            <li onclick="price('{$saleprice}')"><span style="color: black">价格</span><img
+                    src="__HOME__/img/fl_kist_logo_06.png"></li>
+            {/case}
+
+            {case value="1"}
+            <li onclick="price('{$saleprice}')"><span style="color: #00aeee">价格</span><img
+                    src="__HOME__/img/fl_kist_logo_061.png"></li>
+            {/case}
+
+            {case value="2"}
+            <li onclick="price('{$saleprice}')"><span style="color: #00aeee">价格</span><img
+                    src="__HOME__/img/fl_kist_logo_062.png"></li>
+            {/case}
+
+            {default /}默认情况
+
+            {case value=""}
+            <li>价格1<img src="__HOME__/img/fl_kist_logo_06.png" onclick="price('{$saleprice}')"></li>
+            {/case}
+
+            {/switch}
+
+        </ul>
+
+        <ul class="ul3">
+
+            {volist name="data['goods']" id="vo"}
+
+            <li>
+
+                <a href="{:url('goods/info',['id'=>$vo.id])}">
+
+                    <img src="__ROOT__{$vo.picurl}">
+
+                    <p class="name">{$vo.title}</p>
+
+                    <p class="price">￥{$vo.saleprice}<span>销量：{$vo.sell}</span></p>
+
+                </a>
+
+            </li>
+
+            {/volist}
+
+        </ul>
+
+    </div>
+
+    <div class="shop_bottom">
+
+        <ul>
+
+            <li>
+
+                <a href="{:url('store/storeType',['store_id'=>$data['id']])}">
+
+                    <img src="__HOME__/img/bottom_logo_05.png">
+
+                    <p>商品分类</p>
+
+                </a>
+
+
+            </li>
+
+            <li>
+
+                <a href="{:url('store/introduce',['store_id'=>$data['id']])}">
+
+                    <img src="__HOME__/img/sp_logo1.png">
+
+                    <p>店铺简介</p>
+
+                </a>
+
+            </li>
+
+            <li class="call_shop_show">
+
+                <!--<a href="tel:{$data['mobile']}">-->
+                <a href="javascript:vido(0)">
+
+                    <img src="__HOME__/img/phone_img_03.png">
+
+                    <p>联系卖家</p>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="call_shop_mask">
+        <div class="call_shop_mask_cont">
+            <ul>
+                <a href="tel:{$phone}">
+                    <div style="display: table;margin: auto;">
+                        <img src="__HOME__/img/dp_bh.png" alt="">
+                        <span>一键拨号</span>
+                    </div>
+                </a>
+                </li>
+                <li>
+                    <!--<a href="mqqwpa://im/chat?chat_type=wpa&uin={$qq}&version=1&src_type=web&web_src=oicqzone.com">-->
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin={$qq}&site=qq&menu=yes">
+                    <div style="display: table;margin: auto;">
+                        <img src="__HOME__/img/dp_qq.png">
+                            <span>在线QQ</span>
+                    </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="call_shop_mask_btn">
+                <button type="button">取消</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+
+<script>
+
+
+    $(".call_shop_show").click(function () {
+        $(".call_shop_mask").show();
+    });
+    $(".call_shop_mask_btn button").click(function () {
+        $(".call_shop_mask").hide();
+    });
+
+    function sell(sells) {
+        if (sells == '') {
+            var sell = 1;
+        }
+        if (sells == 1) {
+            var sell = 2;
+        }
+        if (sells == 2) {
+            var sell = 1;
+        }
+        window.location.href = "{:url('store/index')}?sell=" + sell + "&store_id=" + '{$store_id}';
+        // window.location.href="{:url('store/index')}?comprehensive="+'{$comprehensive}'+"&saleprice="+'{$saleprice}'+"&sell="+sell+ "&store_id="+'{$store_id}';
+    }
+
+    function price(saleprice) {
+        if (saleprice == '') {
+            var price = 1;
+        }
+        if (saleprice == 1) {
+            var price = 2;
+        }
+        if (saleprice == 2) {
+            var price = 1;
+        }
+        window.location.href = "{:url('store/index')}?saleprice=" + price + "&store_id=" + '{$store_id}';
+        // window.location.href="{:url('store/index')}?comprehensive="+'{$comprehensive}'+"&saleprice="+price+"&sell="+'{$sell}'+ "&store_id="+'{$store_id}';
+
+    }
+
+    function comprehensive(comprehensive) {
+        if (comprehensive == '') {
+            var comprehensives = 1;
+        }
+        if (comprehensive == 1) {
+            var comprehensives = 2;
+        }
+        if (comprehensive == 2) {
+            var comprehensives = 1;
+        }
+        window.location.href = "{:url('store/index')}?comprehensive=" + comprehensives + "&store_id=" + '{$store_id}';
+        // window.location.href="{:url('store/index')}?comprehensive="+comprehensives+"&saleprice="+'{$saleprice}'+"&sell="+'{$sell}'+ "&store_id="+'{$store_id}';
+    }
+
+
+    function news() {
+
+        window.location.href = "{:url('store/index')}?screen=" + 2 +
+
+            "&store_id=" + '{$store_id}';
+
+    }
+
+    function tj() {
+
+        window.location.href = "{:url('store/index')}?screen=" + 1 +
+
+            "&store_id=" + '{$store_id}';
+
+    }
+
+    function alls() {
+
+        window.location.href = "{:url('store/index')}?screen=" + 3 +
+
+            "&store_id=" + '{$store_id}';
+
+    }
+
+    function sc(id, type) {
+
+        $.ajax({
+
+            url: "{:url('collection/add')}",
+
+            type: 'post',
+
+            dataType: 'json',
+
+            data: {collection_id: id, type: type},
+
+            success: function (data) {
+
+                if (data.code == 200) {
+
+                    layer.msg('收藏成功!', {
+
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+
+                    }, function () {
+
+                        window.location.reload()
+
+                    });
+
+                } else {
+
+                    layer.msg(data.message);
+
+                }
+
+            }
+
+        });
+
+    }
+
+    function qx(collection_id) {
+        $.ajax({
+            url: "{:url('collection/del')}",
+            type: 'post',
+            dataType: 'json',
+            data: {collection_id: collection_id},
+            success: function (data) {
+                if (data.code == 200) {
+                    layer.msg('取消成功!', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function () {
+                        window.location.reload()
+                    });
+                } else {
+                    layer.msg(data.message);
+                }
+            }
+        });
+    }
+
+
+</script>

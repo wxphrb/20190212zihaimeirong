@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的积分</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link href="__HOME__/css/phone.css" type="text/css" rel="stylesheet">
+    <link href="__HOME__/css/swiper.min.css" type="text/css" rel="stylesheet">
+    <script src="__HOME__/js/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="__HOME__/js/swiper.min.js" type="text/javascript"></script>
+    <script src="__HOME__/js/phone.js" type="text/javascript"></script>
+    <style>
+        .details_btn{
+            position: inherit;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">我的积分</p>
+        <a href="{:url('integralgoods/note',['type'=>1])}"><span class="right_span">积分兑换记录</span></a>
+    </header>
+    <div class="integration">
+        <div class="d1">
+            <p class="p1">当前余额</p>
+            <p class="p2">{$total}</p>
+        </div>
+        <div class="d2">
+            <ul>
+                {volist name="data" id="vo"}
+                <li>
+                    <div class="d2_d1">
+                        <p class="p1">
+                            {switch name="vo.type"}
+                            {case value="1"}
+                            每日签到
+                            {/case}
+                            {case value="2"}
+                            回复奖励
+                            {/case}
+                            {case value="3"}
+                            兑换商品
+                            {/case}
+                            {case value="4"}
+                            邀请奖励
+                            {/case}
+                            {default /}default
+                            {/switch}
+                        </p>
+                        <p class="time">{$vo.create_time|date="Y-m-d H:i:s",###}</p>
+                    </div>
+                    <div class="d2_d2">
+                        <p class="p1">
+                            <img src="__HOME__/img/jf_log.png">
+                            <span>
+                                {if condition="$vo.type eq 3"}
+                                -
+                                {else/}
+                                 +
+                                {/if}
+                                {$vo.num}
+                            </span>
+                        </p>
+                        <p class="p2">
+                            {switch name="vo.type"}
+                            {case value="1"}
+                            签到获得
+                            {/case}
+                            {case value="2"}
+                            回复获得
+                            {/case}
+                            {case value="3"}
+                            兑换
+                            {/case}
+                            {case value="4"}
+                            邀请获得
+                            {/case}
+                            {default /}default
+                            {/switch}
+                        </p>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <div class="details_btn"><a href="{:url('integralgoods/index')}">进入积分商城</a></div>
+    </div>
+</div>
+</body>
+</html>

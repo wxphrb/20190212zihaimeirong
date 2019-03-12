@@ -1,0 +1,97 @@
+<!--顶部导航-->
+{include file="public/header" /}
+    <style>
+        .hot_t_content .t_div .right{
+            width: 3.3rem;
+        }
+
+    </style>
+
+<body>
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">热帖详情</p>
+        <a href="#" class="sc"><img src="__HOME__/img/head_right_img.png"></a>
+        <a href="#" class="fx"><img src="__HOME__/img/head_right_img1.png"></a>
+    </header>
+    <div class="hot_t_content hot_cont">
+        <div class="t_div">
+            {if condition="$data['hot_state'] eq 1"}
+            <div class="left">热</div>
+            {else/}
+            <div class="left_w">问</div>
+            {/if}
+            <div class="right">{$data.title}</div>
+            <!--赏logo-->
+            {if condition="$data['integral_num'] neq 0"}
+            <img src="__HOME__/img/question_logo_03.png" class="w_bg">
+            {/if}
+            <div class="jb">
+                <img src="__HOME__/img/jifen_03.png">
+                <span>{$data['integral_num']}</span>
+            </div>
+        </div>
+
+        <div class="answer_d">
+            <div class="tx_name">
+                <img src="{$data['picurl']}" class="tx">
+                <p class="name">{$data['username']}</p>
+                <p class="time">{$data.create_time|date="Y-m-d H:i:s",###}</p>
+                <p class="ans_num"><img src="__HOME__/img/answer_logo_03.png"><span>{$data.answer_num}回答</span></p>
+            </div>
+            <textarea placeholder="欢迎提交您的回答，让您的知识帮助更多需要的人..." name="content"></textarea>
+            <div class="tj_btn">
+                <div class="check_nm">
+                    <input type="checkbox" id="input1">
+                    <label for="input1"></label>
+                </div>
+                <span>匿名</span>
+                <input type="hidden" name="question_id" value="{$data['id']}">
+
+                <button class="tj_btn" onclick="tj()">提交回答</button>
+            </div>
+        </div>
+       
+    </div>
+</div>
+</body>
+
+</html>
+<script>
+    var chickable=0
+    function tj(){
+
+        if($("#input1").is(':checked')){
+           var anonymous = 1;
+        }else{
+            var anonymous =0;
+        }
+        var question_id = $(":input[name='question_id']").val();
+        var content = $(":input[name='content']").val();
+        if(chickable==0){
+            chickable=1;
+            $.ajax({
+                url: "{:url('bbc/answerAdd')}",
+                type: 'post',
+                dataType: 'json',
+                data:{question_id:question_id,content:content,anonymous:anonymous},
+                success: function (data) {
+                    if(data.code==200){
+                        layer.msg('提交成功!', {
+                            time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                        }, function(){
+                            //window.location.href="{:url('address/index')}";
+                            window.history.go(-1);
+                        });
+                    }else{
+                        layer.msg(data.message);
+                    }
+                }
+            });
+        }
+
+
+
+    }
+</script>

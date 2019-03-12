@@ -1,0 +1,44 @@
+{include file="public/header" /}
+<body class="bgfafafa">
+
+<div id="page">
+<div class="dai_sou">
+<!--搜索开始-->
+        <form action="" method="get">
+        <div class="soubg">
+        <div class="sou11"><input name="" type="button" class="sou1"></div>
+        <input name="" type="text" class="sou2" placeholder="请输入关键词">
+        <div class="sou33"><input name="" type="button" class="sou3"></div>
+        </div>
+        </form>
+<!--搜索结束-->
+</div>
+<div class="xian"></div>
+
+
+<!--代理商一组-->
+        {volist name="list" id="vo"}
+        <div class="team_list">
+
+                <div class="team_tu"><img src="{$vo.picurl}"></div>
+                <div class="team_zi">
+                <div class="team_ti"><font>{$vo.username}</font><font class="gong">
+                        {$vo.level_id|level_name}
+                        </font>
+                </div>
+                <div class="clear"></div>
+                <div class="team_xx">加盟时间：{$vo.create_time|date='Y-m-d H:i:s',###}</div>
+        </div>
+        {/volist}
+<!--代理商一组-->
+
+
+
+</div>
+
+
+<div class="pb100"></div>
+
+</div>
+</body>
+</html>

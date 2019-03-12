@@ -1,0 +1,31 @@
+<!--顶部导航-->
+{include file="public/header" /}
+<body style="background: #f4f4f4">
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">分类</p>
+    </header>
+    <div class="classify_content">
+        <ul>
+                {volist name="data" id="vo"}
+            <li>
+                <p class="title">{$vo.title}</p>
+                <ul class="ul_cont">
+                    {volist name="vo['son']" id="vv"}
+                    <li>
+                        <a href="{:url('goods/index',['goodstype_id'=>$vv.id])}">
+                            <img src="__ROOT__{$vv.picurl}">
+                            <p>{$vv.title}</p>
+                        </a>
+                    </li>
+                   {/volist}
+                </ul>
+            </li>
+        {/volist}
+        </ul>
+    </div>
+    {include file="public/footer" /}
+</div>
+</body>
+</html>

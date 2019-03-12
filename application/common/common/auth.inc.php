@@ -67,7 +67,7 @@ $acl_inc[$i]['low_leve']['system'] = array("配置管理" => array('index',
     )
 
 );
-/*
+
 $i++;
 
 $acl_inc[$i]['low_title'] = array('地区模块', 'fa fa-globe');
@@ -161,7 +161,7 @@ $acl_inc[$i]["low_leve"]["cn_area"] = array("区管理" => array("index",
         "eq_delete" => "cn_area4",
 
     ));
-*/
+
 $i++;
 
 $acl_inc[$i]['low_title'] = array('管理模块', 'fa fa-user');
@@ -232,41 +232,6 @@ $acl_inc[$i]["low_leve"]["authgroup"] = array("管理组管理" => array("index"
 
     ));
 
-
-
-$i++;
-
-$acl_inc[$i]['low_title'] = array('金融模块', 'fa fa-file-text');
-
-// 单页模块
-
-$acl_inc[$i]["low_leve"]["info"] = array("金融方案" => array("index",
-
-    array(
-
-        "列表" => "info1",
-
-        "添加" => "info2",
-
-        "修改" => "info3",
-
-        "删除" => "info4",
-
-    )),
-
-    "data" => array(
-
-        "eq_index" => "info1",
-
-        "eq_create" => "info2",
-
-        "eq_update" => "info3",
-
-        "eq_renewfield" => "info3",
-
-        "eq_delete" => "info4",
-
-    ));
 /*
 $i++;
 
@@ -335,199 +300,366 @@ $acl_inc[$i]["low_leve"]["product_type"] = array("产品分类" => array("@produ
     ));
 
 */
-
 $i++;
 
-$acl_inc[$i]['low_title'] = array('车辆品牌管理', 'fa fa-globe');
+$acl_inc[$i]['low_title'] = array('会员模块', 'fa fa-users');
 
+// 用户管理
 
-// 认证管理
-
-$acl_inc[$i]["low_leve"]["car_brand"] = array("品牌列表" => array("index",
+$acl_inc[$i]["low_leve"]["user"] = array("会员管理" => array("index",
 
     array(
 
-        "列表" => "bbc_question1",
+        "列表" => "user1",
 
-        "添加" => "bbc_question2",
+        "添加" => "user2",
 
-        "修改" => "bbc_question3",
+        "修改" => "user3",
 
-        "删除" => "bbc_question4",
+        "删除" => "user4",
+
+        "认证" => "user5",
+
+        "积分记录" => "user6",
 
     )),
 
     "data" => array(
 
-        "eq_index" => "bbc_question1",
+        "eq_index" => "user1",
 
-        "eq_create" => "bbc_question2",
+        "eq_create" => "user2",
 
-        "eq_update" => "bbc_question3",
+        "eq_update" => "user3",
 
-        "eq_hot_state" => "bbc_question3",
+        "eq_renewfield" => "user3",
 
-        "eq_renewfield" => "bbc_question3",
+        "eq_delete" => "user4",
 
-        "eq_delete" => "bbc_question4",
-        "eq_update_brand" => "bbc_question4",
+        "eq_approve" => "user5",
+
+        "eq_integral_info" => "user6",
 
     ));
+
 $i++;
 
-$acl_inc[$i]['low_title'] = array('车辆车系管理', 'fa fa-globe');
+$acl_inc[$i]['low_title'] = array('商品管理', 'fa fa-cubes');
 
+// 商品分类
 
-// 认证管理
-
-$acl_inc[$i]["low_leve"]["car_chexi"] = array("车系列表" => array("index",
+$acl_inc[$i]["low_leve"]["goods_type"] = array("商品分类" => array("index",
 
     array(
 
-        "列表" => "chexi1",
+        "列表" => "goods_type1",
 
-        "添加" => "chexi2",
+        "添加" => "goods_type2",
 
-        "修改" => "chexi3",
+        "修改" => "goods_type3",
 
-        "删除" => "chexi4",
+        "删除" => "goods_type4",
 
     )),
 
     "data" => array(
 
-        "eq_index" => "chexi1",
+        "eq_index" => "goods_type1",
 
-        "eq_create" => "chexi2",
+        "eq_create" => "goods_type2",
 
-        "eq_update" => "chexi3",
+        "eq_update" => "goods_type3",
 
-        "eq_hot_state" => "chexi3",
+        "eq_renewfield" => "goods_type3",
 
-        "eq_chexi_channel" => "chexi3",
-        "eq_update_car_chexi" => "chexi3",
-        "eq_renewfield" => "chexi3",
+        "eq_delete" => "goods_type4",
 
-        "eq_delete" => "chexi4",
+    ));
+
+// 商品模块
+
+$acl_inc[$i]["low_leve"]["goods"] = array("商品管理" => array("index",
+
+    array(
+
+        "列表" => "goods1",
+
+        "添加" => "goods2",
+
+        "修改" => "goods3",
+
+        "删除" => "goods4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "goods1",
+
+        "eq_show" => "goods1",
+
+        "eq_create" => "goods2",
+
+        "eq_update" => "goods3",
+
+        "eq_renewfield" => "goods3",
+
+        "eq_getattr" => "goods3",
+
+        "eq_delete" => "goods4",
 
     ));
 
 $i++;
 
-$acl_inc[$i]['low_title'] = array('车辆类型管理', 'fa fa-list-ul');
+$acl_inc[$i]['low_title'] = array('订单管理', 'fa fa-bell-o');
 
 // 认证分类
 
-$acl_inc[$i]["low_leve"]["car_type"] = array("类型分类" => array("index",
+$acl_inc[$i]["low_leve"]["to_paid"] = array("待支付订单" => array("index",
 
     array(
 
-        "列表" => "car_type1",
+        "列表" => "to_paid1",
 
-        "添加" => "car_type2",
+        "添加" => "to_paid2",
 
-        "修改" => "car_type3",
+        "修改" => "to_paid3",
 
-        "删除" => "car_type4",
+        "删除" => "to_paid4",
 
     )),
 
     "data" => array(
 
-        "eq_index" => "car_type1",
+        "eq_index" => "to_paid1",
 
-        "eq_create" => "car_type2",
+        "eq_create" => "to_paid2",
 
-        "eq_update" => "car_type3",
+        "eq_update" => "to_paid3",
 
-        "eq_renewfield" => "car_type3",
+        "eq_renewfield" => "to_paid3",
 
-        "eq_delete" => "car_type4",
+        "eq_delete" => "to_paid4",
+
+        "eq_achieve" => "to_paid3",
+
+        "eq_reject_tk" => "reject3",
+
+        "eq_reject_th" => "reject3",
+
+        "eq_fahuo" => "reject3",
 
     ));
 
-
-$i++;
-
-$acl_inc[$i]['low_title'] = array('车辆模块', 'fa fa-suitcase');
-
-// 职位管理
-
-$acl_inc[$i]["low_leve"]["new_car"] = array("新车管理" => array("index",
+$acl_inc[$i]["low_leve"]["deliver"] = array("待发货订单" => array("index",
 
     array(
 
-        "列表" => "new_car1",
+        "列表" => "deliver1",
 
-        "添加" => "new_car2",
+        "添加" => "deliver2",
 
-        "修改" => "new_car3",
+        "修改" => "deliver3",
 
-        "删除" => "new_car4",
-
-        "商家商品列表" => "new_car5",
+        "删除" => "deliver4",
 
     )),
 
     "data" => array(
 
-        "eq_index" => "new_car1",
+        "eq_index" => "deliver1",
 
-        "eq_create" => "new_car2",
+        "eq_create" => "deliver2",
 
-        "eq_update" => "new_car3",
+        "eq_update" => "deliver3",
 
-        "eq_renewfield" => "new_car3",
+        "eq_renewfield" => "deliver3",
 
-        "eq_delete" => "new_car4",
+        "eq_delete" => "deliver4",
 
-        "eq_goodslist" => "new_car5",
-        "eq_orderlist" => "new_car5",
-        "eq_batch_status" => "new_car5",
-        "eq_update_new_car" => "new_car5",
+        "eq_achieve" => "deliver3",
+
+        "eq_reject_tk" => "reject3",
+
+        "eq_reject_th" => "reject3",
+
+        "eq_fahuo" => "reject3",
 
     ));
-
-
-$acl_inc[$i]["low_leve"]["old_car"] = array("二手车管理" => array("index",
+$acl_inc[$i]["low_leve"]["online"] = array("线下付款订单" => array("index",
 
     array(
 
-        "列表" => "old_car1",
+        "列表" => "online1",
 
-        "添加" => "old_car2",
+        "添加" => "online2",
 
-        "修改" => "old_car3",
+        "修改" => "online3",
 
-        "删除" => "old_car4",
-
-        "选择二手车属性" => "old_car6",
-        "查看详细参数" => "old_car7",
+        "删除" => "online4",
 
     )),
 
     "data" => array(
 
-        "eq_index" => "old_car1",
+        "eq_index" => "online1",
 
-        "eq_create" => "old_car2",
+        "eq_create" => "online2",
 
-        "eq_update" => "old_car3",
+        "eq_update" => "online3",
 
-        "eq_renewfield" => "old_car3",
-        "eq_renewfieldtwo" => "old_car3",
+        "eq_renewfield" => "online3",
 
-        "eq_delete" => "old_car4",
+        "eq_delete" => "online4",
 
-        "eq_goodslist" => "old_car5",
+        "eq_achieve" => "online3",
 
-        "eq_orderlist" => "old_car5",
+        "eq_reject_tk" => "reject3",
 
-        "eq_vincode" => "old_car6",
+        "eq_reject_th" => "reject3",
 
-        "eq_getcarlist" => "old_car6",
-        "eq_getchexilist" => "old_car6",
-        "eq_showinfo" => "old_car7",
+        "eq_fahuo" => "reject3",
+
+    ));
+$acl_inc[$i]["low_leve"]["refund_money"] = array("待退款订单" => array("index",
+
+    array(
+
+        "列表" => "refund_money1",
+
+        "添加" => "refund_money2",
+
+        "修改" => "refund_money3",
+
+        "删除" => "refund_money4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "refund_money1",
+
+        "eq_create" => "refund_money2",
+
+        "eq_update" => "refund_money3",
+
+        "eq_renewfield" => "refund_money3",
+
+        "eq_delete" => "refund_money4",
+
+        "eq_achieve" => "refund_money3",
+
+        "eq_reject_tk" => "reject3",
+
+        "eq_reject_th" => "reject3",
+
+        "eq_fahuo" => "reject3",
+
+    ));
+$acl_inc[$i]["low_leve"]["refund_good"] = array("待退货订单" => array("index",
+
+    array(
+
+        "列表" => "refund_good1",
+
+        "添加" => "refund_good2",
+
+        "修改" => "refund_good3",
+
+        "删除" => "refund_good4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "refund_good1",
+
+        "eq_create" => "refund_good2",
+
+        "eq_update" => "refund_good3",
+
+        "eq_renewfield" => "refund_good3",
+
+        "eq_delete" => "refund_good4",
+
+        "eq_achieve" => "refund_good3",
+
+        "eq_reject_tk" => "reject3",
+
+        "eq_reject_th" => "reject3",
+
+        "eq_fahuo" => "reject3",
+
+    ));
+$acl_inc[$i]["low_leve"]["other"] = array("其他订单" => array("index",
+
+    array(
+
+        "列表" => "other1",
+
+        "添加" => "other2",
+
+        "修改" => "other3",
+
+        "删除" => "other4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "other1",
+
+        "eq_create" => "other2",
+
+        "eq_update" => "other3",
+
+        "eq_renewfield" => "other3",
+
+        "eq_delete" => "other4",
+
+        "eq_achieve" => "other3",
+
+        "eq_reject_tk" => "reject3",
+
+        "eq_reject_th" => "reject3",
+
+        "eq_fahuo" => "reject3",
+
+    ));
+$acl_inc[$i]["low_leve"]["orders"] = array("全部订单" => array("index",
+
+    array(
+
+        "列表" => "orders1",
+
+        "添加" => "orders2",
+
+        "修改" => "orders3",
+
+        "删除" => "orders4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "orders1",
+
+        "eq_create" => "orders2",
+
+        "eq_update" => "orders3",
+
+        "eq_renewfield" => "orders3",
+
+        "eq_delete" => "orders4",
+
+        "eq_achieve" => "orders3",
+
+        "eq_reject_tk" => "reject3",
+
+        "eq_reject_th" => "reject3",
+
+        "eq_fahuo" => "reject3",
 
     ));
 
@@ -733,11 +865,11 @@ $acl_inc[$i]["low_leve"]["banner_type"] = array("banner分类" => array("@banner
 
 $i++;
 
-$acl_inc[$i]['low_title'] = array('车辆咨询', 'fa fa-cubes');
+$acl_inc[$i]['low_title'] = array('申请加盟', 'fa fa-cubes');
 
 // 留言列表
 
-$acl_inc[$i]["low_leve"]["message"] = array("新车咨询" => array("index",
+$acl_inc[$i]["low_leve"]["message"] = array("申请列表" => array("index",
 
     array(
 
@@ -765,70 +897,41 @@ $acl_inc[$i]["low_leve"]["message"] = array("新车咨询" => array("index",
 
     ));
 
-// 留言列表
-
-$acl_inc[$i]["low_leve"]["old_message"] = array("二手车咨询" => array("index",
-
-    array(
-
-        "列表" => "old_message1",
-
-        "添加" => "old_message2",
-
-        "修改" => "old_message3",
-
-        "删除" => "old_message4",
-
-    )),
-
-    "data" => array(
-
-        "eq_index" => "old_message1",
-
-        "eq_create" => "old_message2",
-
-        "eq_update" => "old_message3",
-
-        "eq_renewfield" => "old_message3",
-
-        "eq_delete" => "old_message4",
-
-    ));
 $i++;
 
-$acl_inc[$i]['low_title'] = array('卖车管理', 'fa fa-cubes');
+$acl_inc[$i]['low_title'] = array('门店管理', 'fa fa-cubes');
 
 // 留言列表
 
-$acl_inc[$i]["low_leve"]["sell_car"] = array("卖车列表" => array("index",
+$acl_inc[$i]["low_leve"]["store"] = array("申请列表" => array("index",
 
     array(
 
-        "列表" => "sell_car1",
+        "列表" => "store1",
 
-        "添加" => "sell_car2",
+        "添加" => "store2",
 
-        "修改" => "sell_car3",
+        "修改" => "store3",
 
-        "删除" => "sell_car4",
+        "删除" => "store4",
 
     )),
 
     "data" => array(
 
-        "eq_index" => "sell_car1",
+        "eq_index" => "store1",
 
-        "eq_create" => "sell_car2",
+        "eq_create" => "store2",
 
-        "eq_update" => "sell_car3",
+        "eq_update" => "store3",
 
-        "eq_renewfield" => "sell_car3",
+        "eq_renewfield" => "store3",
 
-        "eq_delete" => "sell_car4",
+        "eq_delete" => "store4",
+        "eq_get_city" => "store4",
+        "eq_get_area" => "store4",
 
     ));
-
-
 /*
 
 $i++;

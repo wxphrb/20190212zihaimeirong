@@ -6,7 +6,6 @@ use think\Db;
 use think\Request;
 use think\Url;
 use app\console\model\User as ThisModel;
-use app\console\model\Certification;
 use Workerman\Worker;
 
 class User extends Base
@@ -107,7 +106,7 @@ class User extends Base
     }
 
     /*认证*/
-    public function approve(Request $request, ThisModel $user, Certification $certification)
+    public function approve(Request $request, ThisModel $user)
     {
         if ($request->isPost()) {
             $data = $request->param();
@@ -116,23 +115,18 @@ class User extends Base
                 $data['user_id'] = $data['id'];
                 unset($data['id']);
             }
-            // 调用验证器类进行数据验证
-            $result = $certification->validate(true)->allowField(true)->isUpdate($handle)->save($data);
-//            echo $certification->getLastSql();exit;
-            if ($result) {
-                $arr['level_id'] = $data['certification_type'];
-                $arr['id'] = $data['user_id'];
-                $user->allowField(true)->isUpdate(true)->save($arr);
-                $this->success('更新成功', 'console/User/index');
-            } else {
-                $this->error($result);
-            }
+
+            $arr['level_id'] = $data['certification_type'];
+            $arr['id']       = $data['user_id'];
+            $user->allowField(true)->isUpdate(true)->save($arr);
+            $this->success('更新成功', 'console/User/index');
+
         }
 
-        $id = $request->param("id");
-        $res = Db::name("certification")->where("user_id", $id)->find();
-        $res['picarr'] = unserialize($res['picarr']);
+        $id  = $request->param("id");
+        $res = db('user')->where('id',$id)->field('level_id')->find();
         $param = array_merge(['vo' => $res], $this->appendarg());
+
         return $this->fetch(
             'approve',
             $param
@@ -144,8 +138,7 @@ class User extends Base
       * [delete description]删除方法 多选和单选删除
       * @return [type] [description]
       */
-    public
-    function delete()
+    public function delete()
     {
         if (Request::instance()->isPOST()) {
             $id = Request::instance()->post('id/a'); // (/a)方法 将收到的id转为数组
@@ -164,8 +157,7 @@ class User extends Base
      * [renewfield description]列表更新字段
      * @return [type] [description]
      */
-    public
-    function renewfield()
+    public function renewfield()
     {
         if (Request::instance()->isPOST()) {
             $data = Request::instance()->post();
@@ -189,7 +181,7 @@ class User extends Base
         }
     }
 
-    public function integral_info(Request $request)
+    public function fx_system(Request $request)
     {
         $id = $request->param("id");
         $where=[];
@@ -205,7 +197,7 @@ class User extends Base
             ->where("user_id",$id)
             ->where($where)
             ->paginate(20);
-        return $this->fetch("integral_info",[
+        return $this->fetch("fx_system",[
             'list'=>$list,
         ]);
     }

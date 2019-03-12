@@ -33,7 +33,6 @@ class Message extends Model
         }
     }
 
-
     public function getCreateTimeAttr($data,$value)
     {
         return date("Y-m-d H:i:s",$value['create_time']);
@@ -41,7 +40,6 @@ class Message extends Model
 
     protected function setPicarrAttr($value)
     {
-        /*
         $picarr = input('picarr/a');
         if (!empty($picarr) && is_array($picarr)) {
             $info = input('info/a');
@@ -57,7 +55,7 @@ class Message extends Model
             return serialize($arr);
         } else {
             return '';
-        }*/
+        }
 
     }
 
@@ -75,8 +73,8 @@ class Message extends Model
 
     public function getTypeAttr($value)
     {
-        $type = [0 => '未处理', 1=> '已处理'];
-        return $type[$value];
+        //$type = [1 => '软件问题', 2=> '商品问题', 3 => '其他问题'];
+       // return $type[$value];
     }
 
 

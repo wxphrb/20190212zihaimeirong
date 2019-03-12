@@ -1,0 +1,99 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+
+{block name="content"}
+<div class="row">
+    <div class="col-md-12  column">
+        <form class="form-horizontal form-bordered" action="{:url('Console/System/whole')}" method="post">
+
+            <div class="tabbable">
+                <ul class="nav nav-tabs">
+                    {volist name="list" id="vo"}
+                    <li class="{eq name='i' value='1'} active {/eq}">
+                        <a href="#panel-{$vo.id}" data-toggle="tab"><strong>{$vo.title}</strong></a>
+                    </li>
+                    {/volist}
+                </ul>
+
+                <div class="tab-content">
+                    {volist name="list" id="vo"}
+                    <div class="tab-pane {eq name='i' value='1'} active {/eq}" id="panel-{$vo.id}">
+                        {volist name="$vo.webconfig" id="vo1"}
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">
+                                {$vo1['varinfo']}(<code>{$vo1.varname}</code>)：
+                            </label>
+
+                            <div class="col-sm-6">
+                                {switch name="vo1.vartype"}
+
+                                {case value="bool"}
+
+                                <div class="rdio rdio-primary">
+                                    <input type="radio" name="{$vo1['varname']}" id="{$vo1['varname']}-Y" value="Y"
+                                           {eq name="$vo1['varvalue']" value='' }checked{/eq}>
+                                    <label for="{$vo1['varname']}-Y">是</label>
+                                </div>
+
+                                <div class="rdio rdio-primary">
+                                    <input type="radio" name="{$vo1['varname']}" id="{$vo1['varname']}-N" value="N"
+                                           {eq name="$vo1['varvalue']" value='N' }checked{/eq}>
+                                    <label for="{$vo1['varname']}-N">否</label>
+                                </div>
+
+                                {/case}
+
+                                {case value="image"}
+                                <input id="{$vo1['varname']}{$vo1['id']}" type="file" class="file-loading">
+                                <input type="hidden" id="{$vo1['varname']}" name="{$vo1['varname']}"
+                                       value="{$vo1['varvalue'] ?? ''}">
+                                {/case}
+
+                                {case value="textarea"}
+                                <textarea name="{$vo1['varname']}"  id="{$vo1['varname']}" >{$vo1['varvalue']}</textarea>
+                                {/case}
+
+                                {default /}
+                                <input type="text" name="{$vo1['varname']}" class="form-control"
+                                       value="{$vo1['varvalue']}"/>
+                                {/switch}
+                            </div>
+
+                        </div>
+                        {/volist}
+                    </div>
+                    {/volist}
+
+
+                    <div class="panel-footer">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <button type="submit" class="btn btn-success">更新</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div><!-- col-md-12 -->
+</div><!-- row -->
+{/block}
+{block name="fileinput"}{__block__}{/block}
+{block name="ueditor"}{__block__}{/block}
+{block name="js"}{/block}
+{block name="script"}
+<script>
+    jQuery(document).ready(function () {
+        //$("[name='state'][value='{$vo.state ?? 'Y'}']").attr("checked", true);
+
+        UE.getEditor("share_details", {initialFrameWidth: null});
+
+        fileinputOne("sell_img18", "sell_img");
+        fileinputOne("fin_img35", "fin_img");
+        fileinputOne("activity_img36", "activity_img");
+        //fileinputOne("app_ercode30", "app_ercode");
+        fileinputOne("logo31", "logo");
+
+    });
+</script>
+{/block}

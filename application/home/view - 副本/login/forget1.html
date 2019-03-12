@@ -1,0 +1,125 @@
+{include file="public/header" /}
+<style>
+    .details_btn {
+        position: inherit;
+        background: none;
+    }
+    .password_content .d1 p {
+        width: 1.5rem;
+    }
+    .validate1 {
+        background-color: #DCDCDC !important;
+        color: #666 !important;
+    }
+    .validate {
+        background-color: #3099e9 !important;
+        color: white !important;
+    }
+</style>
+<body style="background: #f4f4f4">
+<div class="wrap">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn">
+        <p class="title">{$title}</p>
+    </header>
+    <div class="password_content">
+        <div class="d1">
+            <p>手机号码</p>
+            <input type="text" name="mobile" value="" id="mobile" placeholder="输入手机号码" maxlength="11">
+        </div>
+        <div class="d1">
+            <p>输入验证码</p>
+            <input type="text" placeholder="输入验证码" id="code" style="width: 2rem" value="">
+            <a href="JavaScript:;" class="gain validate" onclick="send();" id="validate">
+                <div href="##" id='sms' class="hq_btn cl">获取验证码</div>
+            </a>
+        </div>
+    </div>
+    <div class="details_btn"><a href="#" id="submit" onClick="CheckReg();">下一步</a></div>
+</div>
+</body>
+</html>
+<input type="hidden" id="realvalidate" value="">
+<script>
+    var sendable = 0; //全局变量 防止多次点击事件
+    function count() {
+        $("#sms").attr("disabled", true);
+        var sec = 60;
+        var intt = setInterval(function jishi() {
+                if (sec > 0) {
+                    sec--;
+                    var str = sec + "秒后重发";
+                    $("#sms").html(str);
+                }
+                else {
+                    $("#validate").css("background-color", '#DCDCDC');
+                    $("#sms").attr("disabled", false);
+                    $('#validate').removeClass('validate1').addClass('validate');
+                    $("#sms").html("点击重新发送");
+                    sendable = 0;
+                    clearInterval(intt);
+                }
+            }
+            , 1000);
+    }
+    function send() {
+        var ckmobile = /^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$/;
+        var mobile = $("#mobile").val();
+        if (mobile == "" || !ckmobile.test(mobile)) {
+            tips("手机号码为空或者格式不正确！");
+            $("#mobile").focus();
+            return false;
+        } else {
+            if (sendable == 0) {
+                sendable = 1;
+                $.ajax({
+                    type: 'post',
+                    url: "{:url('api/login/getcode')}",
+                    data: "mobile=" + mobile + "&type=forget",
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.code == 200) {
+                            $('#validate').removeClass('validate').addClass('validate1');
+                            $("#mobile").attr("readonly", true);
+                            $("#realvalidate").val(data.codes);
+                            count();
+                            tips("发送成功。");
+                        }
+                        if (data['code'] == 400) {
+                            sendable = 0;
+                            tips(data.message);
+                            $("#mobile").val("");
+                        }
+                    },
+                    error: function (err) { //如果执行不成功，那么执行此方法
+                        sendable = 0;
+                        tips("请求失败，请重试！");
+                    }
+                });
+            }
+        }
+    }
+    var chickable = 0; //全局变量 防止多次点击事件
+    function CheckReg() {
+        var mobile = $("#mobile").val();
+        var code = $("#code").val();
+        if(mobile == ""){
+            layer.msg('手机号码不能为空');
+            return false;
+        }
+        if(code == ""){
+            layer.msg('短信验证码不能为空');
+            return false;
+        }
+        if (chickable == 0) {
+           chickable = 1;
+           window.location.href = "{:url('login/forget2')}?mobile="+mobile+"&sms_code="+code;
+        }
+    }
+    function tips(data) {
+        /*layer.open({
+         content: data
+         });*/
+        layer.msg(data);
+    }
+</script>

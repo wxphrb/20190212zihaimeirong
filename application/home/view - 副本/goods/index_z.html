@@ -1,0 +1,67 @@
+<!--顶部导航-->
+{include file="public/header" /}
+<body style="background: #f4f4f4">
+<div class="wrap">
+    <div class="search_head">
+        <img src="__HOME__/img/back_btn_03.png" class="back-btn" onclick="javascript:history.go(-1)">
+        <input type="text" placeholder="输入商品名称">
+        <img src="__HOME__/img/list_search_logo_03.png" class="fl_btn">
+    </div>
+    <ul class="fl_list_nav">
+        <li>销量<img src="__HOME__/img/fl_kist_logo_06.png"></li>
+        <li>价格<img src="__HOME__/img/fl_kist_logo_06.png"></li>
+        <li>评价<img src="__HOME__/img/fl_kist_logo_06.png"></li>
+        <li class="screen">筛选<img src="__HOME__/img/fl_kist_logo_03.png" style="width: 0.2rem"></li>
+        <!--筛选下拉-->
+        <div class="sx_content">
+            <ul>
+                <li>安徽省</li>
+                <li>北京市</li>
+                <li>福建省</li>
+                <li>甘肃省</li>
+                <li>安徽省</li>
+                <li>北京市</li>
+                <li>福建省</li>
+                <li>甘肃省</li>
+                <li>北京市</li>
+            </ul>
+            <div class="two_btn1">
+                <input type="button" value="重置" class="cz_btn">
+                <input type="button" value="确认" class="qr_btn">
+            </div>
+        </div>
+    </ul>
+    <ul class="fl_cont">
+        <li>
+            <img src="__HOME__/img/hyzx_img_03.png" alt="" class="left_img">
+            <div class="right">
+                <p class="name">国家级采煤设备  白色 设备最新技术设</p>
+                <p class="num">￥65.00<span>销量：100</span></p>
+            </div>
+        </li>
+        <li>
+            <img src="__HOME__/img/hyzx_img_03.png" alt="" class="left_img">
+            <div class="right">
+                <p class="name">国家级采煤设备  白色 设备最新技术设</p>
+                <p class="num">￥65.00<span>销量：100</span></p>
+            </div>
+        </li>
+        <li>
+            <img src="__HOME__/img/hyzx_img_03.png" alt="" class="left_img">
+            <div class="right">
+                <p class="name">国家级采煤设备  白色 设备最新技术设</p>
+                <p class="num">￥65.00<span>销量：100</span></p>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+
+<script>
+    $(function(){
+        $(".fl_list_nav .screen").click(function(){
+            $(".sx_content").slideToggle();
+        })
+    })
+</script>

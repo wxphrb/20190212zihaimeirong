@@ -1,0 +1,28 @@
+
+<!--顶部导航-->
+{include file="public/header" /}
+<style>
+    .details_btn{
+        position: inherit;
+        background: none;
+    }
+</style>
+<!--顶部导航-->
+<body style="background: #f4f4f4">
+    <header>
+        <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+        <p class="title">{$title}</p>
+        <a href="#" class="fx"><img src="__HOME__/img/search_img_03.png"></a>
+    </header>
+  {$data}
+</body>
+</html>
+<script>
+
+    $('.w span').each(function() {
+        var words = $(this).text().length;
+        if(words > 15){
+            $(this).text($(this).text().slice(0,17)+"...");
+        }
+    });
+</script>

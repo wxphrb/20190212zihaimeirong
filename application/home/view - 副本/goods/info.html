@@ -1,0 +1,477 @@
+<!--顶部导航-->
+{include file="public/header" /}
+<style>
+        .pj_content .d1 .d1_right .name{
+            color: #333;
+            padding: 0;
+        }
+        .pj_content .d1 .d1_right .hp{background:#3099e9; }
+        .pj_content .pj_img li img{
+            width: 1.41rem;
+            height: 1rem;
+        }
+        .pj_content .d2 p{
+            margin-bottom: 0.2rem;
+        }
+    </style>
+<body>
+<div class="wrap">
+    <div class="wrap">
+        <header>
+            <img src="__HOME__/img/back_btn_03.png" class="back_btn" onclick="javascript:history.go(-1)">
+            <p class="title">商品详情</p>
+            <a href="{:url('car/index')}" class="sc"><img src="__HOME__/img/sp_top_logo_03.png"></a>
+            <!--<a href="#" class="fx"><img src="__HOME__/img/sp_top_logo_05.png"></a>-->
+            <a onclick="share_btn()" class="fx"><img src="__HOME__/img/head_right_img1.png"></a>
+        </header>
+    </div>
+    <div class="banner_lb" style="height: 5.38rem;">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {volist name="data['picarr']" id="vo"}
+                <div class="swiper-slide"><img src="__ROOT__{$vo.img}" style="height: 5.38rem;"></div>
+                {/volist}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination" style="text-align: center;padding-right: 0;"></div>
+        </div>
+    </div>
+    <div class="layer1" onclick="fff()" style="display:none;width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 100000"><img src="__HOME__/img/fenxiang.png" style="width: 100%;height: 100%"></div>
+    <div class="product_name">
+        <p class="name">{$data['title']}</p>
+        <ul>
+            <li>¥{$data['saleprice']}</li>
+            <li>运费：<span>{$data['carriage']}</span></li>
+            <li>销售量：<span>{$data['sell']}</span></li>
+        </ul>
+        <input type="hidden" value="{$data['carriage']}" id="yunfei">
+    </div>
+    <div class="product_content">
+        <ul class="nav">
+            <li class="product_content_li_style">图文详情</li>
+            <li>规格参数</li>
+            <li>商品评价（<span>{$data['appraise_count']}</span>）</li>
+        </ul>
+        <div class="pro_div">
+            <div class="div1">
+                {$data['content']}
+            </div>
+            <div class="div1 div2" style="display: none">
+                {$data['specifications']}
+            </div>
+            <div class="div1" style="display: none">
+                {volist name="evaluates" id="vv"}
+                <div class="pj_content">
+                    <div class="d1">
+                        <div class="d1_left">
+                            <img src="{$vv.picurl}" alt="" title="">
+                        </div>
+                        <div class="d1_right">
+                            <p class="name">
+                                {if condition="$vv.anonymous eq 1"}
+                                 **{$vv.username|msubstr=2,4,'utf-8',false}
+                                {else/}
+                                {$vv.username}
+                                {/if}
+                                <span class="time">{$vv.create_time|date="Y-m-d H:i:s",###}</span></p>
+                            {switch name="$vv.type"}
+                            {case value="1"}<div class="hp">好评</div>{/case}
+                            {case value="2"}<div class="hp">中评</div>{/case}
+                            {case value="3"}<div class="hp">差评</div>{/case}
+                            {default /}默认
+                            {/switch}
+                        </div>
+                    </div>
+                    <div class="d2">
+                        <p>{$vv.content}</p>
+                    </div>
+                    <ul class="pj_img">
+                        {volist name="vv['picarr']" id="vvv"}
+                        <li><img src="__ROOT__{$vvv.img}" alt="" title=""></li>
+                        {/volist}
+                    </ul>
+                </div>
+                {/volist}
+            </div>
+        </div>
+    </div>
+    <div class="pro_bottom" style="overflow: visible;">
+        <div class="left">
+            <ul>
+                <li>
+                    <a href="{:url('store/index',['store_id'=>$data['store_id']])}">
+                    <img src="__HOME__/img/sp_logo1.png">
+                    <p>店铺</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:{$data['store_mobile']}">
+                    <img src="__HOME__/img/sp_logo2.png">
+                    <p>客服</p>
+                    </a>
+                </li>
+                <li>
+                    {if condition="$data['collection'] eq 0"}
+                    <a href="#" class="sc"><img src="__HOME__/img/sp_logo3.png" onclick="sc('{$data.id}',1)"></a>
+                    {else/}
+                    <a href="#" class="sc"><img src="__HOME__/img/my_img3.png" onclick="qx('{$data.collection_id}')"></a>
+                    {/if}
+                    <p>收藏</p>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+                <li class="join_shop">加入购物车</li>
+                <li class="lj_buy">立即购买</li>
+            </ul>
+        </div>
+        <!--加入购物车弹框-->
+        <div class="join_shopcar_layer">
+            <div class="content">
+                <img src="__HOME__/img/close_btn_03.png" class="shopcar_close" style="position: absolute;right: 2%;top: -0.3rem;width: 0.7rem">
+                <div class="d1">
+                    <img src="__HOME__/img/find_bottom_img_05.png">
+                    <div class="right">
+                        <p class="name" >{$data['title']}</p>
+                        <p class="price" id="car_price">{$data['saleprice']}</p>
+                    </div>
+                </div>
+                {volist name="$data['attr']" id="vo"}
+                <div class="d2">
+                    <p class="p1">选择{$vo.title}</p>
+                    <ul class="cans">
+                        {volist name="$vo['attrs']" id="vv"}
+                        {if condition="$i eq 1"}
+                        <li class="cans_style" onclick="choose({$data['id']})" >{$vv}</li>
+                        {else/}
+                        <li onclick="choose({$data['id']})" id="{$vv}">{$vv}</li>
+                        {/if}
+                        {/volist}
+                    </ul>
+                </div>
+                {/volist}
+                <div class="d3">
+                    <p class="buy_num">购买数量</p>
+                    <ul>
+                        <li onclick="caradd()"><img src="add_img.png" alt="" >+</li>
+                        <li style="font-size: 0.32rem;background: none" id="car_num">1</li>
+                        <li onclick="carreduce()"><img src="reduce_img.png" alt="" >-</li>
+                    </ul>
+                </div>
+                <input type="button" class="join_shop_btn" value="加入购物车" onclick="add_car({$data['id']})">
+            </div>
+        </div>
+        <!--立即购买弹框-->
+        <div class="join_shopcar_layer1">
+            <div class="content">
+                <img src="__HOME__/img/close_btn_03.png" class="shopcar_close" style="position: absolute;right: 2%;top: -0.3rem;width: 0.7rem">
+                <div class="d1">
+                    <img src="__HOME__/img/find_bottom_img_05.png">
+                    <div class="right">
+                        <p class="name">{$data['title']}</p>
+                        <p class="price" id="now_price">{$data['saleprice']}</p>
+                    </div>
+                </div>
+                {volist name="$data['attr']" id="vo"}
+                <div class="d2">
+                    <p class="p1">选择{$vo.title}</p>
+                    <ul class="cans">
+                        {volist name="$vo['attrs']" id="vv"}
+                        {if condition="$i eq 1"}
+                        <li class="cans_style"  onclick="chooseTwo({$data['id']})" >{$vv}</li>
+                        {else/}
+                        <li onclick="chooseTwo({$data['id']})">{$vv}</li>
+                        {/if}
+                        {/volist}
+                    </ul>
+                </div>
+                {/volist}
+                <div class="d3">
+                    <p class="buy_num">购买数量</p>
+                    <ul>
+                        <li onclick="nowadd()"><img src="img/add_img.png" alt="" >+</li>
+                        <li style="font-size: 0.32rem;background: none" id="now_num">1</li>
+                        <li onclick="nowreduce()"><img src="img/reduce_img.png" alt="" >-</li>
+                    </ul>
+                </div>
+                <input type="button" class="join_shop_btn" onclick="add_now({$data['id']})" value="立即购买">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        autoplay:true,
+        pagination: {
+            el: '.swiper-pagination'
+        },
+        loop:true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+<script>
+    $(function(){
+        $(".product_content .nav li").click(function(){
+            $(this).addClass("product_content_li_style").siblings().removeClass("product_content_li_style");
+            $(this).children("span").css("color","#fff");
+            var index=$(this).index();
+            $(".pro_div .div1").eq(index).show().siblings().hide();
+        })
+        $(".join_shopcar_layer .content .d2 .cans li").click(function(){
+            $(this).addClass("cans_style").siblings().removeClass("cans_style");
+        })
+        $(".join_shopcar_layer1 .content .d2 .cans li").click(function(){
+            $(this).addClass("cans_style").siblings().removeClass("cans_style");
+        })
+//        点击关闭弹框
+        $(function () {
+            $(".shopcar_close").click(function(){
+                $(".join_shopcar_layer").hide();
+            })
+            $(".join_shop").click(function(){
+                $(".join_shopcar_layer").show();
+            })
+            $(".shopcar_close").click(function(){
+                $(".join_shopcar_layer1").hide();
+            })
+            $(".lj_buy").click(function(){
+                $(".join_shopcar_layer1").show();
+            })
+        })
+    })
+   /*加入购物车选择属性*/
+    function choose(id){
+        var str='';
+           $(".join_shopcar_layer").find("li").each(function(){
+               if( $(this).hasClass("cans_style")){
+                   str+=$(this).text()+'_';
+               }
+           })
+        if (str.length > 0) {
+            str = str.substr(0, str.length - 1);
+        }
+        var car_num = $("#car_num").text();
+        $.ajax({
+            url: "{:url('goods/chooseAttrs')}",
+            type: 'post',
+            dataType: 'json',
+            data:{str:str,id:id,car_num:car_num},
+            success: function (data) {
+                if(data.code==200){
+                     $("#car_price").text(data.price);
+                    $("#yunfei").val(data.yunfei);
+                }else{
+                }
+            }
+        });
+    }
+    /*加入购物车*/
+    var chickable_car=0;//防止表单重复提交
+    function add_car(goods_id){
+        var str='';
+        $(".join_shopcar_layer").find("li").each(function(){
+            if( $(this).hasClass("cans_style")){
+                str+=$(this).text()+'_';
+            }
+        })
+        if (str.length > 0) {
+            str = str.substr(0, str.length - 1);
+        }
+        var car_num = $("#car_num").text();
+        var car_price = $("#car_price").text();
+        var yunfei =  $("#yunfei").val();
+        if(chickable_car==0){
+            chickable_car=1;
+        $.ajax({
+            url: "{:url('car/add')}",
+            type: 'post',
+            dataType: 'json',
+            data:{attr:str,goods_id:goods_id,num:car_num,freight:yunfei,price:car_price},
+            success: function (data) {
+                if(data.code==200){
+                    layer.msg('提交成功!', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function(){
+                        //window.location.href="{:url('address/index')}";
+                        window.location.reload()
+                    });
+                }else{
+                }
+            }
+        });
+        }
+    }
+    /*加入购物车选择数量++*/
+    function caradd(){
+         var car_num = $("#car_num").text();
+         var car_nums = ++car_num;
+         $("#car_num").text(car_nums);
+    }
+    /*加入购物车选择数量—*/
+    function carreduce(){
+        var car_num = $("#car_num").text();
+        if (car_num>1){
+            var car_nums = --car_num;
+            $("#car_num").text(car_nums);
+        }
+    }
+/*立即购买选择属性*/
+    function chooseTwo(id){
+        var str='';
+        $(".join_shopcar_layer1").find("li").each(function(){
+            if( $(this).hasClass("cans_style")){
+                str+=$(this).text()+'_';
+            }
+        })
+        if (str.length > 0) {
+            str = str.substr(0, str.length - 1);
+        }
+        var now_num = $("#now_num").text();
+        $.ajax({
+            url: "{:url('goods/chooseAttrs')}",
+            type: 'post',
+            dataType: 'json',
+            data:{str:str,id:id,car_num:now_num},
+            success: function (data) {
+                if(data.code==200){
+                    $("#now_price").text(data.price);
+                    $("#yunfei").val(data.yunfei);
+                }else{
+                }
+            }
+        });
+    }
+    /*立即购买选择数量++*/
+    function nowadd(){
+        var now_num = $("#now_num").text();
+        var now_nums = ++now_num;
+        $("#now_num").text(now_nums);
+    }
+    /*立即购买选择数量——*/
+    function  nowreduce(){
+        var now_num = $("#now_num").text();
+        if (now_num>1){
+            var now_nums = --now_num;
+            $("#now_num").text(now_nums);
+        }
+    }
+    /*立即购买*/
+    chickable_now=0;
+    function add_now(goods_id){
+        var str='';
+        /*去属性*/
+        $(".join_shopcar_layer").find("li").each(function(){
+            if( $(this).hasClass("cans_style")){
+                str+=$(this).text()+'_';
+            }
+        })
+        if (str.length > 0) {
+            str = str.substr(0, str.length - 1);
+        }
+        var now_num = $("#now_num").text();
+        var now_price = $("#now_price").text();
+        var yunfei =  $("#yunfei").val();
+        if(chickable_now==0){
+            chickable_now=1;
+            window.location.href="{:url('goods/create_order')}?attr="+str+"&goods_id="+goods_id+"&num="+now_num+"&freight="+yunfei+"&price="+now_price;
+        }
+    }
+    function sc(id,type){
+        $.ajax({
+            url: "{:url('collection/add')}",
+            type: 'post',
+            dataType: 'json',
+            data:{collection_id:id,type:type},
+            success: function (data) {
+                if(data.code==200){
+                    layer.msg('收藏成功!', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function(){
+                        window.location.reload()
+                    });
+                }else{
+                    layer.msg(data.message);
+                }
+            }
+        });
+    }
+    function qx(collection_id){
+        $.ajax({
+            url: "{:url('collection/del')}",
+            type: 'post',
+            dataType: 'json',
+            data:{collection_id:collection_id},
+            success: function (data) {
+                if(data.code==200){
+                    layer.msg('取消成功!', {
+                        time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function(){
+                        window.location.reload()
+                    });
+                }else{
+                    layer.msg(data.message);
+                }
+            }
+        });
+    }
+</script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    function fff() {
+        $(".layer1").hide();
+    }
+    function share_btn(){
+        $(".layer1").show();
+    }
+    var url = "{$url}";
+    wx.config({
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '{$share.appId}', // 必填，公众号的唯一标识
+        timestamp:"{$share.timestamp}" , // 必填，生成签名的时间戳
+        nonceStr: '{$share.nonceStr}', // 必填，生成签名的随机串
+        signature: '{$share.signature}',// 必填，签名，见附录1
+        jsApiList: [
+            // 所有要调用的 API 都要加到这个列表中
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline',
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+    wx.ready(function(){
+        wx.onMenuShareAppMessage({
+            title: '【万淘装备】设备齐全供您选择',
+            desc: '{$data.title}',
+            link: url,
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            imgUrl: '{$data.picurl}', // 分享图标
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                layer.msg("分享成功");
+                location.reload();
+            },
+            cancel: function () {
+                layer.msg("取消成功");
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: '【万淘装备】设备齐全供您选择',
+            desc: '{$data.title}',
+            link: url,
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            imgUrl: '{$data.picurl}', // 分享图标
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                layer.msg("分享成功");
+                location.reload();
+            },
+            cancel: function () {
+                layer.msg("取消成功");
+            }
+        });
+    });
+</script>

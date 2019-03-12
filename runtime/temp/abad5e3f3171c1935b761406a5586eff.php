@@ -1,5 +1,65 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\system\index.html";i:1550202076;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\create.html";i:1550202078;s:93:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\sidebar.html";i:1550202077;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\topbar.html";i:1550202077;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\footer.html";i:1550202077;}*/ ?>
-<!DOCTYPE html><html lang="zh_cn"><head>  <meta charset="utf-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">  <meta name="description" content="">  <meta name="author" content="">  <link rel="shortcut icon" href="__CONSOLE__/images/favicon.png" type="image/png">  <title><?php echo $mate_title; ?>-<?php echo \think\Config::get('web_config.web_name'); ?></title>    <link href="__CONSOLE__/css/style.default.css" rel="stylesheet">  <!--   sweetalert弹出样式 -->  <link href="__PLUGIN__/sweetalert/css/sweetalert.css" rel="stylesheet">  <link href="__PLUGIN__/Fileinput/css/fileinput.css" rel="stylesheet">    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->  <!--[if lt IE 9]>  <script src="__CONSOLE__/js/html5shiv.js"></script>  <script src="__CONSOLE__/js/respond.min.js"></script>  <![endif]-->  </head><body><!-- Preloader --><div id="preloader">    <div id="status"><i class="fa fa-spinner fa-spin"></i></div></div><section>  
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\system\index.html";i:1552269001;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\create.html";i:1550718049;s:93:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\sidebar.html";i:1540438817;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\topbar.html";i:1540438817;s:92:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\template\footer.html";i:1540438818;}*/ ?>
+<!DOCTYPE html>
+
+<html lang="zh_cn">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <meta name="description" content="">
+
+  <meta name="author" content="">
+
+  <link rel="shortcut icon" href="__CONSOLE__/images/favicon.png" type="image/png">
+
+
+
+  <title><?php echo $mate_title; ?>-<?php echo \think\Config::get('web_config.web_name'); ?></title>
+
+  
+
+  <link href="__CONSOLE__/css/style.default.css" rel="stylesheet">
+
+  <!--   sweetalert弹出样式 -->
+
+  <link href="__PLUGIN__/sweetalert/css/sweetalert.css" rel="stylesheet">
+
+  <link href="__PLUGIN__/Fileinput/css/fileinput.css" rel="stylesheet">
+
+  
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+  <!--[if lt IE 9]>
+
+  <script src="__CONSOLE__/js/html5shiv.js"></script>
+
+  <script src="__CONSOLE__/js/respond.min.js"></script>
+
+  <![endif]-->
+
+  
+
+</head>
+
+<body>
+
+<!-- Preloader -->
+
+<div id="preloader">
+
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+
+</div>
+
+<section>
+
+  
+
+
   <div class="leftpanel">
 
     <div class="logopanel">
@@ -45,7 +105,77 @@
   
 
     </div><!-- leftpanelinner -->
-  </div><!-- leftpanel -->    <div class="mainpanel">         <div class="headerbar">      <a class="menutoggle"><i class="fa fa-bars"></i></a>      <div class="header-right">        <ul class="headermenu">          <li>            <div class="btn-group">            <a href="<?php echo url('index/index/index'); ?>" target="_blank">              <button class="btn btn-default tp-icon" title="预览网站">                <i class="fa fa-send"></i>              </button>              </a>            </div>          </li>          <li>            <div class="btn-group">              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">                <img src="__CONSOLE__/images/photos/user<?php echo $user['avatar']; ?>.jpg" alt="">                <?php echo $user['username']; ?>                <span class="caret"></span>              </button>              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">                <li><a href="#" data-toggle="modal" data-target=".bs-myinfo-modal-lg"><i class="fa fa-user"></i> 我的信息</a></li><!--                 <li><a href="#"><i class="glyphicon glyphicon-cog"></i> 账号设置</a></li>                <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> 帮助</a></li> -->                <li><a onClick="logout('<?php echo url('Console/login/logout'); ?>');"><i class="fa fa-sign-out"></i> 退出</a></li>              </ul>            </div>          </li>        </ul>      </div><!-- header-right -->    </div><!-- headerbar -->           <div class="pageheader">      <h2><i class="fa fa-edit"></i> <?php echo $mate_title; ?> <span><?php echo $mate_operate; ?></span></h2>      <div class="breadcrumb-wrapper">        <span class="label">现在所在位置:</span>        <ol class="breadcrumb">          <li><?php echo $mate_title; ?> </li>          <li class="active"><?php echo $mate_operate; ?></li>        </ol>      </div>    </div>    <div class="contentpanel">         
+  </div><!-- leftpanel -->
+
+  
+
+  <div class="mainpanel">
+
+    
+
+     <div class="headerbar">
+
+      <a class="menutoggle"><i class="fa fa-bars"></i></a>
+
+      <div class="header-right">
+        <ul class="headermenu">
+          <li>
+            <div class="btn-group">
+            <a href="<?php echo url('Home/index/index'); ?>" target="_blank">
+              <button class="btn btn-default tp-icon" title="预览网站">
+                <i class="fa fa-send"></i>
+              </button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <img src="__CONSOLE__/images/photos/user<?php echo $user['avatar']; ?>.jpg" alt="">
+                <?php echo $user['username']; ?>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                <li><a href="#" data-toggle="modal" data-target=".bs-myinfo-modal-lg"><i class="fa fa-user"></i> 我的信息</a></li><!-- 
+                <li><a href="#"><i class="glyphicon glyphicon-cog"></i> 账号设置</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> 帮助</a></li> -->
+                <li><a onClick="logout('<?php echo url('Console/login/logout'); ?>');"><i class="fa fa-sign-out"></i> 退出</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div><!-- header-right -->
+
+    </div><!-- headerbar -->
+
+
+   
+
+    
+
+    <div class="pageheader">
+
+      <h2><i class="fa fa-edit"></i> <?php echo $mate_title; ?> <span><?php echo $mate_operate; ?></span></h2>
+
+      <div class="breadcrumb-wrapper">
+
+        <span class="label">现在所在位置:</span>
+
+        <ol class="breadcrumb">
+
+          <li><?php echo $mate_title; ?> </li>
+
+          <li class="active"><?php echo $mate_operate; ?></li>
+
+        </ol>
+
+      </div>
+
+    </div>
+
+    <div class="contentpanel">
+
+         
 <div class="row">
     <div class="col-md-12  column">
         <form class="form-horizontal form-bordered" action="<?php echo url('Console/System/whole'); ?>" method="post">
@@ -113,22 +243,273 @@
         </form>
     </div><!-- col-md-12 -->
 </div><!-- row -->
-    </div><!-- contentpanel -->  </div><!-- mainpanel -->    </section><script src="__CONSOLE__/js/jquery-1.11.1.min.js"></script><script src="__CONSOLE__/js/jquery-migrate-1.2.1.min.js"></script><script src="__CONSOLE__/js/bootstrap.min.js"></script><script src="__CONSOLE__/js/modernizr.min.js"></script><script src="__CONSOLE__/js/jquery.sparkline.min.js"></script><script src="__CONSOLE__/js/toggles.min.js"></script><script src="__CONSOLE__/js/retina.min.js"></script><script src="__CONSOLE__/js/jquery.cookies.js"></script><script src="__CONSOLE__/js/select2.min.js"></script><script src="__CONSOLE__/js/custom.js"></script><script src="__PLUGIN__/sweetalert/js/sweetalert.min.js"></script><!-- 时间控件 --><script src="__PLUGIN__/datepicker/WdatePicker.js"></script><!-- 验证 --><script src="__CONSOLE__/js/bootstrapValidator.js"></script><!-- 图片上传 --><script src="__PLUGIN__/Fileinput/js/fileinput.js"></script><script src="__CONSOLE__/layer/layer.js" type="text/javascript"></script><script>//单图上传function fileinputOne(fileid,field){      var widths = arguments[2] ? arguments[2] : 'auto';//设置默认的图片宽度      var heights = arguments[3] ? arguments[3] : '160px';//设置默认的图片高度      //单图上传      var $input = $("#"+fileid);      var $picurl = $("#"+field);               var $Preview =[];      var $Config =[];      if($picurl.val()!=''){         $Preview =["<img class='kv-preview-data file-preview-image' style='width:"+widths+";height:"+heights+";' src='__ROOT__"+$picurl.val()+"'>"];         $Config =[{key: 1}];      }      $input.fileinput({          uploadUrl: "<?php echo url('Console/common/Upload'); ?>",          deleteUrl: "<?php echo url('Console/common/updel'); ?>",          autoReplace: true,          overwriteInitial: true,          showUploadedThumbs: false,          maxFileCount: 1,          initialPreview: $Preview,          initialPreviewConfig: $Config,          layoutTemplates: {actionDelete: ''},       }).on("filebatchselected", function(event, files) {          $input.fileinput("upload");//选择后自动上传      }).on('fileuploaded', function(event, data,previewId,index) {           //alert(JSON.stringify(data));           var dataObj=eval("("+data.response+")");           if(dataObj['code']==0)             {                   $picurl.val(dataObj['img']);             }           else{                swal("出错了", "上传失败,请刷新再试", "error");             }      }).on("filecleared", function(event, files) {             $picurl.val('');      });}//组图上传function fileinputMore(fileid,picurlname,field){      var widths = arguments[3] ? arguments[3] : 'auto';//设置默认的图片宽度      var heights = arguments[4] ? arguments[4] : '160px';//设置默认的图片高度      //组图上传      var $input = $("#"+fileid);      var $picimg = $("input[name='"+picurlname+"']");      var $Preview =[];      var $Config =[];      $picimg.each(function(i,e){         $Preview.push("<img class='kv-preview-data file-preview-image' style='width:"+widths+";height:"+heights+";' src='__ROOT__"+$(this).val()+"'>");         $Config.push({caption: $(this).attr('flag'),show: $(this).attr('show'),size:0,url:"<input type='hidden' name='"+field+"' value='"+$(this).val()+"'>", key: i});      });      var footerTemplate = '<div class="file-thumbnail-footer">\n' +      '   <div style="margin:5px 0">\n' +      '       <input type="text" class="hidden" value="{show}" name="show[]"><input class="kv-input kv-new form-control input-sm text-center" value="{caption}" placeholder="填写注释" name="info[]">\n' +      '   </div>\n' +      '   <button type="button" class="kv-file-forward text-info header-left" title="前移"><i class="glyphicon glyphicon-chevron-left"></i></button>\n' +      '   &nbsp;{size}&nbsp;\n' +      '   <button type="button" class="kv-file-backward text-danger header-right" title="后移"><i class="glyphicon glyphicon-chevron-right"></i></button>\n' +      '   <button type="button" class="kv-file-heart text-danger header-left" title="显示隐藏"><i class="glyphicon glyphicon-heart{show}"></i></button>\n' +      '   {actions}\n' +      '</div>';        $input.fileinput({          uploadUrl: "<?php echo url('Console/common/Upload'); ?>",          deleteUrl: "<?php echo url('Console/common/updel'); ?>",          autoReplace: false,          overwriteInitial: false,          layoutTemplates: {footer: footerTemplate, size: '<samp><small>({sizeText})</small></samp>'},          initialPreview: $Preview,          initialPreviewConfig: $Config,      }).on("filebatchselected", function(event, files) {          $input.fileinput("upload");//选择后自动上传      }).on('fileuploaded', function(event, data,previewId,index) {            var dataObj=eval("("+data.response+")");             if(dataObj['code']==0)             {                  $('#'+previewId).append("<input type='hidden' name='"+field+"' value='"+dataObj['img']+"'>");             }             else{                swal("出错了", "上传失败,请刷新再试", "error");             }      });}</script><!-- ueditor --><script type="text/javascript" charset="utf-8" src="__PLUGIN__/ueditor/ueditor.config.js"></script><script type="text/javascript" charset="utf-8" src="__PLUGIN__/ueditor/ueditor.all.min.js"> </script><script type="text/javascript" charset="utf-8" src="__PLUGIN__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+    </div><!-- contentpanel -->
+
+  </div><!-- mainpanel -->
+
+  
+
+  
+
+</section>
+
+
+
+<script src="__CONSOLE__/js/jquery-1.11.1.min.js"></script>
+
+<script src="__CONSOLE__/js/jquery-migrate-1.2.1.min.js"></script>
+
+<script src="__CONSOLE__/js/bootstrap.min.js"></script>
+
+<script src="__CONSOLE__/js/modernizr.min.js"></script>
+
+<script src="__CONSOLE__/js/jquery.sparkline.min.js"></script>
+
+<script src="__CONSOLE__/js/toggles.min.js"></script>
+
+<script src="__CONSOLE__/js/retina.min.js"></script>
+
+<script src="__CONSOLE__/js/jquery.cookies.js"></script>
+
+
+
+<script src="__CONSOLE__/js/select2.min.js"></script>
+
+<script src="__CONSOLE__/js/custom.js"></script>
+
+<script src="__PLUGIN__/sweetalert/js/sweetalert.min.js"></script>
+
+<!-- 时间控件 -->
+
+<script src="__PLUGIN__/datepicker/WdatePicker.js"></script>
+
+<!-- 验证 -->
+
+<script src="__CONSOLE__/js/bootstrapValidator.js"></script>
+
+
+
+<!-- 图片上传 -->
+
+<script src="__PLUGIN__/Fileinput/js/fileinput.js"></script>
+
+<script>
+
+//单图上传
+
+function fileinputOne(fileid,field){
+
+      var widths = arguments[2] ? arguments[2] : 'auto';//设置默认的图片宽度
+
+      var heights = arguments[3] ? arguments[3] : '160px';//设置默认的图片高度
+
+      //单图上传
+
+      var $input = $("#"+fileid);
+
+      var $picurl = $("#"+field); 
+
+        
+
+      var $Preview =[];
+
+      var $Config =[];
+
+      if($picurl.val()!=''){
+
+         $Preview =["<img class='kv-preview-data file-preview-image' style='width:"+widths+";height:"+heights+";' src='__ROOT__"+$picurl.val()+"'>"];
+
+         $Config =[{key: 1}];
+
+      }
+
+      $input.fileinput({
+
+          uploadUrl: "<?php echo url('Console/common/Upload'); ?>",
+
+          deleteUrl: "<?php echo url('Console/common/updel'); ?>",
+
+          autoReplace: true,
+
+          overwriteInitial: true,
+
+          showUploadedThumbs: false,
+
+          maxFileCount: 1,
+
+          initialPreview: $Preview,
+
+          initialPreviewConfig: $Config,
+
+          layoutTemplates: {actionDelete: ''}, 
+
+      }).on("filebatchselected", function(event, files) {
+
+          $input.fileinput("upload");//选择后自动上传
+
+      }).on('fileuploaded', function(event, data,previewId,index) {
+
+           //alert(JSON.stringify(data));
+
+           var dataObj=eval("("+data.response+")");
+
+           if(dataObj['code']==0)
+
+             {  
+
+                 $picurl.val(dataObj['img']);
+
+             }
+
+           else{
+
+                swal("出错了", "上传失败,请刷新再试", "error");
+
+             }
+
+      }).on("filecleared", function(event, files) {
+
+             $picurl.val('');
+
+      });
+
+
+
+}
+
+//组图上传
+
+function fileinputMore(fileid,picurlname,field){
+
+      var widths = arguments[3] ? arguments[3] : 'auto';//设置默认的图片宽度
+
+      var heights = arguments[4] ? arguments[4] : '160px';//设置默认的图片高度
+
+      //组图上传
+
+      var $input = $("#"+fileid);
+
+      var $picimg = $("input[name='"+picurlname+"']");
+
+
+
+      var $Preview =[];
+
+      var $Config =[];
+
+      $picimg.each(function(i,e){
+
+         $Preview.push("<img class='kv-preview-data file-preview-image' style='width:"+widths+";height:"+heights+";' src='__ROOT__"+$(this).val()+"'>");
+
+         $Config.push({caption: $(this).attr('flag'),show: $(this).attr('show'),size:0,url:"<input type='hidden' name='"+field+"' value='"+$(this).val()+"'>", key: i});
+
+
+
+      });
+
+
+
+      var footerTemplate = '<div class="file-thumbnail-footer">\n' +
+
+      '   <div style="margin:5px 0">\n' +
+
+      '       <input type="text" class="hidden" value="{show}" name="show[]"><input class="kv-input kv-new form-control input-sm text-center" value="{caption}" placeholder="填写注释" name="info[]">\n' +
+
+      '   </div>\n' +
+
+      '   <button type="button" class="kv-file-forward text-info header-left" title="前移"><i class="glyphicon glyphicon-chevron-left"></i></button>\n' +
+
+      '   &nbsp;{size}&nbsp;\n' +
+
+      '   <button type="button" class="kv-file-backward text-danger header-right" title="后移"><i class="glyphicon glyphicon-chevron-right"></i></button>\n' +
+
+      '   <button type="button" class="kv-file-heart text-danger header-left" title="显示隐藏"><i class="glyphicon glyphicon-heart{show}"></i></button>\n' +
+
+      '   {actions}\n' +
+
+      '</div>';
+
+
+
+        $input.fileinput({
+
+          uploadUrl: "<?php echo url('Console/common/ossUpload'); ?>",
+
+          deleteUrl: "<?php echo url('Console/common/updel'); ?>",
+
+          autoReplace: false,
+
+          overwriteInitial: false,
+
+          layoutTemplates: {footer: footerTemplate, size: '<samp><small>({sizeText})</small></samp>'},
+
+          initialPreview: $Preview,
+
+          initialPreviewConfig: $Config,
+
+      }).on("filebatchselected", function(event, files) {
+
+          $input.fileinput("upload");//选择后自动上传
+
+      }).on('fileuploaded', function(event, data,previewId,index) {
+
+            var dataObj=eval("("+data.response+")");
+
+             if(dataObj['code']==0)
+
+             { 
+
+                 $('#'+previewId).append("<input type='hidden' name='"+field+"' value='"+dataObj['img']+"'>");
+
+             }
+
+             else{
+
+                swal("出错了", "上传失败,请刷新再试", "error");
+
+             }
+
+      });
+
+}
+
+</script>
+
+
+
+
+
+<!-- ueditor -->
+
+<script type="text/javascript" charset="utf-8" src="__PLUGIN__/ueditor/ueditor.config.js"></script>
+
+<script type="text/javascript" charset="utf-8" src="__PLUGIN__/ueditor/ueditor.all.min.js"> </script>
+
+<script type="text/javascript" charset="utf-8" src="__PLUGIN__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+
+
+
+
 <script>
     jQuery(document).ready(function () {
         //$("[name='state'][value='<?php echo isset($vo['state']) ? $vo['state'] :  'Y'; ?>']").attr("checked", true);
 
         UE.getEditor("share_details", {initialFrameWidth: null});
+        UE.getEditor("take_money_explain", {initialFrameWidth: null});
 
-        fileinputOne("sell_img18", "sell_img");
-        fileinputOne("fin_img35", "fin_img");
-        fileinputOne("activity_img36", "activity_img");
-        //fileinputOne("app_ercode30", "app_ercode");
-        fileinputOne("logo31", "logo");
+        fileinputOne("share_img18", "share_img");        fileinputOne("kf_ercode30", "kf_ercode");        fileinputOne("weixin_ercode31", "weixin_ercode");
 
     });
 </script>
- <!-- 我的信息弹出 -->
+
+
+
+
+ <!-- 我的信息弹出 -->
     <div class="modal fade bs-myinfo-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -172,7 +553,7 @@
                     <label class="col-sm-3 control-label">头像选择:</label>
                     <div class="col-sm-6 avatar-size">
                         <input type="hidden" name="avatar" value="<?php echo isset($user['avatar']) ? $user['avatar'] :  1; ?>" id="avatar2">
-                        <?php $__FOR_START_11328__=1;$__FOR_END_11328__=9;for($i=$__FOR_START_11328__;$i < $__FOR_END_11328__;$i+=1){ ?>
+                        <?php $__FOR_START_8326__=1;$__FOR_END_8326__=9;for($i=$__FOR_START_8326__;$i < $__FOR_END_8326__;$i+=1){ ?>
                         <img src="__CONSOLE__/images/photos/user<?php echo $i; ?>.jpg" class="img-circle" onClick="chooseImg2(<?php echo $i; ?>);" myflagImg="<?php echo $i; ?>">
                         <?php } ?>
                     </div>
@@ -268,4 +649,10 @@
              return true;
           });
       }
-    </script></body></html><script>    function tips(data) {        layer.msg(data);    }</script>
+    </script>
+
+</body>
+
+
+
+</html>
