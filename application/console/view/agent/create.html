@@ -1,0 +1,270 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+        </div>
+        <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+    </div>
+    <div class="panel-body panel-body-nopadding">
+
+        <form class="form-horizontal form-bordered" id="submitForm" action="" method="post">
+
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">店铺名称:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="title" placeholder="店铺名称"
+                           value="{$vo.title ?? ''}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">店铺logo：</label>
+                <div class="col-sm-6">
+                    <input id="fileone" type="file" class="file-loading">
+                    <input type="hidden" id="picurl" name="picurl" value="{$vo.picurl ?? ''}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">拥有人:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="manned" placeholder="拥有人" value="{$vo.manned ?? ''}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>手机号：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="手机号" id="mobile" name="mobile" value="{$vo.mobile ?? ''}"
+                           required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>qq：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="qq号" name="qq" value="{$vo.qq ?? ''}"
+                           required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所在省份：</label>
+                <div class="col-sm-6">
+                    <select name="pro" class="select2" id="pro">
+                        <option value="">请选择所在省份</option>
+                        {volist name="pro" id="info"}
+                            <option value="{$info.name}" code="{$info.code}">{$info.name}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所在城市：</label>
+                <div class="col-sm-6">
+                    <select name="city" class="select2" id="city">
+                        <option value="">请选择所在城市</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所在地区：</label>
+                <div class="col-sm-6">
+                    <select name="area" class="select2" id="area">
+                        <option value="">请选择所在地区</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">详细地址:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="address" placeholder="详细地址" value="{$vo.address ?? ''}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">状态：</label>
+                <div class="col-sm-6 wh-inline">
+                    <div class="rdio rdio-primary">
+                        <input type="radio" name="status" id="status-1" value="1">
+                        <label for="status-1">启用</label>
+                    </div>
+                    <div class="rdio rdio-primary">
+                        <input type="radio" name="status" id="status-0" value="0">
+                        <label for="status-0">禁用</label>
+                    </div>
+                </div>
+            </div>
+            {if condition="$Request.action eq 'update'"}
+            <div class="form-group">
+                <label class="col-sm-3 control-label">创建时间：</label>
+                <div class="col-sm-6">
+                    <label class="control-label"> {$vo.create_time}</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">上次更新：</label>
+                <div class="col-sm-6">
+                    <label class="control-label"> {$vo.update_time}</label>
+                </div>
+            </div>
+            {/if}
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <input type="hidden" name="id" value="{$vo.id ?? ''}">
+                        <button type="submit" class="btn btn-primary">提交</button>
+                        <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+                    </div>
+                </div>
+            </div><!-- panel-footer -->
+
+        </form>
+
+    </div><!-- panel-body -->
+</div>
+{/block}
+{block name="fileinput"}{__block__}{/block}
+{block name="ueditor"}{__block__}{/block}
+{block name="js"}
+<script src="__CONSOLE__/js/descates.js"></script>
+{/block}
+{block name="script"}
+<script>
+    $('#pro').change(function(){
+       code =  $(this).find("option:selected").attr("code");
+        $.ajax({
+
+            url: "{:url('store/get_city')}",
+
+            type: 'post',
+
+            dataType: 'json',
+
+            data:{code:code},
+
+            success: function (data) {
+
+                if(data.code==200){
+                    var str = '';
+
+                    $.each(data.data,function(i,val){  //遍历二维数组
+
+                        str +='<option value="'+val['name']+'" code="'+val['code']+'">'+val['name']+'</option>'
+                    })
+
+                    $('#city').empty();
+                    $('#city').append(str);
+
+                }else{
+
+                    alert(data.message);
+
+                }
+
+            }
+
+        });
+
+    })
+    $('#city').change(function(){
+
+        code =  $(this).find("option:selected").attr("code");
+
+        $.ajax({
+
+            url: "{:url('store/get_area')}",
+
+            type: 'post',
+
+            dataType: 'json',
+
+            data:{code:code},
+
+            success: function (data) {
+
+                if(data.code==200){
+                    var str = '';
+                    console.log(data.data)
+                    $.each(data.data,function(i,val){  //遍历二维数组
+
+                        str +='<option value="'+val['name']+'" code="'+val['code']+'">'+val['name']+'</option>'
+                    })
+                    $('#area').empty();
+                    $('#area').append(str);
+
+                }else{
+
+                    alert(data.message);
+
+                }
+
+            }
+
+        });
+
+    })
+    $(document).ready(function () {
+
+
+        $("[name='status'][value='{$vo.status ?? '1'}']").attr("checked", true);
+        $("[name='typeid']").find("[value='{$vo.typeid ?? ''}']").attr("selected", true);
+        $("[name='pro']").find("[value='{$vo.pro ?? ''}']").attr("selected", true);
+
+        fileinputOne("fileone", "picurl");
+
+        $('#submitForm').bootstrapValidator({
+            message: '这个值是无效的',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                mobile: {
+                    validators: {
+                        regexp: {
+                            regexp: /^1[34578]\d{9}$/,
+                            message: '手机号格式不正确'
+                        },
+                        threshold: 8,//有2字符以上才发送ajax请求
+                        remote: {
+                            message: "该手机号不存在",
+                            url: "{:url('store/check_mobile')}",
+                            delay: 2000, //每输入一个字符，就发ajax请求，服务器压力还是太大，设置1秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                            type: "post",
+                            data: function(e) {
+                                console.log(e)
+                                return {
+
+                                }
+
+                            }
+                        },
+                    },
+
+                },
+            }
+        });
+        //select2
+        jQuery(".select2").select2({
+            width: '100%',
+            minimumResultsForSearch: -1
+        });
+    });
+    $("[name='level_id']").live('change', function () {
+        $(".more").css("display", 'block')
+        $(".one").css("display", 'block')
+    });
+
+
+</script>
+{/block}
+

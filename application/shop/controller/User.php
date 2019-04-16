@@ -1,125 +1,1 @@
-<?php
-namespace app\shop\controller;
-use think\Db;
-use think\Request;
-use think\Url;
-use app\shop\model\User as ThisModel;
-
-class User extends Base
-{
-    /**
-	 * [index description]列表
-	 * @return [type] [description]
-	 */
-	public function index()
-	{
-		$data = ThisModel::order('id', 'desc')->select();
-
-        return $this->fetch('index', [
-            'list'       => $data
-        ]);
-	}
-	/**
-     * [create description]添加方法
-     * @return [type] [description]
-     */
-	public function create()
-	{
-		if (Request::instance()->isPOST())
-		{
-			$data = Request::instance()->post();
-			$result = ThisModel::saveVerify($data);
-			if (true === $result) {
-                $this->success('新建成功', 'shop/User/index');
-            } else {
-                $this->error($result);
-            }
-		}
-		$param = $this->appendarg();
-
-		return $this->fetch('create', $param);
-	}
-
-    /**
-     * [update description]更新方法
-     * @param  [type] $id [description]主键id
-     * @return [type]     [description]
-     */
-	public function update($id)
-	{
-		if (Request::instance()->isPOST())
-		{
-			$data = Request::instance()->post();
-			$result = ThisModel::saveVerify($data,$id);
-			if (true === $result) {
-                $this->success('更新成功', 'shop/User/index');
-            } else {
-                $this->error($result);
-            }
-		}
-
-		$data = ThisModel::get($id);
-		$param = array_merge(['vo'=>$data], $this->appendarg());
-
-		return $this->fetch('create', $param);
-	}
-    /**
-     * 添加修改时候需要传递参数的话，用此方法，只写一遍
-     */
-	public function appendarg(){
-	    $prov_data = db::name('cn_prov')->field('code,name')->select();
-		return [
-		   'prov_data' =>$prov_data,
-		];
-	}
-    /**
-     * [delete description]删除方法 多选和单选删除
-     * @return [type] [description]
-     */
-	public function delete(){
-		if (Request::instance()->isPOST())
-		{
-			$id = Request::instance()->post('id/a'); // (/a)方法 将收到的id转为数组
-			$delmodel = ThisModel::destroy($id);
-			if($delmodel){
-			    $this->success('删除成功', 'shop/User/index');
-			}
-			else{
-				$this->error($delmodel->getError());
-			}
-	    }
-	    else{
-	    	$this->error('请求方式出错!');
-	    }
-	}
-    /**
-     * [renewfield description]列表更新字段
-     * @return [type] [description]
-     */
-	public function renewfield(){
-		if (Request::instance()->isPOST())
-		{
-            $data = Request::instance()->post();
-			$validate = validate('User');
-
-			$post = Request::instance()->except(['id'],'post');
-			$post = array_keys($post);
-
-            $validate->scene('edit', $post);
-			if(!$validate->scene('edit')->check($data)){
-			    $this->error($validate->getError());
-			}
-	        $this_model = new ThisModel();
-	        if($this_model->update($data))
-            {
-			    $this->success('更新成功', 'shop/User/index');
-			}
-			else{
-				$this->error($this_model->getError());
-			}
-		}
-	    else{
-	    	$this->error('请求方式出错!');
-	    }
-	}
-}
+<?phpnamespace app\shop\controller;use think\Db;use think\Request;use think\Session;use think\Url;use app\shop\model\StoreMember as ThisModel;class User extends Base{    /**	 * [index description]列表	 * @return [type] [description]	 */	public function index()	{		$data = ThisModel::order('id', 'desc')->select();        return $this->fetch('index', [            'list'       => $data        ]);	}	/**     * [create description]添加方法     * @return [type] [description]     */	public function create()	{		if (Request::instance()->isPOST())		{			$data = Request::instance()->post();            $data['money']        = $data['account'];            $data['store_id']     = Session::get('shop_id');			$result = ThisModel::saveVerify($data);			if (true === $result) {                $leve_arr  = ['普通会员','银卡','金卡','钻石卡'];			    if($data['level_lv']!=0){                    $member_id = ThisModel::where('mobile',$data['mobile'])->value('id');                    //佣金分成                    $data_re = [                        'store_id'    => Session::get('shop_id'),                        'money'       => $data['account'],                        'content'     => '办理'.$leve_arr[$data['level_lv']],                        'type'        => 1,                        'create_time' => time(),                        'member_lv'   => $data['level_lv'],                        'member_id'   => $member_id,                    ];                    $this->obj = db('store_record');                    $this->obj->insert($data_re);                }                $commission = 0;                $rate       = 0;                if(!empty($data['invited_shop_id']) &&$data['level_lv']!=0){                    switch ($data['level_lv']){                        case 1;                            $rate = '0.2';                            break;                        case 2;                            $rate = '0.3';                            break;                        case 3;                            $rate = '0.4';                            break;                    }                    $commission = round($data['account']*$rate,2);                    ThisModel::where('id',$data['invited_shop_id'])->setInc('money',$commission);                    ThisModel::where('id',$data['invited_shop_id'])->setInc('account',$commission);                    $data_yong = [                        'store_id'    => Session::get('shop_id'),                        'money'       => $commission,                        'content'     => '推荐'.$data['mobile'].'办理'.$leve_arr[$data['level_lv']],                        'type'        => 2,                        'create_time' => time(),                        'member_id'   => $data['invited_shop_id'],                    ];                    $this->obj->insert($data_yong);                }                $this->success('添加成功', 'shop/User/index');            } else {                $this->error($result);            }		}		$param = $this->appendarg();		return $this->fetch('create', $param);	}    /**     *  向总后台提交申请 升级代理商级别     *     * */    public function uplv($id){        if (Request::instance()->isPOST())        {            $data = Request::instance()->post();            $data['create_time'] = time();            $data['status']      = 0;            $data['store_id']    = Session::get('shop_id');            $result = db('user_tmp')->insert($data);            if ($result) {                $this->success('申请已提交', 'shop/User/index');            } else {                $this->error($result);            }        }        $infoclass = db::name('certification_type')->field('id,title')->select();        $data = ThisModel::where('store_id',Session::get('shop_id'))->find($id);        $this->assign('vo',$data);        $this->assign('infoclass',$infoclass);        return $this->fetch('uplv');    }    /**     * [update description]更新方法     * @param  [type] $id [description]主键id     * @return [type]     [description]     */	public function update($id)	{		if (Request::instance()->isPOST())		{			$data = Request::instance()->post();			$result = ThisModel::saveVerify($data,$id);			if (true === $result) {                $this->success('更新成功', 'shop/User/index');            } else {                $this->error($result);            }		}		$data = ThisModel::where('store_id',Session::get('shop_id'))->find($id);		$param = array_merge(['vo'=>$data], $this->appendarg());		return $this->fetch('create', $param);	}    /**     * 添加修改时候需要传递参数的话，用此方法，只写一遍     */	public function appendarg(){	    //$prov_data = db::name('cn_prov')->field('code,name')->select();        $infoclass = [                ['id'=>0,'title'=>'普通用户'],                ['id'=>1,'title'=>'银卡'],                ['id'=>2,'title'=>'金卡'],                ['id'=>3,'title'=>'钻石卡'],                ];        $member_list = ThisModel::where('store_id',Session::get('shop_id'))->field('id,username,mobile')->select();        return [            'infoclass'   => $infoclass,            'member_list' => $member_list,        ];	}    /**     * [delete description]删除方法 多选和单选删除     * @return [type] [description]     */	public function delete(){		if (Request::instance()->isPOST())		{			$id = Request::instance()->post('id/a'); // (/a)方法 将收到的id转为数组			$delmodel = ThisModel::destroy($id);			if($delmodel){			    $this->success('删除成功', 'shop/User/index');			}			else{				$this->error($delmodel->getError());			}	    }	    else{	    	$this->error('请求方式出错!');	    }	}    /**     * [renewfield description]列表更新字段     * @return [type] [description]     */	public function renewfield(){		if (Request::instance()->isPOST())		{            $data = Request::instance()->post();			$validate = validate('User');			$post = Request::instance()->except(['id'],'post');			$post = array_keys($post);            $validate->scene('edit', $post);			if(!$validate->scene('edit')->check($data)){			    $this->error($validate->getError());			}	        $this_model = new ThisModel();	        if($this_model->update($data))            {			    $this->success('更新成功', 'shop/User/index');			}			else{				$this->error($this_model->getError());			}		}	    else{	    	$this->error('请求方式出错!');	    }	}}

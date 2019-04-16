@@ -290,7 +290,7 @@
                     <label class="col-sm-3 control-label">头像选择:</label>
                     <div class="col-sm-6 avatar-size">
                         <input type="hidden" name="avatar" value="<?php echo isset($user['avatar']) ? $user['avatar'] :  1; ?>" id="avatar2">
-                        <?php $__FOR_START_10718__=1;$__FOR_END_10718__=9;for($i=$__FOR_START_10718__;$i < $__FOR_END_10718__;$i+=1){ ?>
+                        <?php $__FOR_START_30112__=1;$__FOR_END_30112__=9;for($i=$__FOR_START_30112__;$i < $__FOR_END_30112__;$i+=1){ ?>
                         <img src="__CONSOLE__/images/photos/user<?php echo $i; ?>.jpg" class="img-circle" onClick="chooseImg2(<?php echo $i; ?>);" myflagImg="<?php echo $i; ?>">
                         <?php } ?>
                     </div>

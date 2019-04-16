@@ -1,0 +1,130 @@
+[ 2019-04-13T12:53:19+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/project/index.html
+[ log ] zhmr.cc/shop/project/index.html [运行时间：7.644437s][吞吐率：0.13req/s] [内存消耗：2,085.45kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'project',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\shop\controller\Project->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\shop\controller\Project.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\project\index.html [ array (
+  0 => 'menu_left',
+  1 => 'mate_title',
+  2 => 'mate_operate',
+  3 => 'user',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.102006s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store` [ RunTime:0.114007s ]
+[ sql ] [ SQL ] SELECT `group_id` FROM `mx_store` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_manager` [ RunTime:0.461027s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`avatar`,`nickname`,`mobile` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store_record` [ RunTime:0.693040s ]
+[ sql ] [ SQL ] SELECT `m`.`username`,`m`.`mobile`,`m`.`account`,`r`.`money`,`r`.`content`,`r`.`create_time`,`r`.`id`,`r`.`type`,`r`.`member_lv`,`r`.`member_id` FROM `mx_store_record` `r` LEFT JOIN `mx_store_member` `m` ON `r`.`member_id`=`m`.`id` WHERE  `r`.`store_id` = 1 ORDER BY `r`.`id`  desc [ RunTime:0.168010s ]
+[ error ] [0]类的属性不存在:app\shop\model\StoreRecord->level_lv[D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\library\think\Model.php:857]
+
+---------------------------------------------------------------
+[ 2019-04-13T12:53:23+08:00 ] 127.0.0.1 127.0.0.1 GET /favicon.ico
+[ log ] zhmr.cc/favicon.ico [运行时间：0.132008s][吞吐率：7.58req/s] [内存消耗：916.19kb] [文件加载：40]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'favicon.ico',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/project/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-13T12:53:29+08:00 ] 127.0.0.1 127.0.0.1 GET /console/store/index.html
+[ log ] zhmr.cc/console/store/index.html [运行时间：8.519488s][吞吐率：0.12req/s] [内存消耗：2,229.98kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'console',
+    1 => 'store',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/console/store/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\console\controller\Store->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\console\controller\Store.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\store\index.html [ array (
+  0 => 'menu_left',
+  1 => 'mate_title',
+  2 => 'mate_operate',
+  3 => 'user',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_manager` [ RunTime:0.578033s ]
+[ sql ] [ SQL ] SELECT `group_id` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`avatar`,`nickname`,`mobile` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `mx_store` WHERE  `id` <> 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `mx_store` WHERE  `id` <> 0 ORDER BY id desc LIMIT 0,30 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------

@@ -257,7 +257,7 @@
 
     function chooseAttr(val) {
         $.ajax({
-            url: "{:url('console/goods/getattr')}",    //提交的页面，方法名
+            url: "{:url('shop/goods/getattr')}",    //提交的页面，方法名
             dataType: "json",     //类型
             data: {"typeid": val},
             type: "POST",     //提交方式

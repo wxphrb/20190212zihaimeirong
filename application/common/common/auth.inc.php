@@ -231,78 +231,169 @@ $acl_inc[$i]["low_leve"]["authgroup"] = array("管理组管理" => array("index"
         "eq_setup" => "authgroup5",
 
     ));
-
-/*
 $i++;
 
-$acl_inc[$i]['low_title'] = array('供求平台', 'fa fa-photo');
+$acl_inc[$i]['low_title'] = array('报表', 'fa fa-photo');
 
-// 精彩案例
+// 报表
 
-$acl_inc[$i]["low_leve"]["supply"] = array("我要求购" => array("index",
+$acl_inc[$i]["low_leve"]["finance_statement"] = array("财务表报" => array("index",
     array(
-        "列表" => "supply1",
-        "添加" => "supply2",
-        "修改" => "supply3",
-        "删除" => "supply4",
+        "列表" => "finance_statement1",
+        "添加" => "finance_statement2",
+        "修改" => "finance_statement3",
+        "删除" => "finance_statement4",
     )),
     "data" => array(
-        "eq_index" => "supply1",
-        "eq_wantbuy" => "supply1",
-        "eq_create" => "supply2",
-        "eq_update" => "supply3",
-        "eq_renewfield" => "supply3",
-        "eq_delete" => "supply4",
+        "eq_index" => "finance_statement1",
+        "eq_create" => "finance_statement",
+        "eq_update" => "finance_statement3",
+        "eq_renewfield" => "finance_statement3",
+        "eq_delete" => "finance_statement4",
     ));
 
-$acl_inc[$i]["low_leve"]["supplys"] = array("我要供应" => array("index",
+$acl_inc[$i]["low_leve"]["agent_statement"] = array("代理商表报" => array("index",
     array(
-        "列表" => "supplys1",
-        "添加" => "supplys2",
-        "修改" => "supplys3",
-        "删除" => "supplys4",
+        "列表" => "agent_statement1",
+        "添加" => "agent_statement2",
+        "修改" => "agent_statement3",
+        "删除" => "agent_statement4",
     )),
     "data" => array(
-        "eq_index" => "supplys1",
-        "eq_wantbuy" => "supplys1",
-        "eq_create" => "supplys2",
-        "eq_update" => "supplys3",
-        "eq_renewfield" => "supplys3",
-        "eq_delete" => "supplys4",
+        "eq_index"      => "agent_statement1",
+        "eq_create"     => "agent_statement2",
+        "eq_update"     => "agent_statement3",
+        "eq_renewfield" => "agent_statement3",
+        "eq_delete"     => "agent_statement4",
     ));
 
 
-
-// 案例分类
-
-$acl_inc[$i]["low_leve"]["product_type"] = array("产品分类" => array("@product",
-
-    array(
-
-        "添加" => "product_type2",
-
-        "修改" => "product_type3",
-
-        "删除" => "product_type4",
-
-    )),
-
-    "data" => array(
-
-        "eq_create" => "product_type2",
-
-        "eq_update" => "product_type3",
-
-        "eq_renewfield" => "product_type3",
-
-        "eq_delete" => "product_type4",
-
-    ));
-
-*/
 $i++;
 
-$acl_inc[$i]['low_title'] = array('会员模块', 'fa fa-users');
+$acl_inc[$i]['low_title'] = array('消息', 'fa fa-photo');
+
+// 消息队列
+
+$acl_inc[$i]["low_leve"]["new_message"] = array("新订单消息" => array("index",
+    array(
+        "列表" => "new_message1",
+        "添加" => "new_message2",
+        "修改" => "new_message3",
+        "删除" => "new_message4",
+    )),
+    "data" => array(
+        "eq_index" => "new_message1",
+        "eq_wantbuy" => "new_message1",
+        "eq_create" => "new_message2",
+        "eq_update" => "new_message3",
+        "eq_renewfield" => "new_message3",
+        "eq_delete" => "new_message4",
+    ));
+
+$acl_inc[$i]["low_leve"]["apply_message"] = array("结算申请消息" => array("index",
+    array(
+        "列表" => "apply_message1",
+        "添加" => "apply_message2",
+        "修改" => "apply_message3",
+        "删除" => "apply_message4",
+    )),
+    "data" => array(
+        "eq_index" => "apply_message1",
+        "eq_wantbuy" => "apply_message1",
+        "eq_create" => "apply_message2",
+        "eq_update" => "apply_message3",
+        "eq_renewfield" => "apply_message3",
+        "eq_delete" => "apply_message4",
+    ));
+
+
+$acl_inc[$i]["low_leve"]["send_message"] = array("提示发货消息" => array("index",
+
+    array(
+
+        "添加" => "send_message1",
+
+        "修改" => "send_message2",
+
+        "重定向" => "send_message3",
+
+        "删除" => "send_message4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "send_message1",
+
+        "eq_update" => "send_message2",
+
+        "eq_renewfield" => "send_message3",
+
+        "eq_delete" => "send_message4",
+
+    ));
+
+//
+
+$acl_inc[$i]["low_leve"]["message"] = array("申请加盟消息" => array("index",
+
+    array(
+
+        "列表" => "message1",
+
+        "添加" => "message2",
+
+        "修改" => "message3",
+
+        "删除" => "message4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index"      => "message1",
+
+        "eq_create"     => "message2",
+
+        "eq_update"     => "message3",
+
+        "eq_renewfield" => "message3",
+
+        "eq_delete"     => "message4",
+
+    ));
+
+$acl_inc[$i]["low_leve"]["user_message"] = array("会员升级消息" => array("index",
+
+    array(
+
+        "列表" => "user_message1",
+
+        "添加" => "user_message2",
+
+        "修改" => "user_message3",
+
+        "删除" => "user_message4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "user_message1",
+
+        "eq_create" => "user_message2",
+
+        "eq_update" => "user_message3",
+
+        "eq_renewfield" => "user_message3",
+
+        "eq_delete" => "user_message4",
+
+    ));
+
+$i++;
+
+$acl_inc[$i]['low_title'] = array('账号模块', 'fa fa-users');
 
 // 用户管理
 
@@ -339,6 +430,43 @@ $acl_inc[$i]["low_leve"]["user"] = array("会员管理" => array("index",
         "eq_approve" => "user5",
 
         "eq_integral_info" => "user6",
+
+    ));
+// 用户管理
+
+$acl_inc[$i]["low_leve"]["user_tmp"] = array("新增会员管理" => array("index",
+
+    array(
+
+        "列表" => "user_tmp1",
+
+        "添加" => "user_tmp2",
+
+        "修改" => "user_tmp3",
+
+        "删除" => "user_tmp4",
+
+        "认证" => "user_tmp5",
+
+        "积分记录" => "user_tmp6",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "user_tmp1",
+
+        "eq_create" => "user_tmp2",
+
+        "eq_update" => "user_tmp3",
+
+        "eq_renewfield" => "user_tmp3",
+
+        "eq_delete" => "user_tmp4",
+
+        "eq_approve" => "user_tmp5",
+
+        "eq_integral_info" => "user_tmp6",
 
     ));
 
@@ -701,38 +829,7 @@ $acl_inc[$i]["low_leve"]["nav"] = array("文章管理" => array("index",
         'eq_updatesort' => "nav3"
 
     ));
-//客户风采
-$acl_inc[$i]["low_leve"]["kehu"] = array("客户风采" => array("index",
 
-    array(
-
-        "列表" => "kehu1",
-
-        "添加" => "kehu2",
-
-        "修改" => "kehu3",
-
-        "删除" => "kehu4",
-
-    )),
-
-    "data" => array(
-
-        "eq_index" => "kehu1",
-
-        "eq_create" => "kehu2",
-
-        "eq_update" => "kehu3",
-
-        "eq_hotspot" => "kehu3",
-
-        "eq_renewfield" => "kehu3",
-
-        "eq_delete" => "kehu4",
-
-        'eq_updatesort' => "kehu3"
-
-    ));
 // banner管理
 
 $acl_inc[$i]["low_leve"]["banner"] = array("banner管理" => array("index",
@@ -760,33 +857,6 @@ $acl_inc[$i]["low_leve"]["banner"] = array("banner管理" => array("index",
         "eq_renewfield" => "banner3",
 
         "eq_delete" => "banner4",
-
-    ));
-$acl_inc[$i]["low_leve"]["chehang"] = array("车行管理" => array("index",
-
-    array(
-
-        "列表" => "chehang1",
-
-        "添加" => "chehang2",
-
-        "修改" => "chehang3",
-
-        "删除" => "chehang4",
-
-    )),
-
-    "data" => array(
-
-        "eq_index" => "chehang1",
-
-        "eq_create" => "chehang2",
-
-        "eq_update" => "chehang3",
-
-        "eq_renewfield" => "chehang3",
-
-        "eq_delete" => "chehang4",
 
     ));
 
@@ -863,47 +933,14 @@ $acl_inc[$i]["low_leve"]["banner_type"] = array("banner分类" => array("@banner
 
     ));
 
-$i++;
-
-$acl_inc[$i]['low_title'] = array('申请加盟', 'fa fa-cubes');
-
-// 留言列表
-
-$acl_inc[$i]["low_leve"]["message"] = array("申请列表" => array("index",
-
-    array(
-
-        "列表" => "message1",
-
-        "添加" => "message2",
-
-        "修改" => "message3",
-
-        "删除" => "message4",
-
-    )),
-
-    "data" => array(
-
-        "eq_index" => "message1",
-
-        "eq_create" => "message2",
-
-        "eq_update" => "message3",
-
-        "eq_renewfield" => "message3",
-
-        "eq_delete" => "message4",
-
-    ));
 
 $i++;
 
-$acl_inc[$i]['low_title'] = array('门店管理', 'fa fa-cubes');
+$acl_inc[$i]['low_title'] = array('线下店铺管理', 'fa fa-cubes');
 
 // 留言列表
 
-$acl_inc[$i]["low_leve"]["store"] = array("申请列表" => array("index",
+$acl_inc[$i]["low_leve"]["store"] = array("店铺列表" => array("index",
 
     array(
 
@@ -930,6 +967,43 @@ $acl_inc[$i]["low_leve"]["store"] = array("申请列表" => array("index",
         "eq_delete" => "store4",
         "eq_get_city" => "store4",
         "eq_get_area" => "store4",
+        "eq_check_mobile" => "store4",
+
+    ));
+$i++;
+
+$acl_inc[$i]['low_title'] = array('代理商管理', 'fa fa-cubes');
+
+// 留言列表
+
+$acl_inc[$i]["low_leve"]["agent"] = array("代理商列表" => array("index",
+
+    array(
+
+        "列表" => "agent1",
+
+        "添加" => "agent2",
+
+        "修改" => "agent3",
+
+        "删除" => "agent4",
+
+    )),
+
+    "data" => array(
+
+        "eq_index" => "agent1",
+
+        "eq_create" => "agent2",
+
+        "eq_update" => "agent3",
+
+        "eq_renewfield" => "agent3",
+
+        "eq_delete" => "agent4",
+        "eq_get_city" => "agent4",
+        "eq_get_area" => "agent4",
+        "eq_check_mobile" => "agent4",
 
     ));
 /*

@@ -1,0 +1,1486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/application/home/view/address/add_address.html" line="49" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf8ba045-7d6f-45b8-88c9-88ab925d55a8" name="默认" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/refund_money/计算机.lnk" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/controller/Agent.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/controller/AgentStatement.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/controller/ApplyMessage.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/controller/FinanceStatement.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/controller/NewMessage.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/controller/SendMessage.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/controller/UserMessage.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/model/UserTmp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/validate/UserTmp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/agent/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/agent_statement/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/apply_message/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/finance_statement/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/new_message/create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/new_message/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/send_message/create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/send_message/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/user_message/create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/user_message/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/user_tmp/approve.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/user_tmp/create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/console/view/user_tmp/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/home/view/user/myteam.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/controller/Agent.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/controller/AgentList.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/controller/Finance.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/controller/MyTeam.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/controller/Project.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/validate/StoreMember.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/agent/create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/agent/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/agent/index111.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/agent_list/approve.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/finance/create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/finance/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/finance/index111.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/my_team/approve.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/my_team/create.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/my_team/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/project/create_old.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/project/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/user/create_old.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/shop/view/user/uplv.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jquery-1.8.3.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/log/201904/04.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/log/201904/08.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/log/201904/09.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/log/201904/10.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/log/201904/11.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/log/201904/12.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/log/201904/13.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/log/201904/16.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/3d30098a40e346541817f784bf792fd8.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/728cee43ff9d3c4923ccf775ae4b8e19.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/952d9bd11aaf761401e514ab55c73684.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/a0d1308f4afd0655efc8c5f76c5d6c7c.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/ab0f8e746af4d45e11c5c4ae0d56840f.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/b34e553f508b94ea5f278aef57eaaf59.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/b3eeb48cade54a9b5fc3353a316cfc2a.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/cb3f2045e2f332984e4fe7f60d3430dc.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/ccb87c0498a29c78d6e3a786b08ebf30.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/d2ed2a9267ffd55eeee78f5122ba6dfe.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/d71ccf3c5d66cda1af6a2069fc7856ef.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/ef1e21cc08e4c8fce01af22a82789f0e.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/f23757b921b843047643165498124727.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/temp/fd362ed2b5a3dd5820365aed80cddd25.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/common.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Authgroup.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Banner.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/BannerType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Base.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/BbcAnswer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/BbcQuestion.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/BbcType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/CarBrand.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/CarChexi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/CarType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/CarTypeList.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Chehang.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Clear.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/CnArea.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/CnCity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/CnProv.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Common.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Dashboard.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Deliver.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Evaluate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Faq.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Formbuilder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Generate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Goods.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/GoodsType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Igoods.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Info.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Infoclass.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Infolist.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/IntegralExchange.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Job.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/JobType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Kehu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Link.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Login.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Manager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Message.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Nav.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/NewCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/News.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/OldCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/OldMessage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Online.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Orders.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Other.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Posts.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/PostsComments.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Product.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/ProductType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/RefundGood.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/RefundMoney.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/SellCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Solution.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Store.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Superiority.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Supply.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/Supplys.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/System.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/ToPaid.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Authgroup.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Banner.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/BannerType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Base.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/BbcAnswer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/BbcQuestion.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/BbcType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/CarBrand.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/CarChexi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/CarType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/CarTypeList.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Certification.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/CertificationType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Chehang.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/CnArea.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/CnCity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/CnProv.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Evaluate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Feedback.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Goods.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/GoodsType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Igoods.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Info.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Infoclass.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Job.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Kehu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Link.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Manager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Message.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Nav.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/NewCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/News.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/NewsInfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/OldCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/OldMessage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Orders.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Posts.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/PostsComments.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Product.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/ProductType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/SellCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Solution.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Store.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Superiority.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Supply.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/User.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Webconfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Webtype.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Authgroup.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Banner.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/BannerType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/BbcAnswer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/BbcQuestion.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/BbcType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/CarBrand.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/CarChexi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/CarType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/CarTypeList.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Certification.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/CertificationType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Chehang.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/CnArea.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/CnCity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/CnProv.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Evaluate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Faq.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Feedback.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Goods.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/GoodsType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Igoods.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/IndustryInformation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Info.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Infoclass.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/IntegralExchange.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/IntegralGoods.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Job.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/JobType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Kehu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Link.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Manager.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Message.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Nav.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/NewCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/News.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/OldCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/OldMessage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Orders.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Posts.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/PostsComments.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Product.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/ProductType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/SellCar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Solution.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Store.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Superiority.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Supply.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/Webconfig.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/authgroup/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/authgroup/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/authgroup/setup.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/banner/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/banner/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/banner_type/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/bbc_answer/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/bbc_question/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/bbc_question/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/bbc_type/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/bbc_type/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_brand/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_brand/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_chexi/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_chexi/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_type/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_type/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_type1/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_type_list/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_type_list/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/chehang/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/chehang/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/cn_area/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/cn_area/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/cn_city/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/cn_city/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/cn_prov/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/cn_prov/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/dashboard/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/deliver/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/deliver/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/evaluate/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/evaluate/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/faq/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/formbuilder/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/generate/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/generate/template/Controller.tpl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/generate/template/Model.tpl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/generate/template/Validate.tpl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/generate/template/create.tpl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/generate/template/index.tpl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/goods/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/goods/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/goods/show.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/igoods/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/igoods/show.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/info/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/info/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/infoclass/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/infoclass/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/integral_exchange/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/integral_exchange/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/integralgoods/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/integralgoods/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/job/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/job/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/job_type/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/kehu/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/kehu/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/link/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/manager/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/manager/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/message/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/message/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/nav/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/new_car/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/new_car/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/news/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/news/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/old_car/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/old_car/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/old_car/showinfo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/old_car/vincode.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/old_message/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/old_message/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/online/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/orders/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/orders/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/orders/th_detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/orders/tk_detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/other/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/other/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/posts/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/posts/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/posts_comments/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/product/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/product/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/product_type/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/refund_good/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/refund_good/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/refund_money/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/refund_money/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/sell_car/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/sell_car/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/solution/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/solution/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/store/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/superiority/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/superiority/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/supply/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/supply/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/supplys/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/supplys/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/system/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/template/base.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/template/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/template/footer.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/template/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/template/sidebar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/template/topbar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/to_paid/create.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/to_paid/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/user/approve.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console - 副本/view/user/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/console/validate/User.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/shop/common/auth.inc.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/shop/common/web.inc.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/tempdir/20190221/b4a9507213e4d713153242e2276b0557.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/cache/7dddb7cd4b321948ac4a2edbfc1ae5b9.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/log/201903/07.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/log/201903/08.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/log/201903/11.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/07c97afe61d5ff83b40a2462fcec9b25.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/19edb9db601e7264da35baa4327d70b3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/213732c786167f10bbd5d95b71e6a119.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/2adecdb9e7a094594c5f98ed001cba11.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/3b0e344a7efc63252375e52e611e473b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/77a65ea13abce82a118f959f1ea5fc07.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/8a27995e6a6c6b4a90ea47bf42df70b3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/8ef0428b81d9126a078236b21d222027.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/948dc4195384f5d99c2e4875d8c8c93a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/a87091236cbada084f8570e66782a529.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/abad5e3f3171c1935b761406a5586eff.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/ac8a134b46e75e66d1f945639402547c.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/aefb889b9d63446cc491c25ee3b6ef02.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/b0fe320e43ea8df1dd13468ae40e803f.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/b71980ae2e6f3c16c9ce8f77b337560b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/d17680d4ed6d57173344982b7d25bb70.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/e7cfd4b217b428e6d6f11563d6733d92.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/ed5931b68e734c04bcba94ac42534232.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/f89e194a503185fe63cf8b05a97c3360.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runtime/temp/fef5508e58bf9d797d17e8ea86c96029.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common.php" afterPath="$PROJECT_DIR$/application/common.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/common/auth.inc.php" afterPath="$PROJECT_DIR$/application/common/common/auth.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/common/auth1.inc.php" afterPath="$PROJECT_DIR$/application/common/common/auth1.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/controller/Dashboard.php" afterPath="$PROJECT_DIR$/application/console/controller/Dashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/controller/Store.php" afterPath="$PROJECT_DIR$/application/console/controller/Store.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/controller/User.php" afterPath="$PROJECT_DIR$/application/console/controller/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/view/dashboard/index.html" afterPath="$PROJECT_DIR$/application/console/view/dashboard/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/view/store/create.html" afterPath="$PROJECT_DIR$/application/console/view/store/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/view/store/index.html" afterPath="$PROJECT_DIR$/application/console/view/store/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/view/system/index.html" afterPath="$PROJECT_DIR$/application/console/view/system/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/view/user/create.html" afterPath="$PROJECT_DIR$/application/console/view/user/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/console/view/user/index.html" afterPath="$PROJECT_DIR$/application/console/view/user/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/controller/Base.php" afterPath="$PROJECT_DIR$/application/home/controller/Base.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/controller/Goods.php" afterPath="$PROJECT_DIR$/application/home/controller/Goods.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/controller/Login.php" afterPath="$PROJECT_DIR$/application/home/controller/Login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/controller/User.php" afterPath="$PROJECT_DIR$/application/home/controller/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/controller/WeiPay.php" afterPath="$PROJECT_DIR$/application/home/controller/WeiPay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/view/login/register.html" afterPath="$PROJECT_DIR$/application/home/view/login/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/view/qrcode/qrcode.html" afterPath="$PROJECT_DIR$/application/home/view/qrcode/qrcode.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/view/user/agent.html" afterPath="$PROJECT_DIR$/application/home/view/user/agent.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/home/view/user/index.html" afterPath="$PROJECT_DIR$/application/home/view/user/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/common.php" afterPath="$PROJECT_DIR$/application/shop/common.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/controller/Login.php" afterPath="$PROJECT_DIR$/application/shop/controller/Login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/controller/Store.php" afterPath="$PROJECT_DIR$/application/shop/controller/Store.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/controller/User.php" afterPath="$PROJECT_DIR$/application/shop/controller/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/model/Manager.php" afterPath="$PROJECT_DIR$/application/shop/model/Manager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/model/User.php" afterPath="$PROJECT_DIR$/application/shop/model/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/validate/Store.php" afterPath="$PROJECT_DIR$/application/shop/validate/Store.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/validate/User.php" afterPath="$PROJECT_DIR$/application/shop/validate/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/authgroup/index.html" afterPath="$PROJECT_DIR$/application/shop/view/authgroup/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/banner/index.html" afterPath="$PROJECT_DIR$/application/shop/view/banner/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/cn_area/index.html" afterPath="$PROJECT_DIR$/application/shop/view/cn_area/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/cn_city/index.html" afterPath="$PROJECT_DIR$/application/shop/view/cn_city/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/cn_prov/index.html" afterPath="$PROJECT_DIR$/application/shop/view/cn_prov/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/deliver/create.html" afterPath="$PROJECT_DIR$/application/shop/view/deliver/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/deliver/index.html" afterPath="$PROJECT_DIR$/application/shop/view/deliver/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/evaluate/create.html" afterPath="$PROJECT_DIR$/application/shop/view/evaluate/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/goods/create.html" afterPath="$PROJECT_DIR$/application/shop/view/goods/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/info/index.html" afterPath="$PROJECT_DIR$/application/shop/view/info/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/infoclass/index.html" afterPath="$PROJECT_DIR$/application/shop/view/infoclass/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/infolist/index.html" afterPath="$PROJECT_DIR$/application/shop/view/infolist/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/job/index.html" afterPath="$PROJECT_DIR$/application/shop/view/job/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/link/index.html" afterPath="$PROJECT_DIR$/application/shop/view/link/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/manager/create.html" afterPath="$PROJECT_DIR$/application/shop/view/manager/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/manager/index.html" afterPath="$PROJECT_DIR$/application/shop/view/manager/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/message/index.html" afterPath="$PROJECT_DIR$/application/shop/view/message/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/nav/index.html" afterPath="$PROJECT_DIR$/application/shop/view/nav/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/online/index.html" afterPath="$PROJECT_DIR$/application/shop/view/online/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/orders/create.html" afterPath="$PROJECT_DIR$/application/shop/view/orders/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/orders/index.html" afterPath="$PROJECT_DIR$/application/shop/view/orders/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/other/create.html" afterPath="$PROJECT_DIR$/application/shop/view/other/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/other/index.html" afterPath="$PROJECT_DIR$/application/shop/view/other/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/product/index.html" afterPath="$PROJECT_DIR$/application/shop/view/product/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/refund_good/create.html" afterPath="$PROJECT_DIR$/application/shop/view/refund_good/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/refund_good/index.html" afterPath="$PROJECT_DIR$/application/shop/view/refund_good/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/refund_money/create.html" afterPath="$PROJECT_DIR$/application/shop/view/refund_money/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/refund_money/index.html" afterPath="$PROJECT_DIR$/application/shop/view/refund_money/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/solution/index.html" afterPath="$PROJECT_DIR$/application/shop/view/solution/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/store/index.html" afterPath="$PROJECT_DIR$/application/shop/view/store/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/system/index.html" afterPath="$PROJECT_DIR$/application/shop/view/system/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/template/create.html" afterPath="$PROJECT_DIR$/application/shop/view/template/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/template/footer.html" afterPath="$PROJECT_DIR$/application/shop/view/template/footer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/to_paid/create.html" afterPath="$PROJECT_DIR$/application/shop/view/to_paid/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/to_paid/index.html" afterPath="$PROJECT_DIR$/application/shop/view/to_paid/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/user/create.html" afterPath="$PROJECT_DIR$/application/shop/view/user/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/shop/view/user/index.html" afterPath="$PROJECT_DIR$/application/shop/view/user/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/temp/2d6048f9ae614829993dc0741462db1d.php" afterPath="$PROJECT_DIR$/runtime/temp/2d6048f9ae614829993dc0741462db1d.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/temp/5d62146b80167f71f9e5cd609c9c11fb.php" afterPath="$PROJECT_DIR$/runtime/temp/5d62146b80167f71f9e5cd609c9c11fb.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/temp/623d84afd87a3c10c3943eefe3418e80.php" afterPath="$PROJECT_DIR$/runtime/temp/623d84afd87a3c10c3943eefe3418e80.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/temp/926078335504b48263ed693927e6add2.php" afterPath="$PROJECT_DIR$/runtime/temp/926078335504b48263ed693927e6add2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/temp/d389d32d773315e3b255903d730dfb98.php" afterPath="$PROJECT_DIR$/runtime/temp/d389d32d773315e3b255903d730dfb98.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/controller/User.php" afterPath="$PROJECT_DIR$/application/console/controller/UserTmp.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/model/Faq.php" afterPath="$PROJECT_DIR$/application/console/model/SystemLog.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/model/IntegralExchange.php" afterPath="$PROJECT_DIR$/application/shop/model/StoreMember.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/model/JobType.php" afterPath="$PROJECT_DIR$/application/console/model/NewMessage.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/validate/User.php" afterPath="$PROJECT_DIR$/application/console/validate/User1.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/bbc_answer/index.html" afterPath="$PROJECT_DIR$/application/shop/view/agent_list/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/car_type1/create.html" afterPath="$PROJECT_DIR$/application/console/view/apply_message/create.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/faq/create.html" afterPath="$PROJECT_DIR$/application/console/view/agent_statement/create.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/igoods/index.html" afterPath="$PROJECT_DIR$/application/shop/view/agent_list/integral_info.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/link/create.html" afterPath="$PROJECT_DIR$/application/shop/view/project/create.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/nav/create.html" afterPath="$PROJECT_DIR$/application/console/view/finance_statement/create.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/posts_comments/index.html" afterPath="$PROJECT_DIR$/application/shop/view/my_team/integral_info.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/store/create.html" afterPath="$PROJECT_DIR$/application/console/view/agent/create.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/store/goods.html" afterPath="$PROJECT_DIR$/application/console/view/agent/goods.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/store/order.html" afterPath="$PROJECT_DIR$/application/console/view/agent/order.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/user/create.html" afterPath="$PROJECT_DIR$/application/shop/view/agent_list/create.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/console - 副本/view/user/integral_info.html" afterPath="$PROJECT_DIR$/application/console/view/user_tmp/integral_info.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/application/shop/model/Orders.php" afterPath="$PROJECT_DIR$/application/shop/model/StoreRecord.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/runtime/log/201903/12.log" afterPath="$PROJECT_DIR$/runtime/log/201904/15.log" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/runtime/temp/044bd4cdb7c55f20ea49811cd57c4c7a.php" afterPath="$PROJECT_DIR$/runtime/temp/31a6a15daa7cf50332e06c35bbf17e53.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/runtime/temp/2f228321a6af34d800b4e04ccab056c0.php" afterPath="$PROJECT_DIR$/runtime/temp/181e1d4c35892017c56ef0e715fd3f3a.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/runtime/temp/3867167bf6cff8efc783e70b0edada61.php" afterPath="$PROJECT_DIR$/runtime/temp/63ffa4f868a91d4c0ce02e69aa8cfb18.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/runtime/temp/6b6afb1ec74ccd29c8f63770491212a2.php" afterPath="$PROJECT_DIR$/runtime/temp/67dbbc3700a709f03bfa42af7c5f084d.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/runtime/temp/7af4b177f6a14d58fcc242d3c7104d96.php" afterPath="$PROJECT_DIR$/runtime/temp/845006410bb7bd5a3b472405f33461be.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/runtime/temp/a5e9c7c102b5ba1837e1865cd55e816d.php" afterPath="$PROJECT_DIR$/runtime/temp/a18e9c3ee9e4de7d3ebc2f145784fdc3.php" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="20190213zihaimeirong" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="common.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/common.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="805">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WxPayNotify.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/extend/WeChat/WxPayNotify.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="667">
+              <caret line="224" column="12" lean-forward="false" selection-start-line="224" selection-start-column="12" selection-end-line="224" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uplv.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/shop/view/user/uplv.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="644">
+              <caret line="28" column="47" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="47" />
+              <folding>
+                <element signature="e#213#220#1" expanded="true" />
+                <element signature="e#265#272#1" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Project.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/shop/controller/Project.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+              <folding>
+                <element signature="e#39#52#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/shop/view/project/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="828">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="e#1683#1689#0" expanded="true" />
+                <element signature="e#1689#1695#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/shop/view/user/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="966">
+              <caret line="42" column="62" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="62" />
+              <folding>
+                <element signature="e#1933#1939#0" expanded="true" />
+                <element signature="e#1939#1945#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth1.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/common/common/auth1.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10649">
+              <caret line="463" column="0" lean-forward="false" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/shop/view/project/create.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>picurl</find>
+      <find>123123</find>
+      <find>update</find>
+      <find>logo不能为空</find>
+      <find>repassword</find>
+      <find>saleprice</find>
+      <find>type_id</find>
+      <find>clear</find>
+      <find>资料管理</find>
+      <find>title</find>
+      <find>list</find>
+      <find>show_title</find>
+      <find>User</find>
+      <find>agent_list</find>
+      <find>console</find>
+      <find>fx_level</find>
+      <find>status</find>
+      <find>钻石卡</find>
+      <find>validonly</find>
+      <find>username</find>
+      <find>update_time</find>
+      <find>StoreRecord</find>
+      <find>shop_id</find>
+      <find>saveVerify</find>
+      <find>shop_i</find>
+      <find>value</find>
+      <find>$invited_id</find>
+      <find>vo</find>
+      <find>user</find>
+      <find>uplv</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>&quot;__HOME__/images</replace>
+      <replace>&quot;__HOME__/images/</replace>
+      <replace>=&quot;__</replace>
+      <replace>user_tmp</replace>
+      <replace>agent_list</replace>
+      <replace>shop</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\phpstudy\WWW\20190213zihaimeirong\application\home\view\user</dir>
+      <dir>D:\phpstudy\WWW\20190213zihaimeirong\application\home\controller</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/application/console/controller/UserTmp.php" />
+        <option value="$PROJECT_DIR$/application/home/controller/User.php" />
+        <option value="$PROJECT_DIR$/application/home/controller/Goods.php" />
+        <option value="$PROJECT_DIR$/application/home/controller/Base.php" />
+        <option value="$PROJECT_DIR$/application/home/view/login/register.html" />
+        <option value="$PROJECT_DIR$/application/home/controller/WeiPay.php" />
+        <option value="$PROJECT_DIR$/application/common/common/auth.inc.php" />
+        <option value="$PROJECT_DIR$/application/console/controller/agent.php" />
+        <option value="$PROJECT_DIR$/application/console/view/agent/index.html" />
+        <option value="$PROJECT_DIR$/application/console/controller/Agent.php" />
+        <option value="$PROJECT_DIR$/application/home/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/console/view/store/create.html" />
+        <option value="$PROJECT_DIR$/application/home/controller/Login.php" />
+        <option value="$PROJECT_DIR$/application/console/controller/Store.php" />
+        <option value="$PROJECT_DIR$/application/shop/model/Store.php" />
+        <option value="$PROJECT_DIR$/application/shop/controller/Store.php" />
+        <option value="$PROJECT_DIR$/application/shop/validate/Store.php" />
+        <option value="$PROJECT_DIR$/application/shop/view/store/index.html" />
+        <option value="$PROJECT_DIR$/application/shop/common/auth.inc.php" />
+        <option value="$PROJECT_DIR$/application/shop/model/Orders.php" />
+        <option value="$PROJECT_DIR$/application/shop/model/StoreRecord.php" />
+        <option value="$PROJECT_DIR$/application/console/view/finance_statement/index.html" />
+        <option value="$PROJECT_DIR$/application/shop/controller/Login.php" />
+        <option value="$PROJECT_DIR$/application/shop/view/finance/index111.html" />
+        <option value="$PROJECT_DIR$/application/shop/view/finance/index.html" />
+        <option value="$PROJECT_DIR$/application/shop/controller/Finance.php" />
+        <option value="$PROJECT_DIR$/application/shop/controller/Agent.php" />
+        <option value="$PROJECT_DIR$/application/shop/view/agent/index.html" />
+        <option value="$PROJECT_DIR$/application/console/view/store/index.html" />
+        <option value="$PROJECT_DIR$/application/shop/controller/AgentLlist.php" />
+        <option value="$PROJECT_DIR$/application/shop/common.php" />
+        <option value="$PROJECT_DIR$/application/console/common.php" />
+        <option value="$PROJECT_DIR$/application/shop/view/agent_list/index.html" />
+        <option value="$PROJECT_DIR$/application/shop/view/agent_list/create.html" />
+        <option value="$PROJECT_DIR$/application/shop/model/User.php" />
+        <option value="$PROJECT_DIR$/application/shop/validate/User.php" />
+        <option value="$PROJECT_DIR$/application/shop/controller/AgentList.php" />
+        <option value="$PROJECT_DIR$/application/shop/model/Manager.php" />
+        <option value="$PROJECT_DIR$/extend/WeChat/WxPayNotify.php" />
+        <option value="$PROJECT_DIR$/application/shop/controller/MyTeam.php" />
+        <option value="$PROJECT_DIR$/application/shop/view/my_team/index.html" />
+        <option value="$PROJECT_DIR$/application/common.php" />
+        <option value="$PROJECT_DIR$/application/shop/validate/StoreMember.php" />
+        <option value="$PROJECT_DIR$/application/shop/model/StoreMember.php" />
+        <option value="$PROJECT_DIR$/application/shop/view/user/create.html" />
+        <option value="$PROJECT_DIR$/application/shop/controller/Project.php" />
+        <option value="$PROJECT_DIR$/application/shop/view/project/index.html" />
+        <option value="$PROJECT_DIR$/application/shop/view/user/index.html" />
+        <option value="$PROJECT_DIR$/application/common/common/auth1.inc.php" />
+        <option value="$PROJECT_DIR$/application/shop/view/user/uplv.html" />
+        <option value="$PROJECT_DIR$/application/shop/controller/User.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="width" value="1933" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="console" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="20190213zihaimeirong" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="console" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/home/view/user" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf8ba045-7d6f-45b8-88c9-88ab925d55a8" name="默认" comment="" />
+      <created>1550468154695</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550468154695</updated>
+      <workItem from="1550468161301" duration="6743000" />
+      <workItem from="1550538145491" duration="10875000" />
+      <workItem from="1550625071911" duration="11025000" />
+      <workItem from="1550710384212" duration="14751000" />
+      <workItem from="1550797649214" duration="1574000" />
+      <workItem from="1551057356174" duration="13303000" />
+      <workItem from="1551143028679" duration="23216000" />
+      <workItem from="1551229146068" duration="15273000" />
+      <workItem from="1551315122220" duration="18833000" />
+      <workItem from="1551402060989" duration="11594000" />
+      <workItem from="1551492533495" duration="5985000" />
+      <workItem from="1551660276443" duration="23938000" />
+      <workItem from="1551747737228" duration="17558000" />
+      <workItem from="1551833382298" duration="12933000" />
+      <workItem from="1551920410301" duration="24258000" />
+      <workItem from="1552006914493" duration="15395000" />
+      <workItem from="1552265858070" duration="10885000" />
+      <workItem from="1552352404474" duration="20448000" />
+      <workItem from="1552438157203" duration="2033000" />
+      <workItem from="1552530067217" duration="5983000" />
+      <workItem from="1552613169980" duration="16716000" />
+      <workItem from="1552875626733" duration="6017000" />
+      <workItem from="1552959321608" duration="14547000" />
+      <workItem from="1553046319244" duration="6280000" />
+      <workItem from="1553131362427" duration="8729000" />
+      <workItem from="1554082516024" duration="735000" />
+      <workItem from="1554166941011" duration="17094000" />
+      <workItem from="1554253056086" duration="23187000" />
+      <workItem from="1554339334660" duration="11019000" />
+      <workItem from="1554684025460" duration="15585000" />
+      <workItem from="1554714414351" duration="2523000" />
+      <workItem from="1554771636176" duration="1840000" />
+      <workItem from="1554858048701" duration="1667000" />
+      <workItem from="1554953404278" duration="6317000" />
+      <workItem from="1555030759927" duration="10634000" />
+      <workItem from="1555131351937" duration="1391000" />
+      <workItem from="1555306674509" duration="774000" />
+      <workItem from="1555376484612" duration="887000" />
+    </task>
+    <task id="LOCAL-00001" summary="老项目">
+      <created>1550474552559</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1550474552559</updated>
+    </task>
+    <task id="LOCAL-00002" summary="20190313项目">
+      <created>1552372172645</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552372172645</updated>
+    </task>
+    <task id="LOCAL-00003" summary="商户后台">
+      <created>1555376957225</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555376957225</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="412545000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="0" width="1933" height="1040" extended-state="0" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32958803" sideWeight="0.4940022" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25320512" sideWeight="0.49565217" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.72031075" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2596154" sideWeight="0.50599784" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429486" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="文档" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="86" y="125" width="1736" height="856" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="老项目" />
+    <MESSAGE value="20190313项目" />
+    <MESSAGE value="商户后台" />
+    <option name="LAST_COMMIT_MESSAGE" value="商户后台" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/shop/view/finance/index111.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="111" column="52" lean-forward="true" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/agent/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="413" column="16" lean-forward="true" selection-start-line="413" selection-start-column="16" selection-end-line="413" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/AgentLlist.php" />
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/Banner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/console/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="154" column="5" lean-forward="true" selection-start-line="154" selection-start-column="5" selection-end-line="154" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/model/Banner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/console/model/Nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/console/model/Info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/console/model/Infoclass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="33" column="14" lean-forward="true" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/console/view/store/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/console/model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/validate/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Buy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="3" lean-forward="false" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Industry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Goodstype.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Hot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Bbc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Address.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/api/behavior/CheckAuth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="183">
+            <caret line="100" column="26" lean-forward="false" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/agent_list/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="26" column="64" lean-forward="false" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/model/Message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/model/Manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-299">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/Agent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1081">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/MyTeam.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/my_team/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="78" column="41" lean-forward="true" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/agent_list/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="56" column="18" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="56" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/AgentList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="107" column="10" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="107" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/Common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="42" column="38" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/model/StoreRecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/Finance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/validate/StoreMember.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/user/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="59" column="78" lean-forward="false" selection-start-line="59" selection-start-column="78" selection-end-line="59" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/model/StoreMember.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="27" column="27" lean-forward="false" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding>
+            <element signature="e#39#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/user/create_old.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/project/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#1683#1689#0" expanded="true" />
+            <element signature="e#1689#1695#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/user/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="42" column="62" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="62" />
+          <folding>
+            <element signature="e#1933#1939#0" expanded="true" />
+            <element signature="e#1939#1945#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common/common/auth1.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10649">
+          <caret line="463" column="0" lean-forward="false" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/console/controller/UserTmp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="114" column="81" lean-forward="true" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/user/uplv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="28" column="47" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="47" />
+          <folding>
+            <element signature="e#213#220#1" expanded="true" />
+            <element signature="e#265#272#1" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/controller/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="152" column="20" lean-forward="true" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/shop/view/project/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extend/WeChat/WxPayNotify.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="224" column="12" lean-forward="false" selection-start-line="224" selection-start-column="12" selection-end-line="224" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

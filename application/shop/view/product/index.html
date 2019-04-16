@@ -11,7 +11,7 @@
           </div>
         </li>
         <li>
-          <a onClick="check_delete('{:url('console/product/delete')}',0);" class="itemopt disabled"><i class="fa fa-trash-o"></i> 删除</a>
+          <a onClick="check_delete('{:url('shop/product/delete')}',0);" class="itemopt disabled"><i class="fa fa-trash-o"></i> 删除</a>
         </li>
         
       </ul>
@@ -40,7 +40,7 @@
                     <img src="__ROOT__{$vo.picurl}" class="img-responsive" alt="{$vo.intro}" style="height:200px;" />
                   </a>
                 </div>
-                <h5 class="fm-title"><a href="{:url('console/product/update', ['id' => $vo['id']])}">{$vo.title}</a></h5>
+                <h5 class="fm-title"><a href="{:url('shop/product/update', ['id' => $vo['id']])}">{$vo.title}</a></h5>
                 <small class="text-muted">{$vo.create_time|date='Y-m-d',###}</small><span class="pull-right">{$vo.status|show_status=$vo.id}</span>
               </div><!-- thmb -->
             </div><!-- col-xs-6 -->
@@ -51,21 +51,21 @@
         <div class="col-sm-3">
           <div class="fm-sidebar">
             
-            <a href="{:url('console/product/create')}" class="btn btn-primary btn-block">添加图文</a>
+            <a href="{:url('shop/product/create')}" class="btn btn-primary btn-block">添加图文</a>
             
             <div class="mb30"></div>
             
-            <h5 class="subtitle"><a href="{:url('console/product/index')}">全部分类</a> <a href="#" class="pull-right" data-toggle="modal" data-target=".bs-example-modal-lg">+ 创建分类</a></h5>
+            <h5 class="subtitle"><a href="{:url('shop/product/index')}">全部分类</a> <a href="#" class="pull-right" data-toggle="modal" data-target=".bs-example-modal-lg">+ 创建分类</a></h5>
 
              <div class="details">
                 <table class="table">
                     <tbody>
                     {volist name="type" id="vot"}
                         <tr {if condition='$tid eq $vot.id'} style="background-color:#BCBCBC;" {/if}>
-                            <td width="60%"><a href="{:url('console/product/index', ['tid' => $vot['id']])}" style="text-decoration:none;"><i class="fa fa-search"></i><span>{$vot.title}</span></a></td>
+                            <td width="60%"><a href="{:url('shop/product/index', ['tid' => $vot['id']])}" style="text-decoration:none;"><i class="fa fa-search"></i><span>{$vot.title}</span></a></td>
                             <td width="40%" style="text-align: right;">
-                            <a href="{:url('console/ProductType/update', ['id' => $vot['id']])}"><i class="fa fa-pencil"></i> 
-                            <a onClick="check_delete('{:url('console/ProductType/delete')}',{$vot.id});"><i class="fa fa-trash-o"></i> </a>
+                            <a href="{:url('shop/ProductType/update', ['id' => $vot['id']])}"><i class="fa fa-pencil"></i> 
+                            <a onClick="check_delete('{:url('shop/ProductType/delete')}',{$vot.id});"><i class="fa fa-trash-o"></i> </a>
                             </td>
                         </tr>
                     {/volist}
@@ -82,7 +82,7 @@
                           <h4 class="modal-title">创建分类</h4>
                       </div>
                       <div class="modal-body">
-                       <form class="form-horizontal form-bordered" id="submitForm" action="{:url('console/ProductType/create')}" method="post" >
+                       <form class="form-horizontal form-bordered" id="submitForm" action="{:url('shop/ProductType/create')}" method="post" >
                            <div class="form-group">
                               <label class="col-sm-3 control-label"><span>*</span>分类名称：</label>
                               <div class="col-sm-6">

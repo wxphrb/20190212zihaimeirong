@@ -34,5 +34,12 @@ class User extends Base
         }else{
             return true;
         }
+
+    }
+    public function getCreateTimeAttr($data,$value){
+        return date('Y-m-d H:i:s',$value['create_time']);
+    }
+    public function getUpdateTimeAttr($data,$value){
+        return date('Y-m-d H:i:s',$value['create_time']);
     }
 }

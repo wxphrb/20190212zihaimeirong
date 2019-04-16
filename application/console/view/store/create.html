@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label"><span>*</span>手机号：</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="手机号" name="mobile" value="{$vo.mobile ?? ''}"
+                    <input type="text" class="form-control" placeholder="手机号" id="mobile" name="mobile" value="{$vo.mobile ?? ''}"
                            required>
                 </div>
             </div>
@@ -231,10 +231,26 @@
                 mobile: {
                     validators: {
                         regexp: {
-                            regexp:/^1[34578]\d{9}$/,
+                            regexp: /^1[34578]\d{9}$/,
                             message: '手机号格式不正确'
-                        }
-                    }
+                        },
+                        threshold: 8,//有2字符以上才发送ajax请求
+                        remote: {
+                            message: "该手机号不存在",
+                            url: "{:url('store/check_mobile')}",
+                            delay: 1000, //每输入一个字符，就发ajax请求，服务器压力还是太大，设置1秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                            type: "post",
+
+                            data: function(e) {
+                                console.log(e.data)
+                                return {
+
+                                }
+
+                            }
+                        },
+                    },
+
                 },
             }
         });

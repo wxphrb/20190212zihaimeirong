@@ -10,8 +10,10 @@
 
 <div class="zhu_fen">
 <ul>
-<li id="zhu_fen"><a href="javascript:void(0);">手机号绑定</a></li>
-<li><a href="{:url('login/login')}">手机号登陆</a></li>
+    <!--
+    <li id="zhu_fen"><a href="javascript:void(0);">手机号绑定</a></li>
+    <li><a href="{:url('login/login')}">手机号登陆</a></li>
+    -->
 </ul>
 <div class="clear"></div>
 </div>
@@ -75,7 +77,7 @@
                 sendable = 1;
                 $.ajax({
                     type: 'post',
-                    url: "{:url('api/login/getcode')}",
+                    url: "{:url('login/getcode')}",
                     data: "mobile=" + mobile + "&type=reg",
                     dataType: 'json',
                     success: function (data) {
@@ -133,12 +135,19 @@
                     if (data.code == "200") {
                         tips("注册成功");
                         setInterval(function () {
-                            window.location.href = "{:url('login/login')}";
+                            window.location.href = "{:url('index/index')}";
                         }, 1000);
                     }
                     if (data.code  == "400") {
                         chickable = 0;
                         tips(data.message);
+                    }
+                    if (data.code  == "500") {
+                        chickable = 0;
+                        tips(data.message);
+                        setInterval(function () {
+                            window.location.href = "{:url('index/index')}";
+                        }, 1000);
                     }
                     if (data.data  == "3") {
                         chickable = 0;

@@ -39,15 +39,11 @@ class User extends Base
     public function create(Request $request, ThisModel $user)
     {
         if (Request::instance()->isPOST()) {
-            $num = range(0, 9);
-            for ($i = 0; $i < 6; $i++) {
-                $b[] = array_rand($num);
-            }
+
 
             $data = Request::instance()->post();
-            $data['account'] = "888" . join("", $b);
-            $data['icode'] = join("", $b);
 
+            //加入user_tmp  临时表
             $result = $user->allowField(true)->isUpdate(false)->save($data);
 
             if ($result) {
@@ -66,6 +62,7 @@ class User extends Base
             }
         } else {
             $param = $this->appendarg();
+
             return $this->fetch('create', $param);
         }
 
@@ -82,6 +79,7 @@ class User extends Base
 
             $data = Request::instance()->post();
             $result = ThisModel::saveVerify($data, $id);
+
             if (true === $result) {
                 $this->success('更新成功', 'console/User/index');
             } else {

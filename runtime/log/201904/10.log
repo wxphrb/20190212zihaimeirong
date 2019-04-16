@@ -1,0 +1,336 @@
+[ 2019-04-10T08:59:44+08:00 ] 127.0.0.1 127.0.0.1 GET /console/store/index.html
+[ log ] zhmr.cc/console/store/index.html [运行时间：0.876050s][吞吐率：1.14req/s] [内存消耗：2,229.91kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'console',
+    1 => 'store',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/console/store/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\console\controller\Store->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\console\controller\Store.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\store\index.html [ array (
+  0 => 'menu_left',
+  1 => 'mate_title',
+  2 => 'mate_operate',
+  3 => 'user',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013001s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_manager` [ RunTime:0.493028s ]
+[ sql ] [ SQL ] SELECT `group_id` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`avatar`,`nickname`,`mobile` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store` [ RunTime:0.316018s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `mx_store` WHERE  `id` <> 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `mx_store` WHERE  `id` <> 0 ORDER BY id desc LIMIT 0,30 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-04-10T08:59:45+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/user/index.html
+[ log ] zhmr.cc/shop/user/index.html [运行时间：0.630036s][吞吐率：1.59req/s] [内存消耗：2,064.94kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/create.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\shop\controller\User->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\shop\controller\User.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\user\index.html [ array (
+  0 => 'menu_left',
+  1 => 'mate_title',
+  2 => 'mate_operate',
+  3 => 'user',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007001s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `group_id` FROM `mx_store` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_manager` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`avatar`,`nickname`,`mobile` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store_member` [ RunTime:0.403023s ]
+[ sql ] [ SQL ] SELECT * FROM `mx_store_member` ORDER BY `id`  desc [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2019-04-10T09:57:45+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/user/index.html
+[ log ] zhmr.cc/shop/user/index.html [运行时间：0.109006s][吞吐率：9.17req/s] [内存消耗：2,065.02kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\shop\controller\User->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\shop\controller\User.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\user\index.html [ array (
+  0 => 'menu_left',
+  1 => 'mate_title',
+  2 => 'mate_operate',
+  3 => 'user',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store` [ RunTime:0.020001s ]
+[ sql ] [ SQL ] SELECT `group_id` FROM `mx_store` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_manager` [ RunTime:0.019001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`avatar`,`nickname`,`mobile` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store_member` [ RunTime:0.022001s ]
+[ sql ] [ SQL ] SELECT * FROM `mx_store_member` ORDER BY `id`  desc [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2019-04-10T09:57:47+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/project/index.html
+[ log ] zhmr.cc/shop/project/index.html [运行时间：0.042003s][吞吐率：23.81req/s] [内存消耗：962.59kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'project',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-10T09:57:47+08:00 ] 127.0.0.1 127.0.0.1 GET /favicon.ico
+[ log ] zhmr.cc/favicon.ico [运行时间：0.023001s][吞吐率：43.48req/s] [内存消耗：916.19kb] [文件加载：40]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'favicon.ico',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/project/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-10T09:57:49+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/user/index.html
+[ log ] zhmr.cc/shop/user/index.html [运行时间：0.139008s][吞吐率：7.19req/s] [内存消耗：2,065.01kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\shop\controller\User->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\shop\controller\User.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\user\index.html [ array (
+  0 => 'menu_left',
+  1 => 'mate_title',
+  2 => 'mate_operate',
+  3 => 'user',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store` [ RunTime:0.018001s ]
+[ sql ] [ SQL ] SELECT `group_id` FROM `mx_store` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_manager` [ RunTime:0.022001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`avatar`,`nickname`,`mobile` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store_member` [ RunTime:0.022002s ]
+[ sql ] [ SQL ] SELECT * FROM `mx_store_member` ORDER BY `id`  desc [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-04-10T10:01:22+08:00 ] 127.0.0.1 127.0.0.1 GET /favicon.ico
+[ log ] zhmr.cc/favicon.ico [运行时间：0.026001s][吞吐率：38.46req/s] [内存消耗：915.71kb] [文件加载：40]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'favicon.ico',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-10T10:19:02+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/user/index.html
+[ log ] zhmr.cc/shop/user/index.html [运行时间：0.088005s][吞吐率：11.36req/s] [内存消耗：2,065.22kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\shop\controller\User->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\shop\controller\User.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\user\index.html [ array (
+  0 => 'menu_left',
+  1 => 'mate_title',
+  2 => 'mate_operate',
+  3 => 'user',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `group_id` FROM `mx_store` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_manager` [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`avatar`,`nickname`,`mobile` FROM `mx_manager` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_store_member` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT * FROM `mx_store_member` ORDER BY `id`  desc [ RunTime:0.000000s ]
+
+---------------------------------------------------------------

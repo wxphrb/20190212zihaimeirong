@@ -1,0 +1,38 @@
+{include file="public/header" /}
+<body>
+
+<div id="page">
+<!--分类-->
+<div class="team_fen">
+<ul>
+<li {if condition="$star_lv eq 0 or $star_lv eq 1"} id="team_fen" {/if} ><a href="{:url('user/myteam',['star_lv'=>1])}"><span>一级（{$c_one}）</span></a></li>
+<li {if condition="$star_lv eq 2"} id="team_fen" {/if}><a href="{:url('user/myteam',['star_lv'=>2])}"><span>二级（{$c_two}）</span></a></li>
+<li {if condition="$star_lv eq 3"} id="team_fen" {/if}><a href="{:url('user/myteam',['star_lv'=>3])}"><span>三级（{$c_three}）</span></a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="xian"></div>
+
+
+<!--团队一组-->
+
+    {volist name="$data" id="vo"}
+        <div class="team_list">
+        <div class="team_tu"><img src="{$vo.picurl}"></div>
+        <div class="team_zi">
+        <div class="team_ti"><font>{$vo.username}</font><span></span><span></span></div>
+
+        <div class="team_xx">开店时间：{$vo.create_time}</div>
+
+        </div>
+
+        </div>
+    {/volist}
+        
+
+
+<div class="pb100"></div>
+
+</div>
+</body>
+</html>

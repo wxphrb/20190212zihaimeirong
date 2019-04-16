@@ -15,80 +15,56 @@
         <div class="form-group">
               <label class="col-sm-3 control-label">用户名:</label>
               <div class="col-sm-6">
-                  <input type="text" class="form-control" name="username" placeholder="请输入用户名"  value="{$vo.username ?? ''}" {if condition="$Request.action eq 'update'"}readonly{else/}required{/if} >
+                  <input type="text" class="form-control" name="username" placeholder="请输入用户名"  value="{$vo.username ?? ''}" {if condition="$Request.action eq 'update'"}readonly1{else/}required{/if} >
               </div>
           </div>
-          <div class="form-group">
-              <label class="col-sm-3 control-label">密码:</label>
-              <div class="col-sm-6">
-                  <input type="password" class="form-control" name="password" placeholder="请输入密码" {if condition="$Request.action eq 'create'"}required{/if}>
-              </div>
-          </div>
-          <div class="form-group">
-              <label class="col-sm-3 control-label">确认密码:</label>
-              <div class="col-sm-6">
-                  <input type="password" class="form-control" name="repassword" placeholder="请输入确认密码" {if condition="$Request.action eq 'create'"}required{/if}>
-              </div>
-          </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label"><span>*</span>真实姓名：</label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="真实姓名" name="truename" value="{$vo.truename ?? ''}"  required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">性别：</label>
-            <div class="col-sm-6 wh-inline">
-                <div class="rdio rdio-primary">
-                    <input type="radio" name="sex" id="sex-1" value="1">
-                    <label for="sex-1">男</label>
-                </div>
-                <div class="rdio rdio-primary">
-                    <input type="radio" name="sex" id="sex-2" value="2">
-                    <label for="sex-2">女</label>
-                </div>
-            </div>
-        </div>
+
         <div class="form-group">
             <label class="col-sm-3 control-label"><span>*</span>手机号：</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control" placeholder="手机号" name="mobile" value="{$vo.mobile ?? ''}"  required>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label"><span>*</span>邮箱：</label>
-            <div class="col-sm-6">
-                <input type="email" class="form-control" placeholder="邮箱" name="email" value="{$vo.email ?? ''}"  required>
-            </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">所在地区：</label>
-          <div class="col-sm-2">
-            <select class="form-control" name="prov" onchange="GetRegion(this.value,1)" required>
-                    <option value=""> --请选择省-- </option>
-                    {volist name="prov_data" id="prov_vo"}
-                          <option value="{$prov_vo.code}">{$prov_vo.name} </option>
-                    {/volist}
-            </select>
-          </div>
-          <div class="col-sm-2">
-            <select class="form-control" name="city" id="city" onchange="GetRegion(this.value,2)" required>
-                    <option value=""> --请选择市-- </option>
-            </select>
-          </div>
-          <div class="col-sm-2">
-            <select class="form-control" name="area" id="area" required>
-                    <option value=""> --请选择区-- </option>
-            </select>
-          </div>
-        </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">会员级别：</label>
+                <div class="col-sm-6">
+                    <select name="level_lv" class="select2" onchange="ctype(this.value)">
+                        <!--<option value="">请选择加盟身份</option>-->
+                        {php}
+                         $lev_lv = 0;
+                            if(empty($vo['level_lv'])){
+                                $lev_lv = 1;
+                            }else{
+                                $lev_lv = $vo['level_lv'];
+                            }
+                        {/php}
+                        {volist name="infoclass" id="info"}
+                            <option {eq name="info.id" value="$lev_lv" } selected {/eq} value="{$info.id}">{$info.title}</option>
 
-        <div class="form-group">
-            <label class="col-sm-3 control-label">详细地址：</label>
-            <div class="col-sm-6">
-              <input class="form-control" type="text" name="address" placeholder="详细地址" datatype="*" value="{$vo.address ?? ''}">
+                        {/volist}
+                    </select>
+                </div>
             </div>
-        </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label"><span>*</span>充值金额：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="充值金额" name="account" value="{$vo.account ?? ''}"  required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">推荐人：</label>
+                <div class="col-sm-6">
+                    <select name="invited_shop_id" class="select2" onchange="ctype(this.value)">
+                        <!--<option value="">请选择加盟身份</option>-->
+                        {php}
+                            $s_s_iarr = explode('_+_',$vo['invited_shop_id']);
+                        {/php}
+                        {volist name="$member_list" id="mem"}
+                        <option {eq name="mem.id" value="$s_s_iarr[1]" } selected {/eq} value="{$mem.id}">{$mem.username} -- {$mem.mobile}</option>
+                        {/volist}
+                    </select>
+                </div>
+            </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">状态：</label>
             <div class="col-sm-6 wh-inline">
@@ -106,13 +82,13 @@
         <div class="form-group">
             <label class="col-sm-3 control-label">创建时间：</label>
             <div class="col-sm-6">
-                <label class="control-label"> {$vo.create_time|date='Y-m-d H:i:s',###}</label>
+                <label class="control-label"> {$vo.create_time}</label>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">上次更新：</label>
             <div class="col-sm-6">
-                <label class="control-label"> {$vo.update_time|date='Y-m-d H:i:s',###}</label>
+                <label class="control-label"> {$vo.update_time}</label>
             </div>
         </div>
         {/if} 
@@ -152,37 +128,13 @@ $(document).ready(function() {
                 message: '用户名必填不能为空',
                 validators: {
                     stringLength: {
-                        max: 30,
-                        message: '用户名最大长度30个字符'
+                        max: 10,
+                        message: '用户名最大长度10个字符'
                     },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_\.]+$/,
-                        message: '用户名只能由字母、数字、点和下划线组成'
-                    },
-                    remote: {
-                        url: "{:url('console/common/validonly',['table'=>'user'])}",
-                        message: '用户名已经存在'
-                    }
-                    
                 }
             },
             {/if}
-            password: {
-                validators: {
-                   identical: {
-                        field: 'repassword',
-                        message: '密码和确认密码不一致'
-                    }
-                }
-            },
-            repassword: {
-                validators: {
-                    identical: {
-                        field: 'password',
-                        message: '密码和确认密码不一致'
-                    }
-                }
-            },
+
             mobile: {
                 validators: {
                     regexp: {
@@ -190,7 +142,7 @@ $(document).ready(function() {
                         message: '手机号格式不正确'
                     },
                     remote: {
-                        url: "{:url('console/common/validonly',['table'=>'user'])}",
+                        url: "{:url('shop/common/validonly',['table'=>'store_member'])}",
                         message: '手机号已经存在'
                     }
                 }
@@ -203,40 +155,6 @@ $(document).ready(function() {
         minimumResultsForSearch: -1
     });
 });
-//省市区联动
-function GetRegion(val,level){
-      var $city = $("#city");
-      var $area = $("#area");
-      $.ajax({
-            type: "post",
-            url: "{:url('Console/common/getRegion')}",
-            data: { pcode: val,level:level}, 
-            beforeSend: function() {
-                if(level=='1'){
-                    $city.html('<option value=""> --请选择市-- </option>');
-                    $city.val('');
-                }
-                $area.html('<option value=""> --请选择区-- </option>');
-                $area.val('');
-            },
-            success: function(data) {
-                var dataObj=eval("("+data+")");//转换为json对象   
-                if(dataObj['code']==1){
-                    if(level=='1'){
-                        $.each(dataObj['list'], function(i, item) {
-                              $city.append('<option value="'+item['code']+'">'+item['name']+'</option>');
-                           });
-                    }else{
-                        $.each(dataObj['list'], function(i, item) {
-                              $area.append('<option value="'+item['code']+'">'+item['name']+'</option>');
-                           });
-                    }
-                }
-            },
-            error: function(err){
-                alert(JSON.stringify(err));
-            }
-       });
-  }
+
 </script>
 {/block}
