@@ -361,3 +361,105 @@
 [ error ] [0]类的属性不存在:app\shop\model\StoreRecord->level_lv[D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\library\think\Model.php:857]
 
 ---------------------------------------------------------------
+[ 2019-04-16T09:38:28+08:00 ] 127.0.0.1 127.0.0.1 GET /home/car/index.html
+[ log ] zhmr.cc/home/car/index.html [运行时间：0.077004s][吞吐率：12.99req/s] [内存消耗：2,065.66kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'home',
+    1 => 'car',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/home/car/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\home\controller\Car->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\home\controller\Car.php ]
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/home\view\car\index.html [ array (
+  0 => 'title',
+  1 => 'web_name',
+  2 => 'web_url',
+  3 => 'web_author',
+  4 => 'share_details',
+  5 => 'web_hotline',
+  6 => 'web_hotline_more',
+  7 => 'web_phone',
+  8 => 'agent1',
+  9 => 'agent2',
+  10 => 'agent3',
+  11 => 'agent4',
+  12 => 'shop_member1',
+  13 => 'shop_member2',
+  14 => 'shop_member3',
+  15 => 'kf_ercode',
+  16 => 'weixin_ercode',
+  17 => 'web_qq',
+  18 => 'foot_icp',
+  19 => 'rebate1',
+  20 => 'rebate2',
+  21 => 'rebate3',
+  22 => 'take_money_explain',
+  23 => 'take_money_restrict',
+  24 => 'qrcode_background',
+  25 => 'mo_foot',
+  26 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_webconfig` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `mx_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=20190211zihaimeirong;host=127.0.0.1;port=3306;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_user` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT * FROM `mx_user` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `mx_car` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `car`.`id`,`car`.`goods_id`,`car`.`num`,`car`.`price`,`car`.`attr`,`car`.`freight`,`car`.`create_time`,`goods`.`title`,`goods`.`picurl`,`goods`.`goodsattr` FROM `mx_car` `car` INNER JOIN `mx_goods` `goods` ON `car`.`goods_id`=`goods`.`id` WHERE  `car`.`user_id` = 1 [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2019-04-16T16:01:58+08:00 ] 127.0.0.1 127.0.0.1 GET /static/home/js/maps/swiper.min.js.map
+[ log ] zhmr.cc/static/home/js/maps/swiper.min.js.map [运行时间：0.028001s][吞吐率：35.71req/s] [内存消耗：916.30kb] [文件加载：40]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'home',
+    2 => 'js',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+  'maps' => 'swiper.min.js.map',
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

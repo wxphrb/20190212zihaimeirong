@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:87:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\project\index.html";i:1555046465;s:88:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\index.html";i:1540438923;s:90:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\sidebar.html";i:1540438922;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\topbar.html";i:1540438923;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\footer.html";i:1554692403;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:87:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\project\index.html";i:1556158097;s:88:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\index.html";i:1540438923;s:90:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\sidebar.html";i:1540438922;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\topbar.html";i:1540438923;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\footer.html";i:1554692403;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh_cn">
 <head>
@@ -131,13 +131,62 @@
          
  <div class="panel panel-default">
          <div class="panel-heading" style="border-bottom:none;">
-              <div>
-              <a class="btn btn-primary" href="<?php echo url('shop/User/create'); ?>" style="float:right;">添加</a> 
-              </div>
+              <!--<div>-->
+              <!--<a class="btn btn-primary" href="<?php echo url('shop/User/create'); ?>" style="float:right;">添加</a>-->
+              <!--</div>-->
              <h4 class="panel-title"><?php echo $mate_operate; ?></h4>
         </div>
+
         <div class="panel-body">
-          
+            <div style="margin-left: -10px;">
+
+                <form action="" method="post" enctype="multipart/form-data">
+
+                    <div class="col-lg-3">
+
+                        <input type="text" name="name" value="<?php echo isset($name) ? $name :  ''; ?>" class="form-control" placeholder="名称">
+
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="搜索">
+
+                </form>
+
+            </div>
+            <br/>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="table2">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>手机号</th>
+                        <th>会员级别</th>
+                        <th>账户金额</th>
+                        <th>累积佣金</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if(is_array($list2) || $list2 instanceof \think\Collection): $i = 0; $__LIST__ = $list2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo2): $mod = ($i % 2 );++$i;?>
+                    <tr>
+
+                        <td><?php echo $vo2['id']; ?></td>
+                        <td><?php echo $vo2['username']; ?></td>
+                        <td><?php echo $vo2['mobile']; ?></td>
+                        <td><?php echo store_member_lv($vo2['level_lv']); ?></td>
+                        <td><?php echo $vo2['account']; ?></td>
+                        <td><?php echo $vo2['money']; ?></td>
+                        <td>
+                            <?php echo show_operate($vo2['id'],'update','消费录入'); ?>
+                        </td>
+                    </tr>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </tbody>
+                </table>
+
+            </div>
+
           <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover" id="table1">
               <thead>
@@ -146,9 +195,10 @@
                     <th>用户名</th>
                     <th>手机号</th>
                     <th>会员级别</th>
-                    <th>账户剩余金额</th>
-                    <th>累积佣金</th>
-                    <th>操作</th>
+                    <th>操作内容</th>
+                    <th>操作时间</th>
+                    <!--<th>累积佣金</th>-->
+                    <!--<th>操作</th>-->
                  </tr>
               </thead>
               <tbody>
@@ -159,14 +209,12 @@
                                 <td><?php echo $vo['username']; ?></td>
                                 <td><?php echo $vo['mobile']; ?></td>
                                 <td><?php echo store_member_lv($vo['level_lv']); ?></td>
-                                <td><?php echo $vo['account']; ?></td>
-                                <td><?php echo $vo['money']; ?></td>
-                                <td>
-                                    <?php echo show_operate($vo['id'],'update','编 辑'); ?>
-
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <?php echo show_operate($vo['id'],'delete','删 除'); ?>
-                                </td>
+                                <td><?php echo $vo['content']; ?></td>
+                                <td><?php echo $vo['create_time']; ?></td>
+                                <!--<td><?php echo $vo['money']; ?></td>-->
+                                <!--<td>-->
+                                    <!--&lt;!&ndash;<?php echo show_operate($vo['id'],'delete','删 除'); ?>&ndash;&gt;-->
+                                <!--</td>-->
                             </tr>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
               </tbody>
@@ -302,7 +350,7 @@
 
                         <input type="hidden" name="avatar" value="<?php echo isset($user['avatar']) ? $user['avatar'] :  1; ?>" id="avatar2">
 
-                        <?php $__FOR_START_24032__=1;$__FOR_END_24032__=9;for($i=$__FOR_START_24032__;$i < $__FOR_END_24032__;$i+=1){ ?>
+                        <?php $__FOR_START_4695__=1;$__FOR_END_4695__=9;for($i=$__FOR_START_4695__;$i < $__FOR_END_4695__;$i+=1){ ?>
 
                         <img src="__CONSOLE__/images/photos/user<?php echo $i; ?>.jpg" class="img-circle" onClick="chooseImg2(<?php echo $i; ?>);" myflagImg="<?php echo $i; ?>">
 

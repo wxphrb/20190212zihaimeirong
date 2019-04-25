@@ -1,0 +1,304 @@
+[ 2019-04-18T08:54:12+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/project/index.html
+[ log ] zhmr.cc/shop/project/index.html [运行时间：0.160009s][吞吐率：6.25req/s] [内存消耗：1,243.17kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'project',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-18T08:54:12+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/login/index.html
+[ log ] zhmr.cc/shop/login/index.html [运行时间：0.076004s][吞吐率：13.16req/s] [内存消耗：1,212.04kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\shop\controller\Login->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\shop\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\.\login.html [ array (
+  0 => 'mate_title',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-18T08:54:16+08:00 ] 127.0.0.1 127.0.0.1 GET /console/store/index.html
+[ log ] zhmr.cc/console/store/index.html [运行时间：0.100006s][吞吐率：10.00req/s] [内存消耗：1,287.45kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'console',
+    1 => 'store',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/console/store/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-18T08:54:16+08:00 ] 127.0.0.1 127.0.0.1 GET /console/login/index.html
+[ log ] zhmr.cc/console/login/index.html [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：1,363.10kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'console',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/console/store/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\console\controller\Login->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\console\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\.\login.html [ array (
+  0 => 'mate_title',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-18T15:33:43+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/login/index.html
+[ log ] zhmr.cc/shop/login/index.html [运行时间：0.084005s][吞吐率：11.90req/s] [内存消耗：1,212.04kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\shop\controller\Login->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\shop\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\.\login.html [ array (
+  0 => 'mate_title',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-18T15:33:44+08:00 ] 127.0.0.1 127.0.0.1 GET /console/login/index.html
+[ log ] zhmr.cc/console/login/index.html [运行时间：0.076004s][吞吐率：13.16req/s] [内存消耗：1,237.78kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'console',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/console/store/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\console\controller\Login->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\console\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\.\login.html [ array (
+  0 => 'mate_title',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-18T16:23:33+08:00 ] 127.0.0.1 127.0.0.1 GET /shop/login/index.html
+[ log ] zhmr.cc/shop/login/index.html [运行时间：0.160009s][吞吐率：6.25req/s] [内存消耗：1,212.04kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'shop',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/shop/user/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\shop\controller\Login->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\shop\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\.\login.html [ array (
+  0 => 'mate_title',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2019-04-18T16:23:34+08:00 ] 127.0.0.1 127.0.0.1 GET /console/login/index.html
+[ log ] zhmr.cc/console/login/index.html [运行时间：0.126008s][吞吐率：7.94req/s] [内存消耗：1,237.78kb] [文件加载：47]
+[ info ] [ LANG ] D:\phpstudy\WWW\20190213zihaimeirong\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'console',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hqvq18j8521a0taupv6qs68250; cna=Li2/FAp4qBQCAd6ri9KZ7md4; isg=BLOzZ1VN6yY4EafynN7Xt1LJQrcdQEHZtoO91mVQD1IJZNMG7bjX-hH1GtIvRJ-i',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://zhmr.cc/console/store/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'zhmr.cc',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\console\controller\Login->index[ D:\phpstudy\WWW\20190213zihaimeirong\application\console\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpstudy\WWW\20190213zihaimeirong\public/../application/console\view\.\login.html [ array (
+  0 => 'mate_title',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------

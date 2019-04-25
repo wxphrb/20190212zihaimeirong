@@ -1,6 +1,28 @@
 <!-- 模板继承 -->
 {extend name="template/create" /}
 {block name="content"}
+<style>
+    .form-control1{
+        width: 50%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;}
+    .form-control2{
+        width: 20%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;}
+</style>
 <div class="panel panel-default">
         <div class="panel-heading">
           <div class="panel-btns">
@@ -22,18 +44,17 @@
         <div class="form-group">
             <label class="col-sm-3 control-label"><span>*</span>手机号：</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="手机号" name="mobile" value="{$vo.mobile ?? ''}"  required>
+                <input type="text" class="form-control" placeholder="手机号" name="mobile" value="{$vo.mobile ?? ''}" readonly required>
             </div>
         </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">会员级别：</label>
+                <label class="col-sm-3 control-label">套餐内容：</label>
                 <div class="col-sm-6">
-                    <select name="level_lv" class="select2" onchange="ctype(this.value)">
-                        <!--<option value="">请选择加盟身份</option>-->
-                        {volist name="infoclass" id="info"}
-                        <option {eq name="info.id" value="1" } selected {/eq} value="{$info.id}">{$info.title}</option>
-                        {/volist}
-                    </select>
+                    {volist name="$vo.content" id="co"}
+                    <input type="text" class="form-control1" name="con[]" placeholder="套餐内容"  value="{$co.con ?? ''}" readonly>
+                    <input type="number" class="form-control2 but{$co.pid ?? ''}" name="num[]" placeholder="套餐次数"  value="{$co.num ?? ''}"  readonly>
+                    <input type="hidden" class="but" name="pid[]" value="{$co.pid ?? ''}">              <button type="button" class="jian" attr="{$co.pid ?? ''}">-</button>
+                    {/volist}
                 </div>
             </div>
         <div class="form-group">
@@ -82,6 +103,18 @@
 {block name="ueditor"}{/block}
 {block name="script"}
 <script>
+    $('.jian').live('click',function (){
+
+        con =$(this).attr('attr')
+        num = $('.but'+con).val();
+        if(num>=1){
+            $('.but'+con).val(num-1)
+        }else{
+            alert('不能小于0')
+        }
+
+
+    });
 $(document).ready(function() {
     $("[name='sex'][value='{$vo.sex ?? '1'}']").attr("checked", true);
     $("[name='status'][value='{$vo.status ?? '1'}']").attr("checked", true);

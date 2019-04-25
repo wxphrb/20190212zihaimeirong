@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:85:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\user\create.html";i:1555036294;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\create.html";i:1554692404;s:90:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\sidebar.html";i:1540438922;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\topbar.html";i:1540438923;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\footer.html";i:1554692403;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:85:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\user\create.html";i:1556077741;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\create.html";i:1554692404;s:90:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\sidebar.html";i:1540438922;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\topbar.html";i:1540438923;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\footer.html";i:1554692403;}*/ ?>
 <!DOCTYPE html>
 
 
@@ -270,6 +270,28 @@
 
 
          
+<style>
+    .form-control1{
+        width: 50%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;}
+    .form-control2{
+        width: 20%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;}
+</style>
 <div class="panel panel-default">
         <div class="panel-heading">
           <div class="panel-btns">
@@ -286,7 +308,7 @@
               <div class="col-sm-6">
                   <input type="text" class="form-control" name="username" placeholder="请输入用户名"  value="<?php echo isset($vo['username']) ? $vo['username'] :  ''; ?>" <?php if(\think\Request::instance()->action() == 'update'): ?>readonly1<?php else: ?>required<?php endif; ?> >
               </div>
-          </div>
+         </div>
 
         <div class="form-group">
             <label class="col-sm-3 control-label"><span>*</span>手机号：</label>
@@ -308,25 +330,53 @@
                             }
                          if(is_array($infoclass) || $infoclass instanceof \think\Collection): $i = 0; $__LIST__ = $infoclass;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$info): $mod = ($i % 2 );++$i;?>
                             <option <?php if($info['id'] == $lev_lv): ?> selected <?php endif; ?> value="<?php echo $info['id']; ?>"><?php echo $info['title']; ?></option>
-
                         <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
                 </div>
             </div>
+
+            <div class="form-group" id="taocan">
+                <label class="col-sm-3 control-label">套餐内容:</label>
+                <div class="col-sm-6" id="content">
+
+                    <select name="infoclass" class="select2"  id="infoclass">
+                        <option value="">选择套餐项目</option>
+
+                        <?php if(is_array($project_list) || $project_list instanceof \think\Collection): $i = 0; $__LIST__ = $project_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$pro): $mod = ($i % 2 );++$i;?>
+                            <option value="<?php echo $pro['id']; ?>"><?php echo $pro['title']; ?></option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
+
+                    <input type="number" class="form-control2" name="" placeholder="套餐次数" id="inum"  value=""  >
+                    <button type="button" id="ibotton">+</button>
+                    <?php if(!(empty($vo['content']) || ($vo['content'] instanceof \think\Collection && $vo['content']->isEmpty()))): if(is_array($vo['content']) || $vo['content'] instanceof \think\Collection): $i = 0; $__LIST__ = $vo['content'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$co): $mod = ($i % 2 );++$i;?>
+                        <input type="text" class="form-control1 but<?php echo isset($co['pid']) ? $co['pid'] :  ''; ?>" name="con[]" placeholder="套餐内容"  value="<?php echo isset($co['con']) ? $co['con'] :  ''; ?>" readonly>
+                        <input type="number" class="form-control2 but<?php echo isset($co['pid']) ? $co['pid'] :  ''; ?>" name="num[]" placeholder="套餐次数"  value="<?php echo isset($co['num']) ? $co['num'] :  ''; ?>"  readonly>
+                        <input type="hidden" class="but<?php echo isset($co['pid']) ? $co['pid'] :  ''; ?>" name="pid[]" value="<?php echo isset($co['pid']) ? $co['pid'] :  ''; ?>">
+                        <button type="button" class="jian" attr="<?php echo isset($co['pid']) ? $co['pid'] :  ''; ?>">-</button>
+                        <?php endforeach; endif; else: echo "" ;endif; endif; ?>
+                </div>
+            </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label"><span>*</span>充值金额：</label>
+                <label class="col-sm-3 control-label">账户金额：</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" placeholder="充值金额" name="account" value="<?php echo isset($vo['account']) ? $vo['account'] :  ''; ?>"  required>
+                    <input type="text" class="form-control" placeholder="账户金额" name="account" value="<?php echo isset($vo['account']) ? $vo['account'] :  ''; ?>" >
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">推荐人：</label>
                 <div class="col-sm-6">
-                    <select name="invited_shop_id" class="select2" onchange="ctype(this.value)">
+                    <select name="invited_shop_id" class="select2">
                         <!--<option value="">请选择加盟身份</option>-->
                         <?php 
-                            $s_s_iarr = explode('_+_',$vo['invited_shop_id']);
-                         if(is_array($member_list) || $member_list instanceof \think\Collection): $i = 0; $__LIST__ = $member_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$mem): $mod = ($i % 2 );++$i;?>
+							if(!empty($vo['invited_shop_id'])){
+								$s_s_iarr = explode('_+_',$vo['invited_shop_id']);
+							}else{
+								$s_s_iarr = [0,0];
+							}
+                         ?>
+						<option  value="0">无推荐人</option>
+                        <?php if(is_array($member_list) || $member_list instanceof \think\Collection): $i = 0; $__LIST__ = $member_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$mem): $mod = ($i % 2 );++$i;?>
                         <option <?php if($mem['id'] == $s_s_iarr[1]): ?> selected <?php endif; ?> value="<?php echo $mem['id']; ?>"><?php echo $mem['username']; ?> -- <?php echo $mem['mobile']; ?></option>
                         <?php endforeach; endif; else: echo "" ;endif; ?>
                     </select>
@@ -479,6 +529,63 @@
 
 
 <script>
+    $('#ibotton').click(function(){
+        str  = '';
+        text = '';
+        con  = '';
+
+        text = $('#infoclass :checked').text();
+
+        con  = $('#infoclass').val(); //id 现在存标题
+        inum = $('#inum').val();
+        if(text == '' || con == '' || inum =='' || inum <=0){
+            alert('参数不完整');
+            return false;
+        }
+
+        str  = '<input type="text" class="add form-control1 but'+con+'" name="con[]" value="'+text+'" readonly>';
+        str += '<input type="hidden" class="add but'+con+'" name="pid[]" value="'+con+'" readonly>';
+        str += '<input type="number" class="add form-control2  but'+con+'" name="num[]" value="'+inum+'" readonly>';
+        str += '<button type="button" class="add jian" attr="'+con+'">-</button>';
+        $('#content').append(str);
+    })
+    function ctype(val){
+        if(val==0){
+            $('#taocan').hide();
+            return false;
+        }
+        $.ajax({
+            url: "<?php echo url('user/getmenu'); ?>",
+            dataType:'json',
+            data:{id:val},
+            type:'post',
+            success:function(e){
+                $('#taocan').hide();
+                $('.add').remove();
+                if(e.code == 400){
+                    alert(e.msg);
+                    return false;
+                }else{
+                    arr = JSON.parse(e.data);
+                    $('#taocan').show();
+                    $.each(arr,function(k,v){
+                        str  = '<input type="text" class="add form-control1 but'+v['pid']+'" name="con[]" value="'+v['con']+'" readonly>';
+                        str += '<input type="hidden" class="add but'+v['pid']+'" name="pid[]" value="'+v['pid']+'" readonly>';
+                        str += '<input type="number" class="add form-control2  but'+v['pid']+'" name="num[]" value="'+v['num']+'" readonly>';
+                        str += '<button type="button" class="add jian" attr="'+v['pid']+'">-</button>';
+                        $('#content').append(str);
+                    })
+                }
+            }
+        })
+
+    }
+    $('.jian').live('click',function (){
+
+        con =$(this).attr('attr')
+        $('.but'+con).remove();
+        $(this).remove();
+    });
 $(document).ready(function() {
     $("[name='sex'][value='<?php echo isset($vo['sex']) ? $vo['sex'] :  '1'; ?>']").attr("checked", true);
     $("[name='status'][value='<?php echo isset($vo['status']) ? $vo['status'] :  '1'; ?>']").attr("checked", true);
@@ -519,7 +626,7 @@ $(document).ready(function() {
     });
     //select2
     jQuery(".select2").select2({
-        width: '100%',
+        width: '60%',
         minimumResultsForSearch: -1
     });
 });
@@ -621,7 +728,7 @@ $(document).ready(function() {
 
                         <input type="hidden" name="avatar" value="<?php echo isset($user['avatar']) ? $user['avatar'] :  1; ?>" id="avatar2">
 
-                        <?php $__FOR_START_24971__=1;$__FOR_END_24971__=9;for($i=$__FOR_START_24971__;$i < $__FOR_END_24971__;$i+=1){ ?>
+                        <?php $__FOR_START_27733__=1;$__FOR_END_27733__=9;for($i=$__FOR_START_27733__;$i < $__FOR_END_27733__;$i+=1){ ?>
 
                         <img src="__CONSOLE__/images/photos/user<?php echo $i; ?>.jpg" class="img-circle" onClick="chooseImg2(<?php echo $i; ?>);" myflagImg="<?php echo $i; ?>">
 

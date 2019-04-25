@@ -1,0 +1,143 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<style>
+    .form-control1{
+        width: 50%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;}
+    .form-control2{
+        width: 20%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;}
+</style>
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+        </div>
+        <div class="panel-body panel-body-nopadding">
+
+        <form class="form-horizontal form-bordered" id="submitForm" action="" method="post" >
+
+
+            <div class="form-group" id="taocan">
+                <label class="col-sm-3 control-label">项目内容:</label>
+                <div class="col-sm-6" >
+
+                    <select name="goods_id" class="select2"  id="infoclass" onchange="ctype(this.value)">
+                        <option value="">选择项目内容</option>
+
+                        {volist name="project_list" id="pro"}
+                        <option value="{$pro.id}">{$pro.title}</option>
+                        {/volist}
+                    </select>
+
+                </div>
+            </div>
+
+
+        <div class="panel-footer">
+         <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+              <input type="hidden" name="content" id="content"/>
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+          </div>
+         </div>
+        </div><!-- panel-footer -->
+
+    </form>
+          
+</div><!-- panel-body -->
+{/block}
+{block name="fileinput"}{/block}
+{block name="ueditor"}{/block}
+{block name="script"}
+<script>
+
+    function ctype(val){
+        if(val==0){
+            return false;
+        }
+        text = $('#infoclass :checked').text();
+        $('#content').val(text);
+    }
+
+
+
+
+    $('.jian').live('click',function (){
+
+        con =$(this).attr('attr')
+        num = $('.but'+con).val();
+        if(num>=1){
+            $('.but'+con).val(num-1)
+        }else{
+            alert('不能小于0')
+        }
+
+
+    });
+$(document).ready(function() {
+    $("[name='sex'][value='{$vo.sex ?? '1'}']").attr("checked", true);
+    $("[name='status'][value='{$vo.status ?? '1'}']").attr("checked", true);
+
+    $('#submitForm').bootstrapValidator({
+        message: '这个值是无效的',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            {if condition="$Request.action eq 'create'"}
+            username: {
+                message: '用户名必填不能为空',
+                validators: {
+                    stringLength: {
+                        max: 10,
+                        message: '用户名最大长度10个字符'
+                    },
+                }
+            },
+            {/if}
+
+            mobile: {
+                validators: {
+                    regexp: {
+                        regexp: /^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$/,//手机号正则表达式
+                        message: '手机号格式不正确'
+                    },
+                    remote: {
+                        url: "{:url('shop/common/validonly',['table'=>'store_member'])}",
+                        message: '手机号已经存在'
+                    }
+                }
+            }
+        }
+    });
+    //select2
+    jQuery(".select2").select2({
+        width: '60%',
+        minimumResultsForSearch: -1
+    });
+});
+
+</script>
+{/block}

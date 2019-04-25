@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:84:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\user\index.html";i:1555046496;s:88:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\index.html";i:1540438923;s:90:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\sidebar.html";i:1540438922;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\topbar.html";i:1540438923;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\footer.html";i:1554692403;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:84:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\user\index.html";i:1556085218;s:88:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\index.html";i:1540438923;s:90:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\sidebar.html";i:1540438922;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\topbar.html";i:1540438923;s:89:"D:\phpstudy\WWW\20190213zihaimeirong\public/../application/shop\view\template\footer.html";i:1554692403;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh_cn">
 <head>
@@ -137,7 +137,22 @@
              <h4 class="panel-title"><?php echo $mate_operate; ?></h4>
         </div>
         <div class="panel-body">
-          
+            <div style="margin-left: -10px;">
+
+                <form action="" method="post" enctype="multipart/form-data">
+
+                    <div class="col-lg-3">
+
+                        <input type="text" name="name" value="<?php echo isset($name) ? $name :  ''; ?>" class="form-control" placeholder="名称">
+
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="搜索">
+
+                </form>
+
+            </div>
+            <br/>
           <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover" id="table1">
               <thead>
@@ -308,7 +323,7 @@
 
                         <input type="hidden" name="avatar" value="<?php echo isset($user['avatar']) ? $user['avatar'] :  1; ?>" id="avatar2">
 
-                        <?php $__FOR_START_20239__=1;$__FOR_END_20239__=9;for($i=$__FOR_START_20239__;$i < $__FOR_END_20239__;$i+=1){ ?>
+                        <?php $__FOR_START_24369__=1;$__FOR_END_24369__=9;for($i=$__FOR_START_24369__;$i < $__FOR_END_24369__;$i+=1){ ?>
 
                         <img src="__CONSOLE__/images/photos/user<?php echo $i; ?>.jpg" class="img-circle" onClick="chooseImg2(<?php echo $i; ?>);" myflagImg="<?php echo $i; ?>">
 

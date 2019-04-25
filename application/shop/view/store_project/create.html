@@ -1,0 +1,103 @@
+<!-- 模板继承 -->
+{extend name="template/create" /}
+{block name="content"}
+<div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-btns">
+            <a href="" class="panel-close">&times;</a>
+            <a href="" class="minimize">&minus;</a>
+          </div>
+          <h4 class="panel-title">{:$mate_operate}-{:$mate_title}</h4>
+        </div>
+        <div class="panel-body panel-body-nopadding">
+
+        <form class="form-horizontal form-bordered" id="submitForm" action="" method="post" >
+        <div class="form-group">
+              <label class="col-sm-3 control-label">项目名称:</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" name="title" placeholder="项目名称"  required value="{$vo.title ?? ''}">
+              </div>
+          </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label"><span>*</span>项目价格：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="项目价格" name="price" value="{$vo.price ?? ''}"  required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">总价值金额（类型为优惠项目时必填）：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" placeholder="总价值金额" name="old_price" value="{$vo.old_price ?? ''}"  >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">类型：</label>
+            <div class="col-sm-6 wh-inline">
+                <div class="rdio rdio-primary">
+                    <input type="radio" name="type" id="status-0" value="0" {if condition="$Request.action eq 'create'"} checked {/if} {notempty name="$vo"} {if condition="$vo.type neq '优惠项目'"} checked {/if} {/notempty}>
+                    <label for="status-0">普通</label>
+                </div>
+                <div class="rdio rdio-primary">
+                    <input type="radio" name="type" id="status-1" value="1" {notempty name="$vo"}  {if condition="$vo.type eq '优惠项目'"} checked {/if}{/notempty}>
+                    <label for="status-1">优惠</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel-footer">
+         <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <input type="hidden" name="id" value="{$vo.id ?? ''}">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
+          </div>
+         </div>
+        </div><!-- panel-footer -->
+
+    </form>
+          
+</div><!-- panel-body -->
+{/block}
+{block name="fileinput"}{/block}
+{block name="ueditor"}{/block}
+{block name="script"}
+<script>
+$(document).ready(function() {
+    $("[name='sex'][value='{$vo.sex ?? '1'}']").attr("checked", true);
+    $("[name='status'][value='{$vo.status ?? '1'}']").attr("checked", true);
+
+    $('#submitForm').bootstrapValidator({
+        message: '这个值是无效的',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            {if condition="$Request.action eq 'create'"}
+            title: {
+                message: '用户名必填不能为空',
+                validators: {
+                    stringLength: {
+                        max: 20,
+                        message: '项目名称最大长度20个字符'
+                    },
+                }
+            },
+            {/if}
+
+        }
+    });
+    //select2
+    jQuery(".select2").select2({
+        width: '100%',
+        minimumResultsForSearch: -1
+    });
+});
+
+</script>
+{/block}
